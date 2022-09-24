@@ -1,6 +1,5 @@
 from services.config import *
 
-
 ''' Class Game:  desc.  '''
 class Game(db.Model):
     __tablename__ = 'Game'
