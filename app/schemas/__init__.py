@@ -1,1 +1,1 @@
-__all__ = ['game', 'user', 'person', 'wallet', 'library', 'giftcard']
+__all__ = ['game', 'user', 'giftcard', 'purchase']

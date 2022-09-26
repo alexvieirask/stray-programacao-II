@@ -1,1 +1,1 @@
-__all__ = ['config', 'encrypt', 'database']
+__all__ = ['config', 'encrypt', 'database','games']
