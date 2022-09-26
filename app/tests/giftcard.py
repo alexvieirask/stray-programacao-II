@@ -2,6 +2,22 @@ from services.config import *
 from services.encrypt import giftcard_generator
 from schemas.giftcard import  GiftCard 
 
+''' Giftcard Schema:
+atrr:
+    id: Integer
+    value: Text
+    giftcard_code: Text
+    available: Boolean <Default value: true>
+
+
+functions:
+    create_giftcard
+    set_used_giftcard
+    return_giftcard_by_id
+                                                 
+'''
+                    
+                    
 
 '''this func'''
 def create_giftcard():
@@ -42,6 +58,7 @@ def return_giftcard_by_id(id):
         GIFTCARD = GiftCard.query.get(id)
         print(GIFTCARD.json())
         return 200
-        
+
+
     except Exception as error:
         return str(error)

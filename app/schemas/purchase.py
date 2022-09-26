@@ -12,4 +12,5 @@ class Purchase(db.Model):
     user = db.relationship('User' , backref = 'purchases')
     game = db.relationship('Game' , backref = 'purchases')
     date_realized = db.Column(db.DateTime, default = datetime.now())
+    
     db.UniqueConstraint(user_id,game_id)

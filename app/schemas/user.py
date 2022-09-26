@@ -12,7 +12,6 @@ class User(db.Model):
     username = db.Column(db.Text, nullable = False, unique= True)
     email = db.Column(db.Text, nullable=False, unique= True)
     password = db.Column(db.Text, nullable=False)
-    wallet = db.Column(db.Text, default = '0')
     age = db.Column(db.Text, nullable = False)
     description = db.Column(db.Text)
     profile_picture = db.Column(db.Text)
@@ -27,7 +26,6 @@ class User(db.Model):
             "username":self.username,
             "e-mail": self.email, 
             "password": self.password,
-            "wallet": self.wallet,
             "age": self.age,
             "description": self.description,
             "profile_picture" : self.profile_picture,

@@ -9,7 +9,6 @@ atrr:
     username: Text
     e-mail: Text
     password: Text
-    wallet: Text <Default value: 0>
     registration_date : DateTime <Default value: datetime.now()>
     is_admin : Boolean <Default value: false>
 
@@ -25,7 +24,7 @@ functions:
 def create_user ( name:str,username:str, email:str, password:str, wallet:str, age:str, description:str, profile_picture:str ):
     try:
         USER = User(name = name, username = username, email = email, 
-        password = encrypt_password(password),wallet = wallet, age = age, 
+        password = encrypt_password(password), age = age, 
         description = description, profile_picture = profile_picture)    
         
         db.session.add(USER)
@@ -67,5 +66,4 @@ def return_all_users():
         return 200
 
     except Exception as error:
-        return str(error)
-
+        return str(error) 

@@ -4,7 +4,8 @@ from schemas.game import Game
 Default gamelist
 
 Games: Celeste, Undertale, Rocket League, Deltarune, Doom Eternal, Cities Skyline,
-       The Stanley Parable 3, Roblox, Euro Truck Simulator 2, FIFA 23 
+       The Stanley Parable Ultra Deluxe, Roblox, Euro Truck Simulator 2, FIFA 23, The Sims 4,
+       Slime Rancher 2, Genshin Impact,   
 '''
 
 CELESTE = Game(

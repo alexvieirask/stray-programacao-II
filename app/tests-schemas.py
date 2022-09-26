@@ -40,3 +40,6 @@ print(user.game.title)
 default_games_add()
 
 '''
+#default_games_add()
+
+#set_used_giftcard(1)
