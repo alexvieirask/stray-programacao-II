@@ -1,6 +1,28 @@
 from services.config import *
 
-''' Class Game:  desc.  '''
+''' Game Schema:
+atrr:
+    id: Integer
+    title: Text
+    description: Text
+    categorie: Text
+    price: Text
+    required_age: Integer
+    pc_requirements: Text
+    launch_date: Text
+    screenshot: Text
+    developer: Text
+    available: Boolean <Default value: true>
+
+functions:
+    create_game
+    set_unavailable_game
+    return_all_games
+    return_game_by_id
+    default_games_add
+
+'''
+
 class Game(db.Model):
     __tablename__ = 'Game'
     id = db.Column(db.Integer, primary_key = True)
@@ -16,7 +38,7 @@ class Game(db.Model):
 
 
     ''' this function return datas in JSON format '''
-    def json(self):
+    def json(self) -> dict:
         return { 
             "id": self.id,
             "title": self.title,
@@ -28,3 +50,61 @@ class Game(db.Model):
             "screenshot" : self.screenshot,
             "developer" : self.developer
         }
+    
+    ''' this func '''
+    def create_game(title:str, description:str, categorie:str,price:str,required_age:int, 
+                    launch_date:str, screenshot:str,developer:str, available:bool) -> tuple:
+        try:
+            GAME = Game ( title = title, description = description, 
+                        categorie = categorie, price = price, 
+                        required_age = required_age, launch_date = launch_date,
+                        screenshot = screenshot, developer = developer, 
+                        available = available
+                        )
+            db.session.add(GAME)
+            db.session.commit()
+            return 200, GAME.json()
+        
+        except Exception as error:
+            return str(error)
+    
+    ''' this func '''
+    def set_unavailable_game(id) -> tuple:
+        try:
+            GAME = Game.query.get(id)
+            GAME.available = False
+            db.session.commit()
+            return 200, GAME.json()
+
+        except Exception as error:
+            return str(error)
+            
+    ''' this func '''
+    def default_games_add(games:list) -> int:
+        try:
+            for game in games:
+                db.session.add(game)
+            db.session.commit()
+            return 200
+        
+        except Exception as error:
+            return str(error)
+
+    ''' this func '''
+    def return_game_by_id(id:int) -> tuple:
+        try:
+            GAME = Game.query.get(id)
+            return 200, GAME.json()
+        
+        except Exception as error:
+            return str(error)
+
+    ''' this func '''
+    def return_all_games() -> tuple:
+        try:
+            GAMES = Game.query.all()
+            json_games =[ game.json() for game in GAMES]
+            return 200, json_games
+
+        except Exception as error:
+            return str(error) 

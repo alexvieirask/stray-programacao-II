@@ -1,45 +1,37 @@
-from tests.giftcard import *
-from tests.user import *
-from tests.game import *
-from tests.purchase import *
 
-''' 
-User test
-
-create:
-print(create_user('Alex Vieira Dias','LiLCrazzyFN', 
-'alexvieiradias2019@gmail.com', 'my-password', '60', 
-'24/01/2005','Lindo', 'Alex.png'))
-
-or 
-
-print(create_user('e','e', 
-'e@gmail.com', 'e-password', '60', 
-'24/01/2005','e', 'e.png'))
+from services.default_datas import GAMES, USERS
+from schemas.user import User
+from schemas.game import Game
+from schemas.giftcard import GiftCard
+from schemas.purchase import Purchase
 
 
-'''
+''' Here you can take the class tests '''
+
+''' User Schema  '''
+User.create_user
+User.delete_user
+User.default_users_add
+User.return_user_by_id  
+User.return_all_users
+User.return_all_purchases_user
+
+''' Game Schema '''
+Game.create_game
+Game.set_unavailable_game
+Game.default_games_add
+Game.return_all_games
+Game.return_game_by_id
+
+''' Purchase Schema '''
+Purchase.create_purchase
+Purchase.return_all_purchases
+
+''' Giftcard Schema '''
+GiftCard.create_giftcard
+GiftCard.set_used_giftcard
+GiftCard.return_all_giftcards
+GiftCard.return_giftcard_by_id
 
 
-''' 
-Purchase test - make the user have a game
-
-create: 
-print(create_purchase(1,1))
-
-
-verify:
-user: User = User.query.get(1).purchases[0]
-print(user.game.title) 
-
-'''
-
-
-''' DEFAULT DATABASE ITEMS
-
-default_games_add()
-
-'''
-#default_games_add()
-
-#set_used_giftcard(1)
+'''  '''

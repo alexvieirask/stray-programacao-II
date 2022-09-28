@@ -1,11 +1,12 @@
 from schemas.game import Game
+from schemas.user import User
 
 '''
 Default gamelist
 
 Games: Celeste, Undertale, Rocket League, Deltarune, Doom Eternal, Cities Skyline,
        The Stanley Parable Ultra Deluxe, Roblox, Euro Truck Simulator 2, FIFA 23, The Sims 4,
-       Slime Rancher 2, Genshin Impact,   
+       Slime Rancher 2 e Genshin Impact.
 '''
 
 CELESTE = Game(
@@ -45,15 +46,34 @@ ROCKET_LEAGUE = Game(
     developer='''TESTE'''
 )
 
-LUCAS = Game(
-    title='''LUCAS O ATIRADOR2''', 
-    description='''LUCAS MATA TODOS OS SOLDADOS AMERICANOS NA INVASÃO A CAMARA DA PRESIDENCIA EM MARTE''', 
-    categorie='''TERROR''', 
-    price='''26.30''', 
-    required_age=80,
-    launch_date='''18-02-2005''',
-    screenshot='''SCREENSHOT.PNG''',
-    developer='''DMOLES'''
+GAMES = [ CELESTE, UNDERTALE, ROCKET_LEAGUE ]
+
+
+'''
+Default userlist
+
+users: Alex Vieira Dias, Emanoela Rodrigues Erthal, Igor Gramkow, Gabriel Molon Zanella, Yara Rahn, Alana Cristina Andreazza,
+Amadeus Vitor Poletti e Beatriz Miranda.
+'''
+
+ALEX = User(
+    name = '''Alex Vieira Dias''',
+    username = '''alex.vieira''',
+    email = '''alexvieiradias2019@gmail.com''',
+    password = '''my-password''',
+    age = '''24/01/2005''',
+    description = '''This profile...''',
+    profile_picture = '''alex.png'''
+    )
+
+EMANOELA = User(
+    name = '''Emanoela Rodrigues Erthal''',
+    username = '''emanoela.erthal''',
+    email = '''emanoelaerthal@gmail.com''',
+    password = '''my-password2''',
+    age = '''12/12/2012''',
+    description = '''This profile...''',
+    profile_picture = '''emanoela.png'''
 )
 
-GAMES = [CELESTE, UNDERTALE, ROCKET_LEAGUE, LUCAS]
+USERS = [ ALEX, EMANOELA ]

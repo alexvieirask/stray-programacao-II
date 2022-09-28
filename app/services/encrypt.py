@@ -1,17 +1,16 @@
 from hashlib import blake2b
 import random
-from schemas.giftcard import *
 
 
 ''' this func '''
-def encrypt_password(password):
+def encrypt_password(password) -> str:
     hash = blake2b()
     password_bytes = bytes(password, encoding= 'utf-8')
     hash.update(password_bytes)
     return hash.hexdigest() 
 
 ''' this func '''
-def authenticate_password(password_hash, password):
+def authenticate_password(password_hash, password) -> bool:
     get_encrypt_password = encrypt_password(password)
     if get_encrypt_password == password_hash:
         return True
@@ -19,12 +18,15 @@ def authenticate_password(password_hash, password):
         return False
 
 ''' this func '''
-def giftcard_generator():
-    LETTERS_AND_NUMBERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    giftcard_code = ''
-    for index in range(3):    
-        TOKEN = ''.join(random.sample(LETTERS_AND_NUMBERS,4))  
-        giftcard_code += TOKEN 
-        if index < 2: 
-            giftcard_code += '-' 
-    return giftcard_code
+def giftcard_generator() -> str:
+    LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    NUMBERS = '0123456789'
+    LETTERS_AND_NUMBERS = LETTERS + NUMBERS
+    token_generate = ''
+    
+    for item in range(3):
+        TOKEN = ''.join(random.sample(LETTERS_AND_NUMBERS,4))
+        token_generate += TOKEN 
+        if item < 2:
+            token_generate += '-' 
+    return(token_generate)
