@@ -32,6 +32,7 @@ def user_return_route():
         response = jsonify({'result':'ok', 'details': json_users})
     except Exception as error:
         response = jsonify({'result':'error', 'details':str(error)})
+    
     return response
 
 

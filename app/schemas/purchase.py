@@ -2,20 +2,12 @@ from services.config import *
 
 
 '''Purchase Schema:
-atrr:
+
+atributes:
     id: Integer
-    user_id: Integer <ForeingKey(User.id)>
-    game_id: Integer <ForeingKey(Game.id)>
-    date_realized: DateTime <Default value: datetime.now()>
-
-
-functions:
-    create_purchase
-
-    verify : user: User = User.query.get(1).purchases[0] 
-    print(user.game.title) 
-
-
+    user_buyer_id: Integer <ForeingKey(User.id)>
+    game_buyed_id: Integer <ForeingKey(Game.id)>
+    realized_date: DateTime <Default value: datetime.now()>
 '''
 
 class Purchase(db.Model):
@@ -23,10 +15,12 @@ class Purchase(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     user_buyer_id = db.Column(db.Integer,db.ForeignKey('User.id'))
     game_buyed_id = db.Column(db.Integer,db.ForeignKey('Game.id'))
-    date_realized = db.Column(db.DateTime, default = datetime.now())
+    realized_date = db.Column(db.DateTime, default = datetime.now())
     
-    user = db.relationship('User' , backref = 'purchases')
-    game = db.relationship('Game' , backref = 'purchases')
+    ''' Com isso é possível acessar os atributos do jogo que o usuário comprou '''
+    game = db.relationship('Game', backref = 'purchases')
+    
+    ''' Usuário não pode comprar o mesmo jogo duas vezes '''
     db.UniqueConstraint(user_buyer_id,game_buyed_id)
 
     ''' this function return datas in JSON format '''
@@ -35,13 +29,16 @@ class Purchase(db.Model):
             'purchase_id': self.id,
             'user_buyer_id': self.user_buyer_id,
             'game_buyed_id': self.game_buyed_id,
-            'date_realized': self.date_realized
+            'realized_date': self.realized_date
         }
 
     ''' this func '''
     def create_purchase(user_buyer_id: int, game_buyed_id: int) -> tuple:
         try:
-            PURCHASE = Purchase(user_buyer_id = user_buyer_id, game_buyed_id = game_buyed_id ) 
+            PURCHASE = Purchase(
+                user_buyer_id = user_buyer_id, 
+                game_buyed_id = game_buyed_id 
+            ) 
             db.session.add(PURCHASE)
             db.session.commit()
             return 200, PURCHASE.json()

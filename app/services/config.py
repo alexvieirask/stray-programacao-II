@@ -1,4 +1,4 @@
-''' Flask necessary imports '''
+''' Extra imports '''
 from datetime import datetime, timedelta
 import os
 
@@ -7,7 +7,7 @@ extension = ".db"
 filename = "database"
 database_file = filename + extension
 
-''' Flask necessary imports '''
+''' Flask imports '''
 from flask import Flask, render_template,jsonify, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
@@ -19,7 +19,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 CORS(app)
 
 
-''' typing config'''
+''' typing config '''
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     import flask_sqlalchemy
@@ -38,7 +38,7 @@ db = SQLAlchemy(app)
 db.session.execute('pragma foreign_keys=on')
 
 
-''' JWT necessary imports '''
+''' JWT imports '''
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required

@@ -1,23 +1,21 @@
 from services.config import *
 from services.encrypt import *
+from schemas.medal import Medal
+from schemas.purchase import Purchase
 
+''' User Schema:    
 
-''' User Schema:
-
-atrr:
+atributes:
     id: Integer
     username: Text
     e-mail: Text
     password: Text
+    wallet: Text
+    age: Text
+    description: Text
+    profile_picture: Text
     registration_date : DateTime <Default value: datetime.now()>
     is_admin : Boolean <Default value: false>
-
-functions: 
-    create_user
-    delete_user
-    return_all_users
-    return_user_by_id
-    default_users_add
 '''
 
 class User(db.Model):
@@ -27,11 +25,16 @@ class User(db.Model):
     username = db.Column(db.Text, nullable = False, unique= True)
     email = db.Column(db.Text, nullable=False, unique= True)
     password = db.Column(db.Text, nullable=False)
+    wallet = db.Column(db.Text, default = '0')
     age = db.Column(db.Text, nullable = False)
     description = db.Column(db.Text)
     profile_picture = db.Column(db.Text)
     registration_date = db.Column(db.DateTime, default= datetime.now())
     is_admin = db.Column(db.Boolean, default=False)
+    
+    medals = db.relationship(Medal, backref='User')
+    purchases = db.relationship(Purchase, backref = 'User') 
+    
 
     ''' this function return datas in JSON format '''
     def json(self) -> dict:
@@ -41,6 +44,7 @@ class User(db.Model):
             "username":self.username,
             "e-mail": self.email, 
             "password": self.password,
+            "wallet": self.wallet,
             "age": self.age,
             "description": self.description,
             "profile_picture" : self.profile_picture,
@@ -49,11 +53,19 @@ class User(db.Model):
         }
     
     ''' this func '''
-    def create_user ( name:str,username:str, email:str, password:str, age:str, description:str, profile_picture:str) -> tuple:
+    def create_user ( name:str,username:str, email:str, password:str, wallet:str,  
+                    age:str, description:str, profile_picture:str) -> tuple:
         try:
-            USER = User(name = name, username = username, email = email, 
-            password = encrypt_password(password), age = age, 
-            description = description, profile_picture = profile_picture)    
+            USER = User(
+                name = name, 
+                username = username, 
+                email = email, 
+                password = encrypt_password(password), 
+                wallet = wallet, 
+                age = age, 
+                description = description, 
+                profile_picture = profile_picture
+            )    
             
             db.session.add(USER)
             db.session.commit()

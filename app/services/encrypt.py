@@ -19,9 +19,7 @@ def authenticate_password(password_hash, password) -> bool:
 
 ''' this func '''
 def giftcard_generator() -> str:
-    LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    NUMBERS = '0123456789'
-    LETTERS_AND_NUMBERS = LETTERS + NUMBERS
+    LETTERS_AND_NUMBERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
     token_generate = ''
     
     for item in range(3):

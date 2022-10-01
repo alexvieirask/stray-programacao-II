@@ -4,7 +4,8 @@ from schemas.user import User
 from schemas.game import Game
 from schemas.giftcard import GiftCard
 from schemas.purchase import Purchase
-
+from schemas.screenshot import Screenshot
+from schemas.medal import Medal
 
 ''' Here you can take the class tests '''
 
@@ -33,5 +34,19 @@ GiftCard.set_used_giftcard
 GiftCard.return_all_giftcards
 GiftCard.return_giftcard_by_id
 
+''' Screenshot Schema '''
+Screenshot.screenshot_add
+Screenshot.screenshot_delete
 
-'''  '''
+
+''' Make Tests '''
+
+from services.database__init__ import *
+def default_values():
+    try:
+        User.default_users_add(USERS)
+        Game.default_games_add(GAMES)
+        return 200
+    
+    except Exception as error:
+        return str(error)

@@ -9,7 +9,7 @@ Games: Celeste, Undertale, Rocket League, Deltarune, Doom Eternal, Cities Skylin
        Slime Rancher 2 e Genshin Impact.
 '''
 
-CELESTE = Game(
+game01 = Game(
     title='''Celeste''',
     description=''' Ajude Madeline a enfrentar seus demônios internos em sua jornada até o topo da Montanha Celeste, 
     nesse jogo de plataforma super afiado dos criadores de TowerFall. Desbrave centenas de desafios meticulosos, 
@@ -18,11 +18,10 @@ CELESTE = Game(
     price='''36,99''',
     required_age=10,
     launch_date='''25/jan./2018''',
-    screenshot='''celeste.png''',
     developer='''TESTE1'''
 ) 
 
-UNDERTALE = Game(
+game02 = Game(
     title='''UNDERTALE''',
     description='''Bem-vindo ao UNDERTALE. Neste RPG, você controla um humano que cai no subsolo no mundo dos monstros. 
     Agora você deve encontrar a saída... ou ficará preso para sempre.''',
@@ -30,11 +29,10 @@ UNDERTALE = Game(
     price='''19,99''',
     required_age=10,
     launch_date='''15/set./2015''',
-    screenshot='''undertale.png''',
     developer='''TESTE1'''
 )
 
-ROCKET_LEAGUE = Game(
+game03 = Game(
     title='''Rocket League''',
     description=''' Futebol e pilotagem se encontram mais uma vez na aguardada sequência do jogo clássico de arena baseado 
     em física tão amado pelos fãs, o Supersonic Acrobatic Rocket-Powered Battle-Cars! ''',
@@ -42,21 +40,20 @@ ROCKET_LEAGUE = Game(
     price='''0''',
     required_age=0,
     launch_date='''7/jul./2015''',
-    screenshot='''rocket_league.png''',
     developer='''TESTE'''
 )
 
-GAMES = [ CELESTE, UNDERTALE, ROCKET_LEAGUE ]
+GAMES = [ game01, game02, game03 ]
 
 
 '''
 Default userlist
 
 users: Alex Vieira Dias, Emanoela Rodrigues Erthal, Igor Gramkow, Gabriel Molon Zanella, Yara Rahn, Alana Cristina Andreazza,
-Amadeus Vitor Poletti e Beatriz Miranda.
+Amadeus Vitor Poletti, Lucas Gabriel Sievert e Beatriz Miranda.
 '''
 
-ALEX = User(
+user01 = User(
     name = '''Alex Vieira Dias''',
     username = '''alex.vieira''',
     email = '''alexvieiradias2019@gmail.com''',
@@ -64,9 +61,9 @@ ALEX = User(
     age = '''24/01/2005''',
     description = '''This profile...''',
     profile_picture = '''alex.png'''
-    )
+)
 
-EMANOELA = User(
+user02 = User(
     name = '''Emanoela Rodrigues Erthal''',
     username = '''emanoela.erthal''',
     email = '''emanoelaerthal@gmail.com''',
@@ -76,4 +73,24 @@ EMANOELA = User(
     profile_picture = '''emanoela.png'''
 )
 
-USERS = [ ALEX, EMANOELA ]
+user03 = User(
+    name = '''Igor Gramkow''',
+    username = '''igor.gramkow''',
+    email = '''igorgramkow@gmail.com''',
+    password = '''my-password3''',
+    age = '''12/12/2012''',
+    description = '''This profile...''',
+    profile_picture = '''igor.png'''
+)
+
+user04 = User(
+    name = '''Gabriel Molon Zanella''',
+    username = '''gabriel.zanella''',
+    email = '''grabrielzanella@gmail.com''',
+    password = '''my-password4''',
+    age = '''12/12/2012''',
+    description = '''This profile...''',
+    profile_picture = '''zanella.png'''
+)
+
+USERS = [ user01, user02, user03, user04 ]

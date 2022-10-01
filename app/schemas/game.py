@@ -1,26 +1,18 @@
 from services.config import *
+from schemas.screenshot import Screenshot 
 
 ''' Game Schema:
-atrr:
+
+atributes:
     id: Integer
     title: Text
     description: Text
     categorie: Text
     price: Text
     required_age: Integer
-    pc_requirements: Text
     launch_date: Text
-    screenshot: Text
     developer: Text
     available: Boolean <Default value: true>
-
-functions:
-    create_game
-    set_unavailable_game
-    return_all_games
-    return_game_by_id
-    default_games_add
-
 '''
 
 class Game(db.Model):
@@ -32,9 +24,9 @@ class Game(db.Model):
     price = db.Column(db.Text, nullable = False)
     required_age = db.Column(db.Integer, nullable = False)
     launch_date = db.Column(db.Text, nullable = False)
-    screenshot = db.Column(db.Text, nullable = False)
     developer = db.Column(db.Text, nullable = False)
     available = db.Column(db.Boolean, default = True)
+    screenshots = db.relationship(Screenshot, backref = 'Game')
 
 
     ''' this function return datas in JSON format '''
@@ -47,20 +39,23 @@ class Game(db.Model):
             "price":self.price,
             "required_age": self.required_age,
             "launch_date" : self.launch_date,
-            "screenshot" : self.screenshot,
             "developer" : self.developer
         }
     
     ''' this func '''
     def create_game(title:str, description:str, categorie:str,price:str,required_age:int, 
-                    launch_date:str, screenshot:str,developer:str, available:bool) -> tuple:
+                    launch_date:str, developer:str, available:bool) -> tuple:
         try:
-            GAME = Game ( title = title, description = description, 
-                        categorie = categorie, price = price, 
-                        required_age = required_age, launch_date = launch_date,
-                        screenshot = screenshot, developer = developer, 
-                        available = available
-                        )
+            GAME = Game (
+                title = title, 
+                description = description, 
+                categorie = categorie, 
+                price = price, 
+                required_age = required_age,
+                launch_date = launch_date,
+                developer = developer, 
+                available = available
+            )
             db.session.add(GAME)
             db.session.commit()
             return 200, GAME.json()

@@ -2,26 +2,19 @@ from services.config import *
 from services.encrypt import giftcard_generator
 
 ''' Giftcard Schema:
-atrr:
+
+atributes:
     id: Integer
     value: Text
     giftcard_code: Text
     available: Boolean <Default value: true>
-
-
-functions:
-    create_giftcard
-    set_used_giftcard
-    return_all_giftcards
-    return_giftcard_by_id                                  
-
 '''
 
 class GiftCard(db.Model):
     __tablename__ = 'GiftCard'
     id = db.Column(db.Integer, primary_key = True)
-    value = db.Column(db.Integer)
-    giftcard_code = db.Column(db.Text, unique = True)
+    value = db.Column(db.Integer, nullable = False)
+    giftcard_code = db.Column(db.Text, nullable = False, unique = True)
     available = db.Column(db.Boolean, default= True)
 
 
