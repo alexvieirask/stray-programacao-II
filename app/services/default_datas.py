@@ -58,7 +58,6 @@ user01 = User(
     username = '''alex.vieira''',
     email = '''alexvieiradias2019@gmail.com''',
     password = '''my-password''',
-    age = '''24/01/2005''',
     description = '''This profile...''',
     profile_picture = '''alex.png'''
 )
@@ -68,7 +67,6 @@ user02 = User(
     username = '''emanoela.erthal''',
     email = '''emanoelaerthal@gmail.com''',
     password = '''my-password2''',
-    age = '''12/12/2012''',
     description = '''This profile...''',
     profile_picture = '''emanoela.png'''
 )
@@ -78,7 +76,6 @@ user03 = User(
     username = '''igor.gramkow''',
     email = '''igorgramkow@gmail.com''',
     password = '''my-password3''',
-    age = '''12/12/2012''',
     description = '''This profile...''',
     profile_picture = '''igor.png'''
 )
@@ -88,7 +85,6 @@ user04 = User(
     username = '''gabriel.zanella''',
     email = '''grabrielzanella@gmail.com''',
     password = '''my-password4''',
-    age = '''12/12/2012''',
     description = '''This profile...''',
     profile_picture = '''zanella.png'''
 )

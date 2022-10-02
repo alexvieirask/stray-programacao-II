@@ -11,7 +11,6 @@ atributes:
     e-mail: Text
     password: Text
     wallet: Text
-    age: Text
     description: Text
     profile_picture: Text
     registration_date : DateTime <Default value: datetime.now()>
@@ -26,7 +25,6 @@ class User(db.Model):
     email = db.Column(db.Text, nullable=False, unique= True)
     password = db.Column(db.Text, nullable=False)
     wallet = db.Column(db.Text, default = '0')
-    age = db.Column(db.Text, nullable = False)
     description = db.Column(db.Text)
     profile_picture = db.Column(db.Text)
     registration_date = db.Column(db.DateTime, default= datetime.now())
@@ -45,7 +43,6 @@ class User(db.Model):
             "e-mail": self.email, 
             "password": self.password,
             "wallet": self.wallet,
-            "age": self.age,
             "description": self.description,
             "profile_picture" : self.profile_picture,
             "registration_date": self.registration_date,
@@ -54,15 +51,16 @@ class User(db.Model):
     
     ''' this func '''
     def create_user ( name:str,username:str, email:str, password:str, wallet:str,  
-                    age:str, description:str, profile_picture:str) -> tuple:
+                    description:str, profile_picture:str) -> tuple:
         try:
+            hash_password = bcrypt.generate_password_hash(password)
+
             USER = User(
                 name = name, 
                 username = username, 
                 email = email, 
-                password = encrypt_password(password), 
+                password = hash_password, 
                 wallet = wallet, 
-                age = age, 
                 description = description, 
                 profile_picture = profile_picture
             )    

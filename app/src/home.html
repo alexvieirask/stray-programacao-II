@@ -3,19 +3,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css' )}}">
+    <link rel="stylesheet" href="static/css/styles.css">
     <title>main</title>
 </head> 
 <body>
-    <h1>Main Route / Admin Route</h1>
-    <div class="container">
-        <div class="box">
-            <a href="/user/return_all">RETURN ALL USERS</a>
-            <a href="/user/register">REGISTER</a>
-            <a href="/user/login">LOGIN</a>
-            <a href="/giftcard/return_all">RETURN ALL GIFTCARD</a>
+    <Header>
+        <h1>Stray</h1>
+        <div>
+            <ul>
+                <a href="/user/register">REGISTER</a>
+                <a href="/user/login">LOGIN</a>
+            </ul>
         </div>
-    </div>
-    <script src="static/teste.js"></script>
+    </Header>
+    <script src="static/js/teste.js"></script>
 </body>
 </html>

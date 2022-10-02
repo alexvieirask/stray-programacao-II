@@ -1,21 +1,5 @@
-from hashlib import blake2b
+
 import random
-
-
-''' this func '''
-def encrypt_password(password) -> str:
-    hash = blake2b()
-    password_bytes = bytes(password, encoding= 'utf-8')
-    hash.update(password_bytes)
-    return hash.hexdigest() 
-
-''' this func '''
-def authenticate_password(password_hash, password) -> bool:
-    get_encrypt_password = encrypt_password(password)
-    if get_encrypt_password == password_hash:
-        return True
-    else:
-        return False
 
 ''' this func '''
 def giftcard_generator() -> str:

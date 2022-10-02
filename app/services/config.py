@@ -2,22 +2,11 @@
 from datetime import datetime, timedelta
 import os
 
+
 ''' Database filename config  '''
 extension = ".db"
 filename = "database"
 database_file = filename + extension
-
-''' Flask imports '''
-from flask import Flask, render_template,jsonify, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS
-
-''' SQLALCHEMY configs '''
-app = Flask(__name__, template_folder='../src', static_folder='../src/static')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + database_file
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
-CORS(app)
-
 
 ''' typing config '''
 from typing import TYPE_CHECKING
@@ -33,7 +22,22 @@ if TYPE_CHECKING:
         session = sqlalchemy.orm.scoped_session
     db: SQLAlchemy
 
+
+
+''' Flask imports '''
+from flask import Flask, render_template,jsonify, request, redirect, url_for,flash
+from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
+from flask_bcrypt import Bcrypt
+
+''' SQLALCHEMY configs '''
+app = Flask(__name__, template_folder='../src', static_folder='../src/static')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + database_file
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
+
+CORS(app)
 db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
 
 db.session.execute('pragma foreign_keys=on')
 

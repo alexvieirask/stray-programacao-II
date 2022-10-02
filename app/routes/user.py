@@ -1,24 +1,29 @@
 from services.config import *
 from schemas.user import User
-from services.encrypt import *
 
 @app.route("/user/register", methods = ['GET', 'POST'])
 def user_register_route():
     if request.method == 'POST':
+        
         name = request.form['name']
-        age = request.form['age']
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
 
-        if name and age and username and email and password:
-            user = User(name = name, age = age,
-            username = username ,email = email,
-            password = encrypt_password(password))
+        if name and username and email and password:
             
-            db.session.add(user)
+            hash_password = bcrypt.generate_password_hash(password)
+
+            new_user = User(name = name, 
+                            username = username ,
+                            email = email,
+                            password = hash_password)
+            
+            
+            db.session.add(new_user)
             db.session.commit()            
-            
+            flash('Usuário Registrado')
+        
         return redirect(url_for('initial_route'))
     return render_template('register.html')
 
