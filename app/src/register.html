@@ -3,17 +3,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
     <title>register</title>
 </head>
 <body>
-    <h1>Register Route</h1>
-    <form action="/user/register" method="post">
-        <input type="name" name="name" placeholder="name">
-        <input type="username" name="username" placeholder="username">
-        <input type="email" name="email" placeholder="email">
-        <input type="password" name="password" placeholder="*******">
-        <input type="submit" value="Register">
-    </form>
-    <script src="static/js/teste.js"></script>
+    <h1>Register User</h1>
+    
+    {% from "_formhelpers.html" import render_field %}
+    <div class="form-container">
+        <form action="/user/register" method="post" enctype="multipart/form-data">
+            <div >
+                {{ render_field( form.name) }}
+                {{ render_field( form.username ) }}
+                {{ render_field( form.email) }}
+                {{ render_field( form.password ) }}
+                {{ render_field( form.confirm ) }}
+            </div>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    <script src="/static/js/teste.js"></script>
+
 </body>
 </html>

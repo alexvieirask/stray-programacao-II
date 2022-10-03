@@ -1,8 +1,12 @@
 from services.config import *
 from schemas.user import User
+from forms.user import UserForm
 
 @app.route("/user/register", methods = ['GET', 'POST'])
 def user_register_route():
+    form = UserForm(request.form)
+    
+    
     if request.method == 'POST':
         
         name = request.form['name']
@@ -14,18 +18,21 @@ def user_register_route():
             
             hash_password = bcrypt.generate_password_hash(password)
 
-            new_user = User(name = name, 
-                            username = username ,
-                            email = email,
-                            password = hash_password)
+            new_user = User(
+                name = name, 
+                username = username ,
+                email = email,
+                password = hash_password)
             
             
             db.session.add(new_user)
             db.session.commit()            
-            flash('Usuário Registrado')
+            
+            
         
         return redirect(url_for('initial_route'))
-    return render_template('register.html')
+
+    return render_template('register.html', form= form , title = 'User Register')
 
 
 
