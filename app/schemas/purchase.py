@@ -23,7 +23,6 @@ class Purchase(db.Model):
     ''' Usuário não pode comprar o mesmo jogo duas vezes '''
     db.UniqueConstraint(user_buyer_id,game_buyed_id)
 
-    ''' this function return datas in JSON format '''
     def json(self) -> dict:
         return {
             'purchase_id': self.id,
@@ -32,25 +31,23 @@ class Purchase(db.Model):
             'realized_date': self.realized_date
         }
 
-    ''' this func '''
     def create_purchase(user_buyer_id: int, game_buyed_id: int) -> tuple:
         try:
-            PURCHASE = Purchase(
+            purchase = Purchase(
                 user_buyer_id = user_buyer_id, 
                 game_buyed_id = game_buyed_id 
             ) 
-            db.session.add(PURCHASE)
+            db.session.add(purchase)
             db.session.commit()
-            return 200, PURCHASE.json()
+            return 200, purchase.json()
 
         except Exception as error:
             return str(error)
     
-    ''' this func '''
     def return_all_purchases() -> tuple:
         try:
-            PURCHASES = Purchase.query.all()
-            json_purchases =[ purchase.json() for purchase in PURCHASES]
+            purchases = Purchase.query.all()
+            json_purchases =[ purchase.json() for purchase in purchases]
             return 200, json_purchases
         
         except Exception as error:

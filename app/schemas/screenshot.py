@@ -16,8 +16,6 @@ class Screenshot(db.Model):
     alt = db.Column(db.Text, nullable = False)
     game_id = db.Column(db.Integer,db.ForeignKey('Game.id'))
     
-    
-    ''' this function return datas in JSON format '''
     def json(self):
         return{
             "id": self.id,
@@ -26,33 +24,30 @@ class Screenshot(db.Model):
             "game_id": self.game_id
         }
 
-    ''' this func '''
     def screenshot_add(url:str, alt:str, game_id: int) -> tuple:
         try:
-            SCREENSHOT = Screenshot(url = url, alt = alt, game_id = game_id) 
-    
-            db.session.add(SCREENSHOT)
+            screenshot = Screenshot(url = url, alt = alt, game_id = game_id) 
+            db.session.add(screenshot)
             db.session.commit()
-            return 200, SCREENSHOT.json()
+            return 200, screenshot.json()
 
         except Exception as error:
             return str(error)        
     
-    ''' this func '''
     def screenshot_delete(id: int) -> tuple:
         try:
-            SCREENSHOT = Screenshot.query.get(id)
-            db.session.delete(SCREENSHOT)
+            screenshot = Screenshot.query.get(id)
+            db.session.delete(screenshot)
             db.session.commit()
-            return 200,SCREENSHOT
+            return 200,screenshot
         
         except Exception as error:
             return str(error)
     
     def return_all_screenshots() -> tuple:
         try:
-            SCREENSHOTS = Screenshot.query.all()
-            json_screenshots = [ screenshot.json() for screenshot in SCREENSHOTS ]
+            screenshots = Screenshot.query.all()
+            json_screenshots = [ screenshot.json() for screenshot in screenshots ]
             return 200, json_screenshots
 
         except Exception as error:

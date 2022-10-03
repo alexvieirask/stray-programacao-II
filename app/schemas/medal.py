@@ -33,9 +33,10 @@ class Medal(db.Model):
 
     def register_medal(title: str, description: str, icon: str , user_id: int):
         try:
-            MEDAL = Medal(title  = title, description = description, icon = icon, user_id = user_id)
-            db.session.add(MEDAL)
+            medal = Medal(title  = title, description = description, icon = icon, user_id = user_id)
+            db.session.add(medal)
             db.session.commit()
+            return 200, medal.json()
             
         except Exception as error:
             return str(error)

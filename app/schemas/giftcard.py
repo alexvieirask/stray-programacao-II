@@ -17,8 +17,6 @@ class GiftCard(db.Model):
     giftcard_code = db.Column(db.Text, nullable = False, unique = True)
     available = db.Column(db.Boolean, default= True)
 
-
-    ''' this function return datas in JSON format '''
     def json(self) -> dict:
         return {
             "id:": self.id,
@@ -27,50 +25,45 @@ class GiftCard(db.Model):
             'available': self.available
         }
     
-    '''this func'''
     def create_giftcard() -> tuple:
         try:
-            CODES_QUERY = db.session.query(GiftCard).all()
-            NEW_CODE = giftcard_generator()
-            GIFTCARD_CODES = []   
+            codes_query = db.session.query(GiftCard).all()
+            new_code = giftcard_generator()
+            giftcard_codes = []   
             
-            for code in CODES_QUERY:
-                GIFTCARD_CODES.append(code.giftcard_code)
+            for code in codes_query:
+                giftcard_codes.append(code.giftcard_code)
 
-            if NEW_CODE in GIFTCARD_CODES:
-                NEW_CODE = giftcard_generator()
-
+            if new_code in giftcard_codes:
+                new_code = giftcard_generator()
             else:
-                TOKEN_GIFTCARD = GiftCard( value = 50, giftcard_code = NEW_CODE )
-                db.session.add(TOKEN_GIFTCARD)
+                giftcard = GiftCard( value = 50, giftcard_code = new_code )
+                db.session.add(giftcard)
                 db.session.commit()     
-                return 200, TOKEN_GIFTCARD.json()
+                return 200, giftcard.json()
 
         except Exception as error:
             return str(error)
 
-    '''this func'''
     def set_used_giftcard(id) -> tuple:
         try:
-            GIFTCARD = GiftCard.query.get(id)
-            GIFTCARD.available = False
+            giftcard = GiftCard.query.get(id)
+            giftcard.available = False
             db.session.commit()
-            return 200, GIFTCARD
+            return 200, giftcard.json()
 
         except Exception as error:
             return str(error)
 
-    '''this func'''
     def return_all_giftcards() -> tuple:
         try:
-            GIFTCARDS = db.session.query(GiftCard).all()
-            json_giftcards = [ giftcard.json() for giftcard in GIFTCARDS ]
+            giftcards = db.session.query(GiftCard).all()
+            json_giftcards = [ giftcard.json() for giftcard in giftcards ]
             return 200, json_giftcards
 
         except Exception as error:
             return str(error)
 
-    ''' this func  '''
     def return_giftcard_by_id(id) -> tuple:
         try:
             GIFTCARD = GiftCard.query.get(id)

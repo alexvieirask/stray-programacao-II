@@ -1,5 +1,6 @@
 from schemas.game import Game
 from schemas.user import User
+from services.encrypt import encrypt_password
 
 '''
 Default gamelist
@@ -43,7 +44,7 @@ game03 = Game(
     developer='''TESTE'''
 )
 
-GAMES = [ game01, game02, game03 ]
+default_games = [ game01, game02, game03 ]
 
 
 '''
@@ -57,7 +58,7 @@ user01 = User(
     name = '''Alex Vieira Dias''',
     username = '''alex.vieira''',
     email = '''alexvieiradias2019@gmail.com''',
-    password = '''my-password''',
+    password = encrypt_password('''my-password'''),
     description = '''This profile...''',
     profile_picture = '''alex.png'''
 )
@@ -66,7 +67,7 @@ user02 = User(
     name = '''Emanoela Rodrigues Erthal''',
     username = '''emanoela.erthal''',
     email = '''emanoelaerthal@gmail.com''',
-    password = '''my-password2''',
+    password = encrypt_password('''my-password2'''),
     description = '''This profile...''',
     profile_picture = '''emanoela.png'''
 )
@@ -75,7 +76,7 @@ user03 = User(
     name = '''Igor Gramkow''',
     username = '''igor.gramkow''',
     email = '''igorgramkow@gmail.com''',
-    password = '''my-password3''',
+    password = encrypt_password('''my-password3'''),
     description = '''This profile...''',
     profile_picture = '''igor.png'''
 )
@@ -84,9 +85,9 @@ user04 = User(
     name = '''Gabriel Molon Zanella''',
     username = '''gabriel.zanella''',
     email = '''grabrielzanella@gmail.com''',
-    password = '''my-password4''',
+    password = encrypt_password('''my-password4'''),
     description = '''This profile...''',
     profile_picture = '''zanella.png'''
 )
 
-USERS = [ user01, user02, user03, user04 ]
+default_users = [ user01, user02, user03, user04 ]

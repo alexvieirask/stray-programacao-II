@@ -53,9 +53,10 @@ class User(db.Model):
     def create_user ( name:str,username:str, email:str, password:str, wallet:str,  
                     description:str, profile_picture:str) -> tuple:
         try:
-            hash_password = bcrypt.generate_password_hash(password)
+            
+            hash_password = encrypt_password(password)
 
-            USER = User(
+            new_user = User(
                 name = name, 
                 username = username, 
                 email = email, 
@@ -65,47 +66,40 @@ class User(db.Model):
                 profile_picture = profile_picture
             )    
             
-            db.session.add(USER)
+            db.session.add(new_user)
             db.session.commit()
-            return 200, USER.json()
+            return 200, new_user.json()
 
         except Exception as error:
             return str(error)
     
-    ''' this func '''
     def delete_user (id) -> tuple:
         try:
-            USER = User.query.get(id)
-            db.session.delete(USER)
+            user = User.query.get(id)
+            db.session.delete(user)
             db.session.commit()
-            return 200, USER.json()
+            return 200, user.json()
 
         except Exception as error:
             return str(error)
 
-
-    ''' this func '''
     def return_user_by_id(id):
         try:
-            USER = User.query.get(id)
-            return 200, USER.json()
+            user = User.query.get(id)
+            return 200, user.json()
         
         except Exception as error:
             return str(error)
 
-
-    ''' this func '''
     def return_all_users() -> tuple:
         try:
-            USERS = User.query.all()
-            json_users = [ user.json() for user in USERS ]
+            users = User.query.all()
+            json_users = [ user.json() for user in users ]
             return 200, json_users
 
         except Exception as error:
             return str(error) 
 
-
-    '''this func'''
     def default_users_add(users:list) -> int:
         try:
             for user in users:
@@ -116,11 +110,10 @@ class User(db.Model):
         except Exception as error:
             return str(error)
     
-    '''this func'''
     def return_all_purchases_user(id:int) -> tuple:
         try:
-            PURCHASES = User.query.get(id).purchases
-            return 200, PURCHASES
+            purchases = User.query.get(id).purchases
+            return 200, purchases
 
         except Exception as error:
             return str(error)

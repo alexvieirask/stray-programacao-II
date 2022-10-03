@@ -29,7 +29,6 @@ class Game(db.Model):
     screenshots = db.relationship(Screenshot, backref = 'Game')
 
 
-    ''' this function return datas in JSON format '''
     def json(self) -> dict:
         return { 
             "id": self.id,
@@ -42,11 +41,10 @@ class Game(db.Model):
             "developer" : self.developer
         }
     
-    ''' this func '''
     def create_game(title:str, description:str, categorie:str,price:str,required_age:int, 
                     launch_date:str, developer:str, available:bool) -> tuple:
         try:
-            GAME = Game (
+            game = Game (
                 title = title, 
                 description = description, 
                 categorie = categorie, 
@@ -56,25 +54,24 @@ class Game(db.Model):
                 developer = developer, 
                 available = available
             )
-            db.session.add(GAME)
+
+            db.session.add(game)
             db.session.commit()
-            return 200, GAME.json()
+            return 200, game.json()
         
         except Exception as error:
             return str(error)
     
-    ''' this func '''
     def set_unavailable_game(id) -> tuple:
         try:
-            GAME = Game.query.get(id)
-            GAME.available = False
+            game = Game.query.get(id)
+            game.available = False
             db.session.commit()
-            return 200, GAME.json()
+            return 200, game.json()
 
         except Exception as error:
             return str(error)
             
-    ''' this func '''
     def default_games_add(games:list) -> int:
         try:
             for game in games:
@@ -85,20 +82,18 @@ class Game(db.Model):
         except Exception as error:
             return str(error)
 
-    ''' this func '''
     def return_game_by_id(id:int) -> tuple:
         try:
-            GAME = Game.query.get(id)
-            return 200, GAME.json()
+            game = Game.query.get(id)
+            return 200, game.json()
         
         except Exception as error:
             return str(error)
 
-    ''' this func '''
     def return_all_games() -> tuple:
         try:
-            GAMES = Game.query.all()
-            json_games =[ game.json() for game in GAMES]
+            games = Game.query.all()
+            json_games =[ game.json() for game in games]
             return 200, json_games
 
         except Exception as error:

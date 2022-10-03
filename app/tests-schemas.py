@@ -1,5 +1,5 @@
 
-from services.default_datas import GAMES, USERS
+from services.default_datas import default_games, default_users
 from schemas.user import User
 from schemas.game import Game
 from schemas.giftcard import GiftCard
@@ -37,6 +37,10 @@ GiftCard.return_giftcard_by_id
 ''' Screenshot Schema '''
 Screenshot.screenshot_add
 Screenshot.screenshot_delete
+Screenshot.return_all_screenshots
+
+''' Medal Schema '''
+Medal.register_medal
 
 
 ''' Make Tests '''
@@ -44,8 +48,8 @@ Screenshot.screenshot_delete
 from services.database__init__ import *
 def default_values():
     try:
-        User.default_users_add(USERS)
-        Game.default_games_add(GAMES)
+        User.default_users_add(default_users)
+        Game.default_games_add(default_games)
         return 200
     
     except Exception as error:
