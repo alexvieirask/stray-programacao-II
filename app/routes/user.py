@@ -1,35 +1,52 @@
 from services.config import *
 from services.encrypt import *
 from schemas.user import User
-from forms.user import UserForm
+from forms.register import RegisterForm
+from forms.login import LoginForm
+
 
 @app.route("/user/register", methods = ['GET', 'POST'])
 def user_register_route():
-    form = UserForm(request.form)
+    form_register = RegisterForm(request.form)
 
-    if request.method == 'POST':
-
+    
+    if request.method == 'POST' and form_register.validate():
+        
         name = request.form['name']
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
 
-        hash_password = encrypt_password(password)
-
-        new_user = User(
-            name = name, 
-            username = username ,
+        User.register_form(
+            name = name,
+            username = username,
             email = email,
-            password = hash_password
+            password = password
         )
-        
-        db.session.add(new_user)
-        db.session.commit()            
-            
+
         return redirect(url_for('initial_route'))
-    return render_template('register.html', form= form , title = 'User Register')
+    
+    return render_template('register.html', form=form_register , title = 'User Register')
 
+@app.route("/user/login", methods = ['GET', 'POST'])
+def user_login_route():
+    form_login = LoginForm(request.form)
+    
+    if request.method == 'POST' and form_login.validate():
+        username = request.form['username']
+        password = request.form['password']
+        
+        hash_password = encrypt_password(password)
+        
+        user = User.query.filter_by(username = username, password = hash_password).first()
 
+        if user != None:
+            access_token = create_access_token(identity=username)
+            return redirect(url_for('initial_route'))
+        else:
+            return '<h1> User no exists </h1>'
+    
+    return render_template('login.html',form=form_login, title = 'User Login' )
 
 @app.route("/user/return_all")
 def user_return_route():
@@ -42,9 +59,3 @@ def user_return_route():
         response = jsonify({'result':'error', 'details':str(error)})
 
     return response
-
-
-
-@app.route("/user/login")
-def user_login_route():
-    return render_template('login.html')

@@ -33,8 +33,6 @@ class User(db.Model):
     medals = db.relationship(Medal, backref='User')
     purchases = db.relationship(Purchase, backref = 'User') 
     
-
-    ''' this function return datas in JSON format '''
     def json(self) -> dict:
         return { 
             "id": self.id,
@@ -49,11 +47,9 @@ class User(db.Model):
             "is_admin": self.is_admin
         }
     
-    ''' this func '''
     def create_user ( name:str,username:str, email:str, password:str, wallet:str,  
                     description:str, profile_picture:str) -> tuple:
-        try:
-            
+        try: 
             hash_password = encrypt_password(password)
 
             new_user = User(
@@ -83,23 +79,6 @@ class User(db.Model):
         except Exception as error:
             return str(error)
 
-    def return_user_by_id(id):
-        try:
-            user = User.query.get(id)
-            return 200, user.json()
-        
-        except Exception as error:
-            return str(error)
-
-    def return_all_users() -> tuple:
-        try:
-            users = User.query.all()
-            json_users = [ user.json() for user in users ]
-            return 200, json_users
-
-        except Exception as error:
-            return str(error) 
-
     def default_users_add(users:list) -> int:
         try:
             for user in users:
@@ -114,6 +93,27 @@ class User(db.Model):
         try:
             purchases = User.query.get(id).purchases
             return 200, purchases
+
+        except Exception as error:
+            return str(error)
+    
+
+    ''' this func is important  '''
+    def register_form(name:str,username:str, email:str, password:str):
+        try:
+            hash_password = encrypt_password(password)
+
+            new_user = User(
+                name = name, 
+                username = username, 
+                email = email, 
+                password = hash_password
+        
+            )    
+            
+            db.session.add(new_user)
+            db.session.commit()
+            return 200, new_user.json()
 
         except Exception as error:
             return str(error)

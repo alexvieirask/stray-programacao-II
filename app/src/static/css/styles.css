@@ -24,3 +24,8 @@ header{
     padding-inline:2%;
     box-shadow: 0 0 1rem black;
 }
+
+.errors{
+    color: red;
+
+}

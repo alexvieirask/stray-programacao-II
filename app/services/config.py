@@ -22,15 +22,16 @@ if TYPE_CHECKING:
         session = sqlalchemy.orm.scoped_session
     db: SQLAlchemy
 
-''' Flask imports '''
-from flask import Flask, render_template,jsonify, request, redirect, url_for,flash
+''' Flask SQLALCHEMY imports '''
+from flask import Flask, render_template,jsonify, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
-''' SQLALCHEMY configs '''
+''' Flask SQLALCHEMY configs '''
 app = Flask(__name__, template_folder='../src', static_folder='../src/static')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + database_file
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
+
 CORS(app)
 db = SQLAlchemy(app)
 db.session.execute('pragma foreign_keys=on')
@@ -42,6 +43,6 @@ from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
 
 ''' JWT configs '''
-app.config["JWT_SECRET_KEY"] = "4f2db2f556daa6e107657ce3efbb0b5d-SUPER-SECRET"  
+app.config["JWT_SECRET_KEY"] = "faf1644b1743243a99f051f223464a66bdd665c2389b519f0d1d2a90c32efb6b-SUPER-SECRET-SUPER-SECRET"  
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=10) 
 jwt = JWTManager(app)

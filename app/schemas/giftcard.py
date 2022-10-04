@@ -55,16 +55,6 @@ class GiftCard(db.Model):
         except Exception as error:
             return str(error)
 
-    def return_all_giftcards() -> tuple:
-        try:
-            giftcards = db.session.query(GiftCard).all()
-            json_giftcards = [ giftcard.json() for giftcard in giftcards ]
-            return 200, json_giftcards
-
-        except Exception as error:
-            return str(error)
-
-    def return_giftcard_by_id(id) -> tuple:
         try:
             GIFTCARD = GiftCard.query.get(id)
             return 200, GIFTCARD.json()

@@ -13,8 +13,6 @@ from schemas.medal import Medal
 User.create_user
 User.delete_user
 User.default_users_add
-User.return_user_by_id  
-User.return_all_users
 User.return_all_purchases_user
 
 ''' Game Schema '''
@@ -31,8 +29,6 @@ Purchase.return_all_purchases
 ''' Giftcard Schema '''
 GiftCard.create_giftcard
 GiftCard.set_used_giftcard
-GiftCard.return_all_giftcards
-GiftCard.return_giftcard_by_id
 
 ''' Screenshot Schema '''
 Screenshot.screenshot_add
@@ -54,3 +50,5 @@ def default_values():
     
     except Exception as error:
         return str(error)
+
+default_values()
