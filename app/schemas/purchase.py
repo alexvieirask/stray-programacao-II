@@ -43,13 +43,3 @@ class Purchase(db.Model):
 
         except Exception as error:
             return str(error)
-    
-    def return_all_purchases() -> tuple:
-        try:
-            purchases = Purchase.query.all()
-            json_purchases =[ purchase.json() for purchase in purchases]
-            return 200, json_purchases
-        
-        except Exception as error:
-            return error
-    

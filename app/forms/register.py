@@ -1,7 +1,6 @@
 from wtforms import Form, PasswordField, StringField, EmailField
 from wtforms.validators import Length, InputRequired, EqualTo
 
-
 class RegisterForm(Form):
     name = StringField('Name',[
         InputRequired(), 

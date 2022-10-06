@@ -4,12 +4,10 @@ from schemas.user import User
 from forms.register import RegisterForm
 from forms.login import LoginForm
 
-
 @app.route("/user/register", methods = ['GET', 'POST'])
 def user_register_route():
     form_register = RegisterForm(request.form)
 
-    
     if request.method == 'POST' and form_register.validate():
         
         name = request.form['name']
@@ -24,7 +22,7 @@ def user_register_route():
             password = password
         )
 
-        return redirect(url_for('initial_route'))
+        return redirect(url_for('home_route'))
     
     return render_template('register.html', form=form_register , title = 'User Register')
 
@@ -42,20 +40,8 @@ def user_login_route():
 
         if user != None:
             access_token = create_access_token(identity=username)
-            return redirect(url_for('initial_route'))
+            return redirect(url_for('home_route'))
         else:
-            return '<h1> User no exists </h1>'
+            return redirect('https://http.cat/401')
     
     return render_template('login.html',form=form_login, title = 'User Login' )
-
-@app.route("/user/return_all")
-def user_return_route():
-    try:
-        users = db.session.query(User).all()
-        json_users = [ user.json() for user in users ]
-        response = jsonify({'result':'ok', 'details': json_users})
-    
-    except Exception as error:
-        response = jsonify({'result':'error', 'details':str(error)})
-
-    return response

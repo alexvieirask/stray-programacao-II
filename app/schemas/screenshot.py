@@ -33,22 +33,3 @@ class Screenshot(db.Model):
 
         except Exception as error:
             return str(error)        
-    
-    def screenshot_delete(id: int) -> tuple:
-        try:
-            screenshot = Screenshot.query.get(id)
-            db.session.delete(screenshot)
-            db.session.commit()
-            return 200,screenshot
-        
-        except Exception as error:
-            return str(error)
-    
-    def return_all_screenshots() -> tuple:
-        try:
-            screenshots = Screenshot.query.all()
-            json_screenshots = [ screenshot.json() for screenshot in screenshots ]
-            return 200, json_screenshots
-
-        except Exception as error:
-            return str(error) 

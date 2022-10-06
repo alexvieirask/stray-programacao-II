@@ -28,7 +28,6 @@ class Game(db.Model):
     available = db.Column(db.Boolean, default = True)
     screenshots = db.relationship(Screenshot, backref = 'Game')
 
-
     def json(self) -> dict:
         return { 
             "id": self.id,
@@ -71,30 +70,3 @@ class Game(db.Model):
 
         except Exception as error:
             return str(error)
-            
-    def default_games_add(games:list) -> int:
-        try:
-            for game in games:
-                db.session.add(game)
-            db.session.commit()
-            return 200
-        
-        except Exception as error:
-            return str(error)
-
-    def return_game_by_id(id:int) -> tuple:
-        try:
-            game = Game.query.get(id)
-            return 200, game.json()
-        
-        except Exception as error:
-            return str(error)
-
-    def return_all_games() -> tuple:
-        try:
-            games = Game.query.all()
-            json_games =[ game.json() for game in games]
-            return 200, json_games
-
-        except Exception as error:
-            return str(error) 

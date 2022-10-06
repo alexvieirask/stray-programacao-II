@@ -5,7 +5,7 @@ from services.database__init__ import *
 from routes import *
 
 @app.route("/")
-def initial_route():
+def home_route():
     return render_template('home.html')
 
 if __name__ == "__main__":

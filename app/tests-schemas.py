@@ -1,5 +1,8 @@
 
+''' Default values for tests '''
 from services.default_datas import default_games, default_users
+
+''' Schemas imports '''
 from schemas.user import User
 from schemas.game import Game
 from schemas.giftcard import GiftCard
@@ -7,48 +10,34 @@ from schemas.purchase import Purchase
 from schemas.screenshot import Screenshot
 from schemas.medal import Medal
 
-''' Here you can take the class tests '''
-
-''' User Schema  '''
-User.create_user
-User.delete_user
-User.default_users_add
-User.return_all_purchases_user
-
-''' Game Schema '''
-Game.create_game
-Game.set_unavailable_game
-Game.default_games_add
-Game.return_all_games
-Game.return_game_by_id
-
-''' Purchase Schema '''
-Purchase.create_purchase
-Purchase.return_all_purchases
-
-''' Giftcard Schema '''
-GiftCard.create_giftcard
-GiftCard.set_used_giftcard
-
-''' Screenshot Schema '''
-Screenshot.screenshot_add
-Screenshot.screenshot_delete
-Screenshot.return_all_screenshots
-
-''' Medal Schema '''
-Medal.register_medal
-
-
-''' Make Tests '''
-
+''' Database start '''
 from services.database__init__ import *
-def default_values():
+
+def default_users_add(users:list) -> int:
     try:
-        User.default_users_add(default_users)
-        Game.default_games_add(default_games)
+        for user in users:
+            db.session.add(user)
+        db.session.commit()
         return 200
     
     except Exception as error:
         return str(error)
 
-default_values()
+def default_games_add(games:list) -> int:
+    try:
+        for game in games:
+            db.session.add(game)
+        db.session.commit()
+        return 200
+    
+    except Exception as error:
+        return str(error)
+
+def default_values():
+    try:
+        default_users_add(default_users)
+        default_games_add(default_games)
+        return 200
+    
+    except Exception as error:
+        return str(error)

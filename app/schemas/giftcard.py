@@ -16,16 +16,18 @@ class GiftCard(db.Model):
     value = db.Column(db.Integer, nullable = False)
     giftcard_code = db.Column(db.Text, nullable = False, unique = True)
     available = db.Column(db.Boolean, default= True)
+    user_id = db.Column(db.Integer, db.ForeignKey('User.id'))
 
     def json(self) -> dict:
         return {
             "id:": self.id,
             "value": self.value,
             "giftcard_code": self.giftcard_code,
-            'available': self.available
+            "available": self.available,
+            "user_id" : self.user_id 
         }
     
-    def create_giftcard() -> tuple:
+    def create_giftcard(user_buyer_id: int) -> tuple:
         try:
             codes_query = db.session.query(GiftCard).all()
             new_code = giftcard_generator()
@@ -37,7 +39,7 @@ class GiftCard(db.Model):
             if new_code in giftcard_codes:
                 new_code = giftcard_generator()
             else:
-                giftcard = GiftCard( value = 50, giftcard_code = new_code )
+                giftcard = GiftCard( value = 50, giftcard_code = new_code, user_id = user_buyer_id )
                 db.session.add(giftcard)
                 db.session.commit()     
                 return 200, giftcard.json()

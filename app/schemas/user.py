@@ -1,7 +1,9 @@
 from services.config import *
 from services.encrypt import *
+
 from schemas.medal import Medal
 from schemas.purchase import Purchase
+from schemas.giftcard import GiftCard
 
 ''' User Schema:    
 
@@ -24,14 +26,15 @@ class User(db.Model):
     username = db.Column(db.Text, nullable = False, unique= True)
     email = db.Column(db.Text, nullable=False, unique= True)
     password = db.Column(db.Text, nullable=False)
-    wallet = db.Column(db.Text, default = '0')
+    wallet = db.Column(db.Float, default = 0)
     description = db.Column(db.Text)
     profile_picture = db.Column(db.Text)
     registration_date = db.Column(db.DateTime, default= datetime.now())
     is_admin = db.Column(db.Boolean, default=False)
     
-    medals = db.relationship(Medal, backref='User')
-    purchases = db.relationship(Purchase, backref = 'User') 
+    medals = db.relationship(Medal, backref= "User")
+    purchases = db.relationship(Purchase, backref = "User") 
+    giftcards = db.relationship(GiftCard, backref = "User")
     
     def json(self) -> dict:
         return { 
@@ -47,28 +50,6 @@ class User(db.Model):
             "is_admin": self.is_admin
         }
     
-    def create_user ( name:str,username:str, email:str, password:str, wallet:str,  
-                    description:str, profile_picture:str) -> tuple:
-        try: 
-            hash_password = encrypt_password(password)
-
-            new_user = User(
-                name = name, 
-                username = username, 
-                email = email, 
-                password = hash_password, 
-                wallet = wallet, 
-                description = description, 
-                profile_picture = profile_picture
-            )    
-            
-            db.session.add(new_user)
-            db.session.commit()
-            return 200, new_user.json()
-
-        except Exception as error:
-            return str(error)
-    
     def delete_user (id) -> tuple:
         try:
             user = User.query.get(id)
@@ -79,26 +60,6 @@ class User(db.Model):
         except Exception as error:
             return str(error)
 
-    def default_users_add(users:list) -> int:
-        try:
-            for user in users:
-                db.session.add(user)
-            db.session.commit()
-            return 200
-        
-        except Exception as error:
-            return str(error)
-    
-    def return_all_purchases_user(id:int) -> tuple:
-        try:
-            purchases = User.query.get(id).purchases
-            return 200, purchases
-
-        except Exception as error:
-            return str(error)
-    
-
-    ''' this func is important  '''
     def register_form(name:str,username:str, email:str, password:str):
         try:
             hash_password = encrypt_password(password)
@@ -108,7 +69,6 @@ class User(db.Model):
                 username = username, 
                 email = email, 
                 password = hash_password
-        
             )    
             
             db.session.add(new_user)
