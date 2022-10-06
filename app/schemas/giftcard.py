@@ -8,6 +8,7 @@ atributes:
     value: Text
     giftcard_code: Text
     available: Boolean <Default value: true>
+    user_id: Integer <ForeingKey(User.id)> 
 '''
 
 class GiftCard(db.Model):
