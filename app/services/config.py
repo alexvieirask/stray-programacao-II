@@ -2,7 +2,6 @@
 from datetime import datetime, timedelta
 import os
 
-
 ''' Database filename config  '''
 extension = ".db"
 filename = "database"

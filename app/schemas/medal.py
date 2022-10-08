@@ -13,7 +13,7 @@ atributes:
 '''
 
 class Medal(db.Model):
-    __tablename__ = 'Medal' 
+    __tablename__ = 'Medal'
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.Text, nullable = False)
     description = db.Column(db.Text, nullable = False)

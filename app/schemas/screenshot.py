@@ -10,7 +10,7 @@ atributes:
     game_id: Integer <ForeingKey(Game.id)>
 '''
 class Screenshot(db.Model):
-    __tablename__ = "Screenshot"
+    __tablename__ = 'Screenshot'
     id = db.Column(db.Integer, primary_key = True)
     url = db.Column(db.Text, nullable = False)
     alt = db.Column(db.Text, nullable = False)

@@ -1,5 +1,7 @@
-
+''' Config import '''
 from services.config import *
+
+''' Schemas imports '''
 from schemas.user import User
 from schemas.game import Game
 from schemas.giftcard import GiftCard
@@ -10,12 +12,13 @@ from schemas.giftcard import GiftCard
 2. curl localhost:5000/game/return_all
 3. curl localhost:5000/giftcard/return_all
 
-4. curl localhost:5000/user/1
-5. curl localhost:5000/game/1
-6. curl localhost:5000/giftcard/1
+4. curl localhost:5000/user/return/1
+5. curl localhost:5000/game/return/1
+6. curl localhost:5000/giftcard/return/1
 
 '''
 
+# Criar lista de id e verificar o include
 @app.route("/<string:class_type>/return_all")
 def return_all_route(class_type):
     try: 
@@ -41,12 +44,11 @@ def return_all_route(class_type):
             response = jsonify({"result":"error", "details": "Bad Request"})
 
     except Exception as error:
-        response = jsonify({'result':'error', 'details':str(error)})
+        response = jsonify({"result":"error", "details":str(error)})
     
     return response
 
-
-@app.route("/<string:class_type>/<int:id>")
+@app.route("/<string:class_type>/return/<int:id>")
 def return_data_route(class_type , id):
     try: 
         class_type = class_type.title()

@@ -1,6 +1,13 @@
 from wtforms import Form, PasswordField, StringField
 from wtforms.validators import Length, InputRequired
 
+''' Login Form
+
+Fields: 
+    username
+    password
+
+'''
 class LoginForm(Form):
     username = StringField('Username',[
         InputRequired(), 

@@ -4,15 +4,8 @@
     padding: 0;
 }
 
-
-
 body{
     font-family: 'Open Sans', sans-serif;
-}
-
-
-.form-container{
-    padding: 2%;
 }
 
 header{
@@ -24,6 +17,17 @@ header{
     padding-inline:2%;
     box-shadow: 0 0 1rem black;
 }
+
+
+.header-title{
+    color:white
+}
+
+
+.form-container{
+    padding: 2%;
+}
+
 
 .errors{
     color: red;
