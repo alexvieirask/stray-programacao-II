@@ -1,6 +1,5 @@
 from services.config import *
 
-
 '''Purchase Schema:
 
 atributes:

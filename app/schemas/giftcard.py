@@ -57,10 +57,3 @@ class GiftCard(db.Model):
 
         except Exception as error:
             return str(error)
-
-        try:
-            GIFTCARD = GiftCard.query.get(id)
-            return 200, GIFTCARD.json()
-            
-        except Exception as error:
-            return str(error)
