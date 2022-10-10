@@ -24,7 +24,7 @@ def return_all_route(class_type):
         response = None
         class_type = class_type.title()
         class_list = [ User, Game, GiftCard ] 
- 
+        
         for type in class_list:    
             if type.__tablename__ == class_type:
                 datas = db.session.query(type).all()
