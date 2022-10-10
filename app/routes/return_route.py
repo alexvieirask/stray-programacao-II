@@ -18,29 +18,21 @@ from schemas.giftcard import GiftCard
 
 '''
 
-# Criar lista de id e verificar o include
 @app.route("/<string:class_type>/return_all")
 def return_all_route(class_type):
     try: 
+        response = None
         class_type = class_type.title()
-        TYPES_STRING = [ "User", "Game", "Giftcard"] 
-        TYPES_CLASS = [ User, Game, GiftCard ] 
-
-        ''' Verifica se a rota requisitada é válida '''
-        if class_type in TYPES_STRING:
-            index = -1 
-            for type in TYPES_STRING:    
-                index += 1    
-                if type == class_type:
-                    class_type = TYPES_CLASS[index]
-                    break
-            
-            ''' Query dinâmica '''
-            datas = db.session.query(class_type).all()
-            json_datas = [ data.json() for data in datas ]
-            response = jsonify({"result":"ok", "details": json_datas})
-       
-        else:
+        class_list = [ User, Game, GiftCard ] 
+ 
+        for type in class_list:    
+            if type.__tablename__ == class_type:
+                datas = db.session.query(type).all()
+                json_datas = [ data.json() for data in datas ]
+                response = jsonify({"result":"ok", "details": json_datas})
+                break
+        
+        if response == None:
             response = jsonify({"result":"error", "details": "Bad Request"})
 
     except Exception as error:
@@ -51,24 +43,21 @@ def return_all_route(class_type):
 @app.route("/<string:class_type>/return/<int:id>")
 def return_data_route(class_type , id):
     try: 
+        response = None
         class_type = class_type.title()
-        TYPES_STRING = [ "User", "Game", "Giftcard"] 
-        TYPES_CLASS = [ User, Game, GiftCard ] 
+        class_list = [ User, Game, GiftCard ] 
 
-        ''' Verifica se a rota requisitada é válida '''
-        if class_type in TYPES_STRING:
-            index = -1 
-            for type in TYPES_STRING:    
-                index += 1    
-                if type == class_type:
-                    class_type = TYPES_CLASS[index]
-                    break
-    
-            ''' Query dinâmica '''            
-            json_data = db.session.query(class_type).get(id).json()
-            response = jsonify({"result":"ok", "details": json_data})
-        
-        else:
+        for type in class_list:    
+            if type.__tablename__ == class_type:
+                data = db.session.query(type).get(id)
+                
+                if data is not None:
+                    response = jsonify({"result":"ok", "details": data.json()})
+                else:
+                    response = jsonify({"result":"error", "details": "ID error!"})
+                break
+
+        if response == None:
             response = jsonify({"result":"error", "details": "Bad Request"})
 
     except Exception as error:
