@@ -21,7 +21,7 @@ class Game(db.Model):
     title = db.Column(db.Text, nullable = False)
     description = db.Column(db.Text, nullable = False)
     categorie = db.Column(db.Text, nullable = False)
-    price = db.Column(db.Text, nullable = False)
+    price = db.Column(db.Float, nullable = False)
     required_age = db.Column(db.Integer, nullable = False)
     launch_date = db.Column(db.Text, nullable = False)
     developer = db.Column(db.Text, nullable = False)
