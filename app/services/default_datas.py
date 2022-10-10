@@ -147,7 +147,7 @@ game12 = Game(
     uma terra repleta de mistérios antigos e cheia de novos slimes bons de remelexo para criar, na sequência do 
     grande sucesso Slime Rancher ''',
     categorie='''Ação, Aventura, Casual, Indie, Simulação''', 
-    price=36.99,
+    price=36.95,
     required_age=10,
     launch_date='''22/set./2022''',
     developer='''Monomi Park'''
