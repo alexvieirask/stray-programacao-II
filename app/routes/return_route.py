@@ -21,7 +21,6 @@ from schemas.giftcard import GiftCard
 @app.route("/<string:class_type>/return_all")
 def return_all_route(class_type):
     try: 
-        response = None
         class_type = class_type.title()
         class_list = [ User, Game, GiftCard ] 
         
@@ -30,10 +29,9 @@ def return_all_route(class_type):
                 datas = db.session.query(type).all()
                 json_datas = [ data.json() for data in datas ]
                 response = jsonify({"result":"ok", "details": json_datas})
-                break
+                return response
         
-        if response == None:
-            response = jsonify({"result":"error", "details": "Bad Request"})
+        response = jsonify({"result":"error", "details": "Bad Request"})
 
     except Exception as error:
         response = jsonify({"result":"error", "details":str(error)})
@@ -43,22 +41,16 @@ def return_all_route(class_type):
 @app.route("/<string:class_type>/return/<int:id>")
 def return_data_route(class_type , id):
     try: 
-        response = None
         class_type = class_type.title()
         class_list = [ User, Game, GiftCard ] 
 
         for type in class_list:    
             if type.__tablename__ == class_type:
-                data = db.session.query(type).get(id)
+                data = db.session.query(type).get_or_404(id)
+                response = jsonify({"result":"ok", "details": data.json()})
+                return response
                 
-                if data is not None:
-                    response = jsonify({"result":"ok", "details": data.json()})
-                else:
-                    response = jsonify({"result":"error", "details": "ID error!"})
-                break
-
-        if response == None:
-            response = jsonify({"result":"error", "details": "Bad Request"})
+        response = jsonify({"result":"error", "details": "Bad Request"})
 
     except Exception as error:
         response = jsonify({'result':'error', 'details':str(error)})
