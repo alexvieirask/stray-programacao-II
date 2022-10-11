@@ -15,6 +15,9 @@ from schemas.purchase import Purchase
 1. curl localhost:5000/user/return_all 
 2. curl localhost:5000/game/return_all
 3. curl localhost:5000/giftcard/return_all
+4. curl localhost:5000/medal/return_all 
+5. curl localhost:5000/screenshot/return_all
+6. curl localhost:5000/purchase/return_all
 
 '''
 @app.route("/<string:class_type>/return_all")
@@ -39,9 +42,12 @@ def return_all_route(class_type):
 
 ''' Route tests
 
-4. curl localhost:5000/user/return/1
-5. curl localhost:5000/game/return/1
-6. curl localhost:5000/giftcard/return/1
+1. curl localhost:5000/user/return/1
+2. curl localhost:5000/game/return/1
+3. curl localhost:5000/giftcard/return/1
+4. curl localhost:5000/medal/return/1
+5. curl localhost:5000/screenshot/return/1
+6. curl localhost:5000/purchase/return/1
 
 '''
 @app.route("/<string:class_type>/return/<int:id>")
