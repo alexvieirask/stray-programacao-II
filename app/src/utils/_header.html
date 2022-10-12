@@ -1,24 +1,25 @@
+<!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>Stray</title>
-</head> 
-<body>
-    <Header>
-        <h1 class="header-title">Stray</h1>
-        <div>
-            <ul>
-                <a href="/user/register">Register</a>
-                <a href="/user/login">Login</a>
-            </ul>
-        </div>
-    </Header>
-    {% block conteudo %} 
-    
-    {% endblock %}
-    <script src="{{ url_for('static', filename='teste.js') }}"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <title>Stray</title>
+    </head> 
+    <body>
+        <Header>
+            <h1 class="header-title">Stray</h1>
+            <div>
+                <ul>
+                    <a href="/user/register">Register</a>
+                    <a href="/user/login">Login</a>
+                </ul>
+            </div>
+        </Header>
+        {% block conteudo %} 
+        
+        {% endblock %}
+        <script src="{{ url_for('static', filename='teste.js') }}"></script>
+    </body>
 </html>
