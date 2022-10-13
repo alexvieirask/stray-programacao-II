@@ -36,8 +36,7 @@ def include_route(class_type):
             class_type = class_type.title()
             class_list = [ User, Game, GiftCard ] 
             datas = request.get_json(force=True)
-
-
+            
             for type in class_list:    
                 if type.__tablename__ == class_type:
                     new_data = type(**datas)
