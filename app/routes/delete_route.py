@@ -39,3 +39,14 @@ def delete_route(class_type:str, id:int):
         response = jsonify({'result':'error', 'details':str(error)})
     
     return response
+
+@app.route("/drop_database")
+def drop_database_route():
+    try:
+        db.drop_all()
+        response = jsonify({"result":"ok", "details": "Drop database Success! Obs: Reload back-end."})
+
+    except Exception as error:
+        response = jsonify({'result':'error', 'details':str(error)})
+    
+    return response

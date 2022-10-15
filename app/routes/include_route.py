@@ -1,5 +1,6 @@
-''' Config import '''
+''' Services imports '''
 from services.config import *
+from services.default_datas import default_games, default_users
 
 ''' Schemas imports '''
 from schemas.user import User
@@ -50,5 +51,22 @@ def include_route(class_type):
 
     except Exception as error:
         response = jsonify({'result':'error', 'details':str(error)})
+
+    return response
+
+@app.route("/default_datas")
+def default_datas_route():
+    try:
+        response = jsonify({"result":"ok", "details": 'Default Datas Success!'})
+        
+        for user in default_users:
+            db.session.add(user)
+        for game in default_games:
+            db.session.add(game)  
+       
+        db.session.commit()
+
+    except IntegrityError as sqlite_error:
+        response = jsonify({'result':'error', 'details':str(sqlite_error)})
 
     return response

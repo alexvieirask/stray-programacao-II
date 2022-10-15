@@ -1,0 +1,54 @@
+
+/* Games Styles 
+
+TEM QUE ALINHAR ESSA BOMBA ALING-CENTER
+*/
+.games{
+    margin: 5px 20% 25px 20%;
+    background-color: cadetblue;
+}
+
+.games li{
+    margin: 10px 0 0 0;
+    background-color: #cccccc;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+}
+
+.games a{
+    text-decoration:none ;
+    color: black;
+    background-color: red;
+    height: 100px;    
+    width: 100%;
+
+}
+.games img{
+    width: 15%;
+    height: 100%;
+    max-width: 250px;
+    min-width: 150px;
+}
+
+.games div{
+    position: absolute;
+    display: inline-block;
+    padding: 10px 0 0 20px;
+ 
+    background-color:yellow;
+}
+
+.games-price{
+    font-size: 22px;
+    font-weight: bold;
+    background-color:yellow;
+    margin:10px 0 0;
+}
+ 
+/* Extra Styles */
+.errors{
+    color: red;
+}

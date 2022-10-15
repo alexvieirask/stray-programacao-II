@@ -26,6 +26,7 @@ class Game(db.Model):
     launch_date = db.Column(db.Text, nullable = False)
     developer = db.Column(db.Text, nullable = False)
     available = db.Column(db.Boolean, default = True)
+    cover = db.Column(db.Text, default = "../static/img/default-cover.gif" )
     screenshots = db.relationship(Screenshot, backref = 'Game')
 
     def json(self) -> dict:
@@ -37,7 +38,9 @@ class Game(db.Model):
             "price":self.price,
             "required_age": self.required_age,
             "launch_date" : self.launch_date,
-            "developer" : self.developer
+            "developer" : self.developer,
+            "available": self.available,
+            "cover": self.cover
         }
     
     def create_game(title:str, description:str, categorie:str,price:str,required_age:int, 

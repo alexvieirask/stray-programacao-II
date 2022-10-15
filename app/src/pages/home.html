@@ -1,5 +1,29 @@
-{% extends "utils/_header.html" %}   
-{% block conteudo %}
-    <h1> Home Route</h1>
+{% extends "utils/_template.html" %}   
+    {% block head %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <title>Home</title>       
+    {% endblock %}
     
-{% endblock %}
+    {% block body %}
+        <main>
+            <div class="games">
+                <ul>
+                    {% for game in games %}
+                        <li>
+                            <a href="game/{{ game.title.replace(' ', '-') }}">
+                                <img src={{ game.cover }} alt="{{ game.cover }}-cover">
+                                <div>
+                                    <h2>{{ game.title }}</h2>
+                                    {% if game.price == 0  %}
+                                        <p class="games-price">Free to play</p>
+                                    {% else %}
+                                        <p class="games-price">R$ {{ game.price }}</p>
+                                    {% endif %}
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </main>
+    {% endblock %}

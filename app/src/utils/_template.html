@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/config.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
+        {% block head %}
+        {% endblock %}
+    </head> 
+    <body>
+        <main>
+            <header>
+                <div class="box">
+                    <div class="logo-container">
+                        <h1><img src="{{ url_for('static', filename='img/logo-cat.png') }}" alt="logo"></h1>
+                        <h2>STRAY</h2>
+                    </div>
+                    
+                    <div>
+                        <nav>
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/user/register">Register</a></li>
+                                <li><a href="/user/login">Login</a></li>
+                            </ul>
+                        </nav>
+                    </div>   
+                </div>
+            </header>
+            <div>
+                {% block body %} 
+            
+                {% endblock %}
+            </div>
+        </main>
+        <script src="{{ url_for('static', filename='js/teste.js') }}"></script>
+    </body>
+</html>

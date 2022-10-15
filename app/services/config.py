@@ -25,6 +25,7 @@ if TYPE_CHECKING:
 from flask import Flask, render_template,jsonify, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+from sqlalchemy.exc import IntegrityError
 
 ''' Flask SQLALCHEMY configs '''
 app = Flask(__name__, template_folder='../src', static_folder='../src/static')
