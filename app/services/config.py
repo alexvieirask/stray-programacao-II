@@ -43,3 +43,11 @@ from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_requir
 app.config["JWT_SECRET_KEY"] = "faf1644b1743243a99f051f223464a66bdd665c2389b519f0d1d2a90c32efb6b-SUPER-SECRET-SUPER-SECRET"  
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=10) 
 jwt = JWTManager(app)
+
+''' Importações dos esquemas '''
+from schemas.user import User
+from schemas.game import Game
+from schemas.giftcard import GiftCard
+from schemas.medal import Medal
+from schemas.screenshot import Screenshot
+from schemas.purchase import Purchase

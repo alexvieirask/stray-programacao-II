@@ -1,20 +1,15 @@
-
-''' Schemas imports '''
-from schemas import *
-from schemas.game import Game
-
-''' Services imports '''
+''' Importação dos serviços  '''
 from services.config import *
 from services.database__init__ import *
 
-''' Routes imports '''
+''' Importação das rotas '''
 from routes import *
 
-''' Home Route '''
+''' Rota Home '''
 @app.route("/")
 def home_route():    
     games = db.session.query(Game).all()
     return render_template('pages/home.html', games = games)
 
 if __name__ == "__main__":
-    app.run(debug=True) 
+    app.run(debug=True)

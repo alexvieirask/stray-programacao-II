@@ -1,13 +1,8 @@
-''' Services imports '''
+''' Importação das configurações '''
 from services.config import *
 from services.default_datas import default_games, default_users
 
-''' Schemas imports '''
-from schemas.user import User
-from schemas.game import Game
-from schemas.giftcard import GiftCard
-
-'''Route tests
+''' Testes de include_route
 
 1. User
 

@@ -1,15 +1,7 @@
-''' Config import '''
+''' Importação das configurações '''
 from services.config import *
 
-''' Schemas imports '''
-from schemas.user import User
-from schemas.game import Game
-from schemas.giftcard import GiftCard
-from schemas.medal import Medal
-from schemas.screenshot import Screenshot
-from schemas.purchase import Purchase
-
-''' Route Test
+''' Testes de delete_route
 
 1. curl localhost:5000/user/delete/1
 2. curl localhost:5000/game/delete/1
