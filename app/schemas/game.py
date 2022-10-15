@@ -1,9 +1,9 @@
+''' Importação das configurações  '''
 from services.config import *
-from schemas.screenshot import Screenshot 
 
-''' Game Schema:
+''' Esquema Game:
 
-atributes:
+atributos:
     id: Integer
     title: Text
     description: Text
@@ -13,8 +13,8 @@ atributes:
     launch_date: Text
     developer: Text
     available: Boolean <Default value: true>
+    cover: Text <Default value:../static/img/default-cover.gif>
 '''
-
 class Game(db.Model):
     __tablename__ = 'Game'
     id = db.Column(db.Integer, primary_key = True)

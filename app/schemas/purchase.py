@@ -1,14 +1,14 @@
+''' Importação das configurações  '''
 from services.config import *
 
-'''Purchase Schema:
+'''Esquema Purchase:
 
-atributes:
+atributos:
     id: Integer
     user_buyer_id: Integer <ForeingKey(User.id)>
     game_buyed_id: Integer <ForeingKey(Game.id)>
     realized_date: DateTime <Default value: datetime.now()>
 '''
-
 class Purchase(db.Model):
     __tablename__ = 'Purchase'
     id = db.Column(db.Integer, primary_key = True)

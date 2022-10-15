@@ -1,13 +1,13 @@
-''' Extra imports '''
+''' Importações extras '''
 from datetime import datetime, timedelta
 import os
 
-''' Database filename config  '''
+''' Configuração do nome do arquivo da database  '''
 extension = ".db"
 filename = "database"
 database_file = filename + extension
 
-''' typing config '''
+''' Configurações typing '''
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     import flask_sqlalchemy
@@ -21,13 +21,13 @@ if TYPE_CHECKING:
         session = sqlalchemy.orm.scoped_session
     db: SQLAlchemy
 
-''' Flask SQLALCHEMY imports '''
+''' Importações Flask SQLALCHEMY '''
 from flask import Flask, render_template,jsonify, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from sqlalchemy.exc import IntegrityError
 
-''' Flask SQLALCHEMY configs '''
+''' Configurações Flask SQLALCHEMY '''
 app = Flask(__name__, template_folder='../src', static_folder='../src/static')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + database_file
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
@@ -36,18 +36,18 @@ CORS(app)
 db = SQLAlchemy(app)
 db.session.execute('pragma foreign_keys=on')
 
-''' JWT imports '''
+''' Importações JWT '''
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager
 
-''' JWT configs '''
+''' Configurações JWT '''
 app.config["JWT_SECRET_KEY"] = "faf1644b1743243a99f051f223464a66bdd665c2389b519f0d1d2a90c32efb6b-SUPER-SECRET-SUPER-SECRET"  
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=10) 
 jwt = JWTManager(app)
 
-''' Importações dos esquemas '''
-from schemas.user import User
-from schemas.game import Game
-from schemas.giftcard import GiftCard
+''' Importações Esquemas '''
 from schemas.medal import Medal
-from schemas.screenshot import Screenshot
 from schemas.purchase import Purchase
+from schemas.giftcard import GiftCard
+from schemas.screenshot import Screenshot
+from schemas.game import Game
+from schemas.user import User

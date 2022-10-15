@@ -1,16 +1,16 @@
+''' Importação das configurações e serviços  '''
 from services.config import *
 from services.encrypt import giftcard_generator
 
-''' Giftcard Schema:
+'''Esquema Giftcard:
 
-atributes:
+atributos:
     id: Integer
     value: Text
     giftcard_code: Text
     available: Boolean <Default value: true>
     user_id: Integer <ForeingKey(User.id)> 
 '''
-
 class GiftCard(db.Model):
     __tablename__ = 'GiftCard'
     id = db.Column(db.Integer, primary_key = True)

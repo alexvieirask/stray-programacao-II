@@ -1,15 +1,15 @@
+''' Importações do WTForms '''
 from wtforms import Form, PasswordField, StringField, EmailField
 from wtforms.validators import Length, InputRequired, EqualTo
 
-''' Register Form
+'''Formulário de registro de usuário
 
-Fields:
+Campos:
     name
     username
     email
     password
     password_confirm
-
 '''
 class RegisterForm(Form):
     name = StringField('Name',[

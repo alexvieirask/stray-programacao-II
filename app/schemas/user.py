@@ -1,13 +1,10 @@
+''' Importação das configurações e serviços '''
 from services.config import *
 from services.encrypt import *
 
-from schemas.medal import Medal
-from schemas.purchase import Purchase
-from schemas.giftcard import GiftCard
+'''Esquema User:    
 
-''' User Schema:    
-
-atributes:
+atributos:
     id: Integer
     username: Text
     e-mail: Text
@@ -18,7 +15,6 @@ atributes:
     registration_date : DateTime <Default value: datetime.now()>
     is_admin : Boolean <Default value: false>
 '''
-
 class User(db.Model):
     __tablename__ = 'User'
     id = db.Column(db.Integer, primary_key = True)

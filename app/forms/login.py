@@ -1,12 +1,12 @@
+''' Importações do WTForms '''
 from wtforms import Form, PasswordField, StringField
 from wtforms.validators import Length, InputRequired
 
-''' Login Form
+'''Formulário de login de usuário
 
-Fields: 
+Campos: 
     username
     password
-
 '''
 class LoginForm(Form):
     username = StringField('Username',[

@@ -1,8 +1,8 @@
 from services.config import *
 
-''' Screenshot Schema:
+'''Esquema Screenshot:
 
-atributes:
+atributos:
     id: Integer
     url: Text
     alt: Text

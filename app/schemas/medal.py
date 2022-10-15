@@ -1,8 +1,9 @@
+''' Importação das configurações  '''
 from services.config import *
 
-''' Medal Schema:
+'''Esquema Medal:
 
-atributes:
+atributos:
     id: Integer
     title: Text
     description: Text
@@ -10,7 +11,6 @@ atributes:
     received_date: DateTime <Default value: datetime.now()>
     user_id: Integer <ForeingKey(User.id)>
 '''
-
 class Medal(db.Model):
     __tablename__ = 'Medal'
     id = db.Column(db.Integer, primary_key = True)
@@ -19,7 +19,7 @@ class Medal(db.Model):
     icon = db.Column(db.Text, nullable = False)
     received_date = db.Column(db.DateTime, default= datetime.now())
     user_id = db.Column(db.Integer, db.ForeignKey('User.id'))
-    
+     
     def json(self):
         return {
             "id": self.id,

@@ -1,14 +1,14 @@
-''' Services imports '''
+''' Importações das configurações e serviços  '''
 from services.config import *
 from services.encrypt import *
 
-''' Schema import '''
-from schemas.user import User
-
-''' Forms imports '''
+''' Importações dos formulários '''
 from forms.register import RegisterForm
 from forms.login import LoginForm
 
+''' Rota: [ user_register_route ]
+    descrição: 
+'''
 @app.route("/user/register", methods = ['GET', 'POST'])
 def user_register_route():
     form_register = RegisterForm(request.form)
@@ -30,6 +30,9 @@ def user_register_route():
 
     return render_template('pages/register.html', form= form_register , title = 'User Register')
 
+''' Rota: [ user_login_route ]
+    descrição: 
+'''
 @app.route("/user/login", methods = ['GET', 'POST'])
 def user_login_route():
     form_login = LoginForm(request.form)

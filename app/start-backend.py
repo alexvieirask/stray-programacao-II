@@ -1,11 +1,13 @@
-''' Importação dos serviços  '''
+''' Importações das configurações e serviços  '''
 from services.config import *
 from services.database__init__ import *
 
 ''' Importação das rotas '''
 from routes import *
 
-''' Rota Home '''
+''' Rota: [ home_route ]
+    descrição: 
+'''
 @app.route("/")
 def home_route():    
     games = db.session.query(Game).all()

@@ -1,15 +1,16 @@
 ''' Importação das configurações '''
 from services.config import *
 
-''' Testes de delete_route
-
-1. curl localhost:5000/user/delete/1
-2. curl localhost:5000/game/delete/1
-3. curl localhost:5000/giftcard/delete/1
-4. curl localhost:5000/medal/delete/1
-5. curl localhost:5000/screenshot/delete/1
-6. curl localhost:5000/purchase/delete/1
-
+''' Rota: [ delete_route ]
+    descrição: 
+    
+    Testes:
+        1. curl localhost:5000/user/delete/1
+        2. curl localhost:5000/game/delete/1
+        3. curl localhost:5000/giftcard/delete/1
+        4. curl localhost:5000/medal/delete/1
+        5. curl localhost:5000/screenshot/delete/1
+        6. curl localhost:5000/purchase/delete/1
 '''
 @app.route("/<string:class_type>/delete/<int:id>")
 def delete_route(class_type:str, id:int):
@@ -32,6 +33,12 @@ def delete_route(class_type:str, id:int):
     
     return response
 
+''' Rota: [ drop_database_route ]
+    descrição: 
+    
+    Teste:
+        1. curl localhost:5000/drop_database
+'''
 @app.route("/drop_database")
 def drop_database_route():
     try:
