@@ -1,6 +1,5 @@
 ''' Importação das configurações e serviços '''
 from services.config import *
-from services.encrypt import *
 
 '''Esquema User:    
 
@@ -58,7 +57,7 @@ class User(db.Model):
 
     def register_form(name:str,username:str, email:str, password:str):
         try:
-            hash_password = encrypt_password(password)
+            hash_password = generate_password_hash(password)
 
             new_user = User(
                 name = name, 

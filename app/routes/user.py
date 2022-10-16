@@ -1,6 +1,5 @@
-''' Importações das configurações e serviços  '''
+''' Importações das configurações '''
 from services.config import *
-from services.encrypt import *
 
 ''' Importações dos formulários '''
 from forms.register import RegisterForm
@@ -40,7 +39,7 @@ def user_login_route():
     if request.method == 'POST' and form_login.validate():
         username = request.form['username']
         password = request.form['password']
-        hash_password = encrypt_password(password)
+        hash_password = generate_password_hash(password)
         
         user = User.query.filter_by(username = username, password = hash_password).first()
 

@@ -12,6 +12,7 @@ from flask import Flask, render_template,jsonify, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from sqlalchemy.exc import IntegrityError
+from flask_bcrypt import Bcrypt,generate_password_hash
 
 ''' Configurações Flask SQLALCHEMY '''
 app = Flask(__name__, template_folder='../src', static_folder='../src/static')
@@ -20,6 +21,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 CORS(app)
 db = SQLAlchemy(app)
+bcrypt = Bcrypt(app) 
 db.session.execute('pragma foreign_keys=on')
 
 ''' Importações JWT '''

@@ -1,6 +1,5 @@
-from schemas.game import Game
-from schemas.user import User
-from services.encrypt import encrypt_password
+" Importação dos serviços necessários "
+from services.config import Game,User, generate_password_hash
 
 '''
 Default gamelist
@@ -179,7 +178,7 @@ user01 = User(
     name = '''Alex Vieira Dias''',
     username = '''alex.vieira''',
     email = '''alexvieiradias2019@gmail.com''',
-    password = encrypt_password('''my-password'''),
+    password = generate_password_hash('''my-password''').decode("utf-8"),
     description = '''This profile...''',
     profile_picture = '''alex.png'''
 )
@@ -188,7 +187,7 @@ user02 = User(
     name = '''Emanoela Rodrigues Erthal''',
     username = '''emanoela.erthal''',
     email = '''emanoelaerthal@gmail.com''',
-    password = encrypt_password('''my-password2'''),
+    password = generate_password_hash('''my-password2''').decode("utf-8"),
     description = '''This profile...''',
     profile_picture = '''emanoela.png'''
 )
@@ -197,7 +196,7 @@ user03 = User(
     name = '''Igor Gramkow''',
     username = '''igor.gramkow''',
     email = '''igorgramkow@gmail.com''',
-    password = encrypt_password('''my-password3'''),
+    password = generate_password_hash('''my-password3''').decode("utf-8"),
     description = '''This profile...''',
     profile_picture = '''igor.png'''
 )
@@ -206,7 +205,7 @@ user04 = User(
     name = '''Gabriel Molon Zanella''',
     username = '''gabriel.zanella''',
     email = '''grabrielzanella@gmail.com''',
-    password = encrypt_password('''my-password4'''),
+    password = generate_password_hash('''my-password4''').decode("utf-8"),
     description = '''This profile...''',
     profile_picture = '''zanella.png'''
 )
@@ -215,7 +214,7 @@ user05 = User(
     name = '''Yara Rahn''',
     username = '''yara.rahn''',
     email = '''yarahn@gmail.com''',
-    password = encrypt_password('''my-password5'''),
+    password = generate_password_hash('''my-password5''').decode("utf-8"),
     description = '''This profile...''',
     profile_picture = '''yara.png'''
 )
@@ -224,7 +223,7 @@ user06 = User(
     name = '''Alana Cristina Andreazza''',
     username = '''alana.andreazza''',
     email = '''alanaandreazza@gmail.com''',
-    password = encrypt_password('''my-password6'''),
+    password = generate_password_hash('''my-password6''').decode("utf-8"),
     description = '''This profile...''',
     profile_picture = '''alana.png'''
 )
@@ -233,7 +232,7 @@ user07 = User(
     name = '''Amadeus Vitor Poletti''',
     username = '''amadeus.poletti''',
     email = '''amadeusvp@gmail.com''',
-    password = encrypt_password('''my-password7'''),
+    password = generate_password_hash('''my-password7''').decode("utf-8"),
     description = '''This profile...''',
     profile_picture = '''amadeus.png'''
 )
@@ -242,7 +241,7 @@ user08 = User(
     name = '''Lucas Gabriel Sievert''',
     username = '''lucas.gabriel''',
     email = '''lucasgabriel@gmail.com''',
-    password = encrypt_password('''my-password8'''),
+    password = generate_password_hash('''my-password8''').decode("utf-8"),
     description = '''This profile...''',
     profile_picture = '''lucas.png'''
 )
@@ -251,7 +250,7 @@ user09 = User(
     name = '''Beatriz Miranda''',
     username = '''beatriz.miranda''',
     email = '''beatrizmiranda@gmail.com''',
-    password = encrypt_password('''my-password9'''),
+    password = generate_password_hash('''my-password9''').decode("utf-8"),
     description = '''This profile...''',
     profile_picture = '''beatriz.png'''
 )
@@ -260,7 +259,7 @@ user10 = User(
     name = '''Larissa Reiter Branco''',
     username = '''larissa.branco''',
     email = '''larissabranco@gmail.com''',
-    password = encrypt_password('''my-password10'''),
+    password = generate_password_hash('''my-password10''').decode("utf-8"),
     description = '''This profile...''',
     profile_picture = '''larissa.png'''
 )
@@ -269,7 +268,7 @@ user11 = User(
     name = '''Liriel Pisetta''',
     username = '''liriel.pisetta''',
     email = '''lirielpisetta@gmail.com''',
-    password = encrypt_password('''my-password11'''),
+    password = generate_password_hash('''my-password11''').decode("utf-8"),
     description = '''This profile...''',
     profile_picture = '''liriel.png'''
 )
@@ -278,7 +277,7 @@ user12 = User(
     name = '''Lemuel Kauê Manske''',
     username = '''lemuel.manske''',
     email = '''lemuelmanske@gmail.com''',
-    password = encrypt_password('''my-password112'''),
+    password = generate_password_hash('''my-password112''').decode("utf-8"),
     description = '''This profile...''',
     profile_picture = '''lemuel.png'''
 )
@@ -287,7 +286,7 @@ user13 = User(
     name = '''Eduardo Caitano''',
     username = '''eduardo.caitano''',
     email = '''eduardocaitanop@gmail.com''',
-    password = encrypt_password('''my-password13'''),
+    password = generate_password_hash('''my-password13''').decode("utf-8"),
     description = '''This profile...''',
     profile_picture = '''eduardo.png'''
 )
