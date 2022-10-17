@@ -5,7 +5,7 @@ TEM QUE ALINHAR ESSA BOMBA [ALING-CENTER]
 */
 .games{
     margin: 5px 20% 25px 20%;
-    background-color: cadetblue;
+    /*background-color: cadetblue;*/
 }
 
 .games li{
@@ -21,7 +21,7 @@ TEM QUE ALINHAR ESSA BOMBA [ALING-CENTER]
 .games a{
     text-decoration:none ;
     color: black;
-    background-color: red;
+    background-color: #505050;
     height: 100px;    
     width: 100%;
 
@@ -38,13 +38,13 @@ TEM QUE ALINHAR ESSA BOMBA [ALING-CENTER]
     display: inline-block;
     padding: 10px 0 0 20px;
  
-    background-color:yellow;
+    /*background-color:yellow;*/
 }
 
 .games-price{
     font-size: 22px;
     font-weight: bold;
-    background-color:yellow;
+    /*background-color:yellow;*/
     margin:10px 0 0;
 }
  

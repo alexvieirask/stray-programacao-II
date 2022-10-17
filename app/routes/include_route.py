@@ -17,23 +17,22 @@ from services.default_datas import default_games, default_users
             2. curl -d '{"name":"Emanoela Rodrigues Erthal","username":"manu.erthal","email":"emanoela@gmail.com","password":"teste"}' -X  POST -H "Content-Type:application/json" localhost:5000/user/include
             3. curl -d '{"title":"The Game of Year","description":"This game...","categorie":"aventura","price":"50.99","required_age":"0","launch_date":"24/01/2005","developer":"God","cover":"https://images.tcdn.com.br/img/img_prod/691184/teste_213_1_20200528133119.png"}' -X  POST -H "Content-Type:application/json" localhost:5000/user/include
 '''
-@app.route("/<string:class_type>/include", methods = ['POST'])
+@app.route("/<string:class_type>/include", methods = ["POST"])
 def include_route(class_type):
     try:
-        if request.method == "POST":
-            class_type = class_type.title()
-            class_list = [ User, Game, GiftCard ] 
-            datas = request.get_json(force=True)
-        
-            for type in class_list:    
-                if type.__tablename__ == class_type:
-                    new_data = type(**datas)
-                    db.session.add(new_data)
-                    db.session.commit()
-                    
-                    response = jsonify({"result":"ok", "details": 'Success'})
-                    return response
-            response = jsonify({"result":"error", "details": "Bad Request [Class Invalid]"})
+        class_type = class_type.title()
+        class_list = [ User, Game, GiftCard ] 
+        datas = request.get_json(force=True)
+    
+        for type in class_list:    
+            if type.__tablename__ == class_type:
+                new_data = type(**datas)
+                db.session.add(new_data)
+                db.session.commit()
+                
+                response = jsonify({"result":"ok", "details": 'Success'})
+                return response
+        response = jsonify({"result":"error", "details": "Bad Request [Class Invalid]"})
 
     except Exception as error:
         response = jsonify({'result':'error', 'details':str(error)})

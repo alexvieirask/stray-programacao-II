@@ -1,1 +1,1 @@
-__all__ = ['user','return_route','include_route', 'delete_route']
+__all__ = ['user','game','return_route','include_route', 'delete_route']

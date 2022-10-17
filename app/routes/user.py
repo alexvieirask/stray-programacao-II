@@ -8,7 +8,7 @@ from forms.login import LoginForm
 ''' Rota: [ user_register_route ]
     descrição: 
 '''
-@app.route("/user/register", methods = ['GET', 'POST'])
+@app.route("/user/register", methods = ["GET","POST"])
 def user_register_route():
     form_register = RegisterForm(request.form)
 

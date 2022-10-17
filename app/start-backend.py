@@ -10,7 +10,7 @@ from routes import *
 '''
 @app.route("/")
 def home_route():    
-    games = db.session.query(Game).all()
+    games = Game.query.all()
     return render_template('pages/home.html', games = games)
 
 if __name__ == "__main__":
