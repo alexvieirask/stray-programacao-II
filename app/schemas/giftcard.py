@@ -1,6 +1,6 @@
-''' Importação das configurações e serviços  '''
+''' Importação das configurações e serviços '''
 from services.config import *
-from services.encrypt import giftcard_generator
+from services.utils import *
 
 '''Esquema Giftcard:
 
@@ -12,7 +12,7 @@ atributos:
     user_id: Integer <ForeingKey(User.id)> 
 '''
 class GiftCard(db.Model):
-    __tablename__ = 'GiftCard'
+    __tablename__ = 'Giftcard'
     id = db.Column(db.Integer, primary_key = True)
     value = db.Column(db.Integer, nullable = False)
     giftcard_code = db.Column(db.Text, nullable = False, unique = True)
@@ -30,7 +30,7 @@ class GiftCard(db.Model):
     
     def create_giftcard(user_buyer_id: int) -> tuple:
         try:
-            codes_query = db.session.query(GiftCard).all()
+            codes_query = db_query_all(GiftCard)
             new_code = giftcard_generator()
             giftcard_codes = []   
             
@@ -40,20 +40,33 @@ class GiftCard(db.Model):
             if new_code in giftcard_codes:
                 new_code = giftcard_generator()
             else:
-                giftcard = GiftCard( value = 50, giftcard_code = new_code, user_id = user_buyer_id )
-                db.session.add(giftcard)
-                db.session.commit()     
-                return 200, giftcard.json()
+                new_giftcard = GiftCard( 
+                    value = 50, 
+                    giftcard_code = 
+                    new_code, 
+                    user_id = user_buyer_id 
+                )
+
+                db_insert(new_giftcard)     
+                return 200, new_giftcard.json()
 
         except Exception as error:
             return str(error)
 
-    def set_used_giftcard(id) -> tuple:
+    def set_used_giftcard(id:int) -> tuple:
         try:
-            giftcard = GiftCard.query.get(id)
+            giftcard = db_query_by_id(GiftCard,id)
             giftcard.available = False
+        
             db.session.commit()
             return 200, giftcard.json()
 
         except Exception as error:
             return str(error)
+
+def giftcard_generator() -> str:
+    characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    quantity_digit = 12
+    
+    response = ''.join(random.sample(characters, quantity_digit))
+    return response

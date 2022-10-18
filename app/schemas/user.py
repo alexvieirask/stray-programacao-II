@@ -1,5 +1,6 @@
 ''' Importação das configurações e serviços '''
 from services.config import *
+from services.utils import *
 
 '''Esquema User:    
 
@@ -45,19 +46,9 @@ class User(db.Model):
             "is_admin": self.is_admin
         }
     
-    def delete_user (id) -> tuple:
+    def join_form(name:str,username:str, email:str, password:str):
         try:
-            user = User.query.get(id)
-            db.session.delete(user)
-            db.session.commit()
-            return 200, user.json()
-
-        except Exception as error:
-            return str(error)
-
-    def register_form(name:str,username:str, email:str, password:str):
-        try:
-            hash_password = generate_password_hash(password)
+            hash_password = generate_password_hash(password).decode("utf-8")
 
             new_user = User(
                 name = name, 
@@ -66,9 +57,16 @@ class User(db.Model):
                 password = hash_password
             )    
             
-            db.session.add(new_user)
-            db.session.commit()
+            db_insert(new_user)
             return 200, new_user.json()
 
         except Exception as error:
             return str(error)
+
+    def validate_login(username:str,password:str) -> bool:
+        user = db_query_by_username(username)
+        if user:
+            password = check_password_hash(user.password,password)
+            if password:
+                return True
+        return False

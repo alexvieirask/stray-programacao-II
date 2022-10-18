@@ -4,3 +4,4 @@
 
 ''' Importação das configurações  '''
 from services.config import *
+from services.utils import *

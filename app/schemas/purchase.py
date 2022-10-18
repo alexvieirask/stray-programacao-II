@@ -1,5 +1,6 @@
-''' Importação das configurações  '''
+''' Importação das configurações e serviços '''
 from services.config import *
+from services.utils import *
 
 '''Esquema Purchase:
 
@@ -24,21 +25,21 @@ class Purchase(db.Model):
 
     def json(self) -> dict:
         return {
-            'purchase_id': self.id,
-            'user_buyer_id': self.user_buyer_id,
-            'game_buyed_id': self.game_buyed_id,
-            'realized_date': self.realized_date
+            "purchase_id": self.id,
+            "user_buyer_id": self.user_buyer_id,
+            "game_buyed_id": self.game_buyed_id,
+            "realized_date": self.realized_date
         }
 
     def create_purchase(user_buyer_id: int, game_buyed_id: int) -> tuple:
         try:
-            purchase = Purchase(
+            new_purchase = Purchase(
                 user_buyer_id = user_buyer_id, 
                 game_buyed_id = game_buyed_id 
             ) 
-            db.session.add(purchase)
-            db.session.commit()
-            return 200, purchase.json()
+
+            db_insert(new_purchase)
+            return 200, new_purchase.json()
 
         except Exception as error:
             return str(error)

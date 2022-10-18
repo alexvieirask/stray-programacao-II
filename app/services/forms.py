@@ -36,3 +36,22 @@ class RegisterForm(Form):
         EqualTo('password', message= 'Passwords do not match, check again ')
     ])
 
+
+'''Formulário de login de usuário
+
+Campos: 
+    username
+    password
+'''
+class LoginForm(Form):
+    username = StringField('Username',[
+        InputRequired(), 
+        Length(min= 3, max= 20)
+    ])
+    
+    password = PasswordField ('Password',[
+        InputRequired(),
+        Length(min= 4, max = 64)
+    ])
+
+# Adicionar GameForm

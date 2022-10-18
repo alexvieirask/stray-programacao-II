@@ -6,11 +6,12 @@
     
     {% block body %}
         <main>
+            {{teste}}
             <div class="games">
                 <ul>
                     {% for game in games %}
                         <li>
-                            <a href="game/{{ game.title.replace(' ', '-') }}">
+                            <a href="game/{{game.id}}/{{ game.title.replace(' ', '_') }}">
                                 <img src={{ game.cover }} alt="{{ game.cover }}-cover">
                                 <div>
                                     <h2>{{ game.title }}</h2>

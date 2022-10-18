@@ -1,4 +1,6 @@
+''' Importação das configurações e serviços '''
 from services.config import *
+from services.utils import *
 
 '''Esquema Screenshot:
 
@@ -25,10 +27,14 @@ class Screenshot(db.Model):
 
     def screenshot_add(url:str, alt:str, game_id: int) -> tuple:
         try:
-            screenshot = Screenshot(url = url, alt = alt, game_id = game_id) 
-            db.session.add(screenshot)
-            db.session.commit()
-            return 200, screenshot.json()
+            new_screenshot = Screenshot(
+                url = url, 
+                alt = alt, 
+                game_id = game_id
+            ) 
+
+            db_insert(new_screenshot)
+            return 200, new_screenshot.json()
 
         except Exception as error:
             return str(error)        

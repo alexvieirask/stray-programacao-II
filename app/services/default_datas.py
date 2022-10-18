@@ -193,7 +193,8 @@ user01 = User(
     email = '''alexvieiradias2019@gmail.com''',
     password = generate_password_hash('''my-password''').decode("utf-8"),
     description = '''This profile...''',
-    profile_picture = '''alex.png'''
+    profile_picture = '''alex.png''',
+    is_admin = True
 )
 
 user02 = User(
@@ -303,6 +304,7 @@ user13 = User(
     description = '''This profile...''',
     profile_picture = '''eduardo.png'''
 )
+
 
 
 default_users = [ user01, user02, user03, user04, user05, user06, user07, user08, user09, user10, user11, user12, user13 ]

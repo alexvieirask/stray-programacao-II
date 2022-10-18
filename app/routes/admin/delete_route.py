@@ -1,5 +1,6 @@
-''' Importação das configurações '''
+''' Importação das configurações e serviços '''
 from services.config import *
+from services.utils import *
 
 ''' Rota: [ delete_route ]
     descrição: 
@@ -13,6 +14,7 @@ from services.config import *
         6. curl localhost:5000/purchase/delete/1
 '''
 @app.route("/<string:class_type>/delete/<int:id>")
+@jwt_required()
 def delete_route(class_type:str, id:int):
     try:
         class_type = class_type.title()
@@ -20,9 +22,8 @@ def delete_route(class_type:str, id:int):
 
         for type in class_list:    
             if type.__tablename__ == class_type:
-                data = db.session.query(type).get_or_404(id)
-                db.session.delete(data)
-                db.session.commit()
+                data = db_query_by_id(type,id)
+                db_delete(data)
                 response = jsonify({"result":"ok", "details": "Sucess"})
                 return response
                 
@@ -42,7 +43,7 @@ def delete_route(class_type:str, id:int):
 @app.route("/drop_database")
 def drop_database_route():
     try:
-        db.drop_all()
+        db_drop_database()
         response = jsonify({"result":"ok", "details": "Drop database Success! Obs: Reload back-end."})
 
     except Exception as error:

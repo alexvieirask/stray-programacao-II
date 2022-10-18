@@ -1,5 +1,6 @@
 ''' Importação das configurações  '''
 from services.config import *
+from services.utils import *
 
 '''Esquema Medal:
 
@@ -21,7 +22,7 @@ class Medal(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('User.id'))
      
     def json(self):
-        return {
+        return  {
             "id": self.id,
             "title": self.title,
             "description" : self.description,
@@ -30,10 +31,14 @@ class Medal(db.Model):
 
     def register_medal(title: str, description: str, icon: str , user_id: int):
         try:
-            medal = Medal(title  = title, description = description, icon = icon, user_id = user_id)
-            db.session.add(medal)
-            db.session.commit()
-            return 200, medal.json()
+            new_medal = Medal(
+                title  = title, 
+                description = description, 
+                icon = icon, user_id = 
+                user_id
+            )
+            db_insert(new_medal)
+            return 200, new_medal.json()
             
         except Exception as error:
             return str(error)

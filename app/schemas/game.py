@@ -1,5 +1,6 @@
-''' Importação das configurações  '''
+''' Importação das configurações e serviços '''
 from services.config import *
+from services.utils import *
 
 ''' Esquema Game:
 
@@ -46,7 +47,7 @@ class Game(db.Model):
     def create_game(title:str, description:str, categorie:str,price:str,required_age:int, 
                     launch_date:str, developer:str, available:bool) -> tuple:
         try:
-            game = Game (
+            new_game = Game (
                 title = title, 
                 description = description, 
                 categorie = categorie, 
@@ -57,16 +58,15 @@ class Game(db.Model):
                 available = available
             )
 
-            db.session.add(game)
-            db.session.commit()
-            return 200, game.json()
+            db_insert(new_game)
+            return 200, new_game.json()
         
         except Exception as error:
             return str(error)
     
     def set_unavailable_game(id) -> tuple:
         try:
-            game = Game.query.get(id)
+            game = db_query_by_id(Game,id)
             game.available = False
             db.session.commit()
             return 200, game.json()
