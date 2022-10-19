@@ -5,26 +5,13 @@
     {% endblock %}
     
     {% block body %}
-        <main>
-            {{teste}}
-            <div class="games">
-                <ul>
-                    {% for game in games %}
-                        <li>
-                            <a href="game/{{game.id}}/{{ game.title.replace(' ', '_') }}">
-                                <img src={{ game.cover }} alt="{{ game.cover }}-cover">
-                                <div>
-                                    <h2>{{ game.title }}</h2>
-                                    {% if game.price == 0  %}
-                                        <p class="games-price">Free to play</p>
-                                    {% else %}
-                                        <p class="games-price">R$ {{ game.price }}</p>
-                                    {% endif %}
-                                </div>
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </main>
+        <div class="games">
+            <ul id="gamelist"></ul>
+        </div>
+    {% endblock %}
+    
+    {% block scripts %}
+        <script src="https://code.jquery.com/jquery-3.6.0.js" 
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='js/home.js') }}"></script>
     {% endblock %}

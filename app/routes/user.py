@@ -15,7 +15,7 @@ def join_route():
 ''' Rota: [ join_authenticate_route ]
     descrição: 
 '''
-@app.route("/join/authenticate", methods = ["POST"])
+@app.route("/join/auth", methods = ["POST"])
 def join_authenticate_route():
     fields = request.form
     
@@ -48,4 +48,3 @@ def login_authenticate_route():
      if LoginForm(fields).validate():
         username_form = fields["username"]
         password_form = fields["password"]
-

@@ -5,20 +5,17 @@
     {% endblock %}
 
     {% block body %}
-        <h1>Register User</h1>
         {% from "utils/_formhelpers.html" import render_field %}
-        <main>
-            <div style="padding:2%;">
-                <form action="/join/authenticate" method="post" enctype="multipart/form-data">
-                    <div >
-                        {{ render_field( form.name) }}
-                        {{ render_field( form.username ) }}
-                        {{ render_field( form.email) }}
-                        {{ render_field( form.password ) }}
-                        {{ render_field( form.password_confirm ) }}
-                    </div>
-                    <input type="submit" value="Register">
-                </form>
-            </div>
-        </main>
+        <div style="padding:2%;">
+            <form action="/join/authenticate" method="post" enctype="multipart/form-data">
+                <div >
+                    {{ render_field( form.name) }}
+                    {{ render_field( form.username ) }}
+                    {{ render_field( form.email) }}
+                    {{ render_field( form.password ) }}
+                    {{ render_field( form.password_confirm ) }}
+                </div>
+                <input type="submit" value="Register">
+            </form>
+        </div>
     {% endblock %}

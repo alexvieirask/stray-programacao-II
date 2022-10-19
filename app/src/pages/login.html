@@ -1,11 +1,10 @@
 {% extends "utils/_template.html" %}
     {% block head %}
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-        <title>login</title>       
+        <title>Login</title>       
     {% endblock %}
 
     {% block body %}
-        <h1>Login Route</h1>
         {% from "utils/_formhelpers.html" import render_field %}
         <div style="padding:2%;">
             <form action="/login/authenticate" method="post" enctype="multipart/form-data">

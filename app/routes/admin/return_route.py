@@ -14,7 +14,7 @@ from services.utils import *
         6. curl localhost:5000/purchase/return_all
 '''
 @app.route("/<string:class_type>/return_all")
-@jwt_required()
+#@jwt_required() 
 def return_all_route(class_type):
     try: 
         class_type = class_type.title()
