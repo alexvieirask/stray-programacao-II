@@ -1,9 +1,7 @@
 header{
     background-color: #000000;
-
     align-items: center;
 }
-
 .box{
     position: relative;
     width: 940px;
@@ -15,7 +13,6 @@ header{
 .logo-container{
     text-align: center;   
 }
-
 .logo-container img{
     width: 60%;
     position: relative;
@@ -34,7 +31,6 @@ nav{
     position: absolute;
     right: 25%;
     bottom: 40%;
-
 }
 
 nav ul{

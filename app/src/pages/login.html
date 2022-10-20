@@ -5,14 +5,18 @@
     {% endblock %}
 
     {% block body %}
-        {% from "utils/_formhelpers.html" import render_field %}
-        <div style="padding:2%;">
-            <form action="/login/authenticate" method="post" enctype="multipart/form-data">
-                <div >
-                    {{ render_field( form.username ) }}
-                    {{ render_field( form.password ) }}
-                </div>
-                <input type="submit" value="login">
-            </form>
-        </div>
+        <main>
+            <div style="padding:2%;">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <fieldset >
+                        <label for="username">Username</label>
+                        <input name="username" type="text"> 
+
+                        <label for="password">Password</label>
+                        <input name="password" type="text"> 
+                    </fieldset>
+                    <input type="submit" value="login">
+                </form>
+            </div>
+        </main>
     {% endblock %}

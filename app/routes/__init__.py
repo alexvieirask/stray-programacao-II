@@ -1,3 +1,1 @@
-from routes.admin import *
-
-__all__ = ["user","game"]
+__all__ = ["user","game","delete_route","include_route","return_route", "auth_route"]

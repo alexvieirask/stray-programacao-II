@@ -1,21 +1,49 @@
 {% extends "utils/_template.html" %}
     {% block head %}
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
         <title>Register</title>       
     {% endblock %}
 
     {% block body %}
-        {% from "utils/_formhelpers.html" import render_field %}
-        <div style="padding:2%;">
-            <form action="/join/authenticate" method="post" enctype="multipart/form-data">
-                <div >
-                    {{ render_field( form.name) }}
-                    {{ render_field( form.username ) }}
-                    {{ render_field( form.email) }}
-                    {{ render_field( form.password ) }}
-                    {{ render_field( form.password_confirm ) }}
-                </div>
-                <input type="submit" value="Register">
-            </form>
-        </div>
+        <main class="main-register">
+            <div class="form-container">
+                <h1 class="form-title">New Player</h1>
+                <form id="form-new-user" method="post" enctype="multipart/form-data">
+                    <fieldset>
+                        <div class="row-input">
+                            <label class="default-label" for="name">Name</label>
+                            <input autocomplete="off" class="default-input" id="input_name" name="name" type="text">
+                        </div>
+                
+                        <div class="row-input">
+                            <label class="default-label" for="username">Username</label>
+                            <input autocomplete="off" class="default-input" id="input_username" name="username" type="text">
+                        </div>
+                    
+                        <div class="row-input">
+                            <label class="default-label" for="email">E-mail</label>
+                            <input autocomplete="off" class="default-input" id="input_email" name="email" type="email">
+                        </div>
+                        
+                        <div class="row-input">
+                            <label class="default-label" for="password">Password</label>
+                            <input autocomplete="off" class="default-input" id="input_password" name="password" type="text">
+                        </div>
+                        
+                        <div class="row-input">
+                            <label class="default-label" for="password-confirm">Password Confirm</label>
+                            <input autocomplete="off" class="default-input" id="input_password_confirm" name="passwordconfirm" type="text">
+                        </div>
+
+                    </fieldset>
+                    <input class="default-button-submit" id="button-submit" type="submit" value="Submit">
+                </form>
+            </div>
+        </main>
+    {% endblock %}
+    
+    {% block scripts %}
+        <script src="{{ url_for('static', filename='js/jquery/jquery-3.6.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery/jquery.validate.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/user/register.js') }}"></script>
     {% endblock %}

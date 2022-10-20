@@ -38,7 +38,9 @@ class Purchase(db.Model):
                 game_buyed_id = game_buyed_id 
             ) 
 
-            db_insert(new_purchase)
+            db.session.add(new_purchase)
+            db.session.commit()
+            
             return 200, new_purchase.json()
 
         except Exception as error:

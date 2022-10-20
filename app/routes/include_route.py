@@ -28,8 +28,10 @@ def include_route(class_type):
         for type in class_list:    
             if type.__tablename__ == class_type:
                 new_data = type(**datas)
-                db_insert(new_data)
-            
+                
+                db.session.add(new_data)
+                db.session.commit()
+    
                 response = jsonify({"result":"ok", "details": 'Success'})
                 return response
         response = jsonify({"result":"error", "details": "Bad Request [Class Invalid]"})

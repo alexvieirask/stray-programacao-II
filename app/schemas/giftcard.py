@@ -47,7 +47,9 @@ class GiftCard(db.Model):
                     user_id = user_buyer_id 
                 )
 
-                db_insert(new_giftcard)     
+                db.session.add(new_giftcard)
+                db.session.commit()
+                
                 return 200, new_giftcard.json()
 
         except Exception as error:

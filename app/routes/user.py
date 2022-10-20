@@ -1,50 +1,44 @@
 ''' Importações das configurações '''
 from services.config import *
-from services.forms import RegisterForm,LoginForm
-''' Importações dos formulários '''
-
+from services.utils import *
 
 ''' Rota: [ join_route ]
-    descrição: 
+    descrição:
 '''
 @app.route("/join")
 def join_route():
-    fields = request.form
-    return render_template('pages/register.html', form=RegisterForm(fields))
-
-''' Rota: [ join_authenticate_route ]
-    descrição: 
-'''
-@app.route("/join/auth", methods = ["POST"])
-def join_authenticate_route():
-    fields = request.form
-    
-    if  RegisterForm(fields).validate():
-        name = fields['name']
-        username = fields['username']
-        email = fields['email']
-        password = fields['password']
-        
-        User.join_form(name,username,email,password)
-
-        return redirect(url_for('home_route'))
-    else:
-        return redirect(url_for('join_route'))
+    return render_template('pages/register.html')
 
 ''' Rota: [ login_route ]
     descrição: 
 '''
 @app.route("/login")
 def login_route():
-    return render_template('pages/login.html',form= LoginForm(request.form) )
+    return render_template('pages/login.html')
 
-''' Rota: [ login_authenticate_route ]
+''' Rota: [ join_authenticate_route ]
     descrição: 
 '''
-@app.route("/login/authenticate", methods = ["POST"])
-def login_authenticate_route():
-     fields = request.form
-     
-     if LoginForm(fields).validate():
-        username_form = fields["username"]
-        password_form = fields["password"]
+@app.route("/join/auth", methods = ["POST"])
+def join_authenticate_route():
+    try:
+        fields = request.get_json()
+        hash_password = generate_password_hash(fields["password"]).decode("utf-8")
+
+        new_user = User(
+            name = fields["name"], 
+            username = fields["username"], 
+            email = fields["email"], 
+            password = hash_password
+        )    
+        
+        db.session.add(new_user)
+        db.session.commit()
+
+        response = jsonify({"result":"success", "details": new_user.json()})
+        
+    except Exception as error:
+        response = jsonify({"result":"error", "details":str(error)})
+    
+    return response
+  

@@ -46,22 +46,6 @@ class User(db.Model):
             "is_admin": self.is_admin
         }
     
-    def join_form(name:str,username:str, email:str, password:str):
-        try:
-            hash_password = generate_password_hash(password).decode("utf-8")
-
-            new_user = User(
-                name = name, 
-                username = username, 
-                email = email, 
-                password = hash_password
-            )    
-            
-            db_insert(new_user)
-            return 200, new_user.json()
-
-        except Exception as error:
-            return str(error)
 
     def validate_login(username:str,password:str) -> bool:
         user = db_query_by_username(username)

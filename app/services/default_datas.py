@@ -19,7 +19,7 @@ game01 = Game(
     required_age=10,
     launch_date='''25/jan./2018''',
     developer=''' Extremely OK Games, Ltd. ''',
-    cover= "../static/img/games/celeste.png"
+    cover= "../static/img/uploads/games/celeste.png"
 )
 
 game02 = Game(
@@ -31,7 +31,7 @@ game02 = Game(
     required_age=10,
     launch_date='''15/set./2015''',
     developer='''tobyfox''',
-    cover= "../static/img/games/undertale.png"
+    cover= "../static/img/uploads/games/undertale.png"
 )
 
 game03 = Game(
@@ -43,7 +43,7 @@ game03 = Game(
     required_age=0,
     launch_date='''7/jul./2015''',
     developer='''Psyonix LLC''',
-    cover= "../static/img/games/rocketleague.png"
+    cover= "../static/img/uploads/games/rocketleague.png"
 )
 
 game04 = Game(
@@ -57,7 +57,7 @@ game04 = Game(
     required_age=14,
     launch_date='''31/out./2018''',
     developer='''tobyfox''',
-    cover= "../static/img/games/deltarune.png"
+    cover= "../static/img/uploads/games/deltarune.png"
 )
 
 game05 = Game(
@@ -71,7 +71,7 @@ game05 = Game(
     required_age=18,
     launch_date='''20/mar./2020''',
     developer=''' id Software ''',
-    cover= "../static/img/games/doometernal.png"
+    cover= "../static/img/uploads/games/doometernal.png"
 )
 
 game06 = Game(
@@ -85,7 +85,7 @@ game06 = Game(
     required_age=0,
     launch_date='''10/mar./2015''',
     developer='''Colossal Order Ltd.''',
-    cover= "../static/img/games/citiesskyline.png"
+    cover= "../static/img/uploads/games/citiesskyline.png"
 )
 
 game07 = Game(
@@ -98,7 +98,7 @@ game07 = Game(
     required_age=0,
     launch_date='''27/abr./2022''',
     developer='''Crows Crows Crows''',
-    cover= "../static/img/games/stanleyparable.png"
+    cover= "../static/img/uploads/games/stanleyparable.png"
 )
 
 game08 = Game(
@@ -110,7 +110,7 @@ game08 = Game(
     required_age=0,
     launch_date='''08/mai./2014''',
     developer='''SkyBox Labs, Ensemble Studios''',
-    cover= "../static/img/games/ageofmythology.png"
+    cover= "../static/img/uploads/games/ageofmythology.png"
 )
 
 game09 = Game(
@@ -123,7 +123,7 @@ game09 = Game(
     required_age=0,
     launch_date='''18/out./2012''',
     developer='''SCS Software''',
-    cover= "../static/img/games/eurotruck.png"
+    cover= "../static/img/uploads/games/eurotruck.png"
 )
 
 game10 = Game(
@@ -136,7 +136,7 @@ game10 = Game(
     required_age=0,
     launch_date='''30/set./2022''',
     developer=''' EA Canada & EA Romania ''',
-    cover= "../static/img/games/fifa23.png"
+    cover= "../static/img/uploads/games/fifa23.png"
 )
 
 game11 = Game(
@@ -148,7 +148,7 @@ game11 = Game(
     required_age=12,
     launch_date='''02/set./2014''',
     developer='''Maxis''',
-    cover= "../static/img/games/thesims4.png"
+    cover= "../static/img/uploads/games/thesims4.png"
 )
 
 game12 = Game(
@@ -161,7 +161,7 @@ game12 = Game(
     required_age=10,
     launch_date='''22/set./2022''',
     developer='''Monomi Park''',
-    cover= "../static/img/games/slimerancher2.png"
+    cover= "../static/img/uploads/games/slimerancher2.png"
 )
 
 game13 = Game(
@@ -174,7 +174,7 @@ game13 = Game(
     required_age=0,
     launch_date='''28/set./2020''',
     developer='''HoYoverse''',
-    cover= "../static/img/games/genshinimpact.png"
+    cover= "../static/img/uploads/games/genshinimpact.png"
 )
 
 default_games = [ game01, game02, game03, game04, game05, game06, game07, game08, game09, game10, game11, game12, game13 ]

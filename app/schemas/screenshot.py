@@ -32,8 +32,10 @@ class Screenshot(db.Model):
                 alt = alt, 
                 game_id = game_id
             ) 
-
-            db_insert(new_screenshot)
+            
+            db.session.add(new_screenshot)
+            db.session.commit()
+            
             return 200, new_screenshot.json()
 
         except Exception as error:

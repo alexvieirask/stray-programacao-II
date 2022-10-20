@@ -37,7 +37,10 @@ class Medal(db.Model):
                 icon = icon, user_id = 
                 user_id
             )
-            db_insert(new_medal)
+
+            db.session.add(new_medal)
+            db.session.commit()
+
             return 200, new_medal.json()
             
         except Exception as error:

@@ -43,33 +43,3 @@ class Game(db.Model):
             "available": self.available,
             "cover": self.cover
         }
-    
-    def create_game(title:str, description:str, categorie:str,price:str,required_age:int, 
-                    launch_date:str, developer:str, available:bool) -> tuple:
-        try:
-            new_game = Game (
-                title = title, 
-                description = description, 
-                categorie = categorie, 
-                price = price, 
-                required_age = required_age,
-                launch_date = launch_date,
-                developer = developer, 
-                available = available
-            )
-
-            db_insert(new_game)
-            return 200, new_game.json()
-        
-        except Exception as error:
-            return str(error)
-    
-    def set_unavailable_game(id) -> tuple:
-        try:
-            game = db_query_by_id(Game,id)
-            game.available = False
-            db.session.commit()
-            return 200, game.json()
-
-        except Exception as error:
-            return str(error)

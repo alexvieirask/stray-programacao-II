@@ -20,20 +20,6 @@ def db_query_by_username(username:str):
     '''
     return User.query.filter_by(username = username).first()
 
-def db_insert(item:object):
-    ''' Realiza a inserção de um objeto
-    em uma determinada tabela da database
-    de acordo com sua classe.
-    '''
-    db.session.add(item)
-    db.session.commit()
-
-def db_delete(item:object):
-    ''' Realiza a remoção de um objeto
-    da database.
-    '''
-    db.session.delete(item)
-    db.session.commit()
 
 def db_drop_database():
     ''' Destrói todas as tabelas.'''
