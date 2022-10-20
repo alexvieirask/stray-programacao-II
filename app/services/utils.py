@@ -20,7 +20,6 @@ def db_query_by_username(username:str):
     '''
     return User.query.filter_by(username = username).first()
 
-
 def db_drop_database():
     ''' Destrói todas as tabelas.'''
     db.drop_all()
