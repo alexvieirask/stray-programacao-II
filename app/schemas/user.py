@@ -2,18 +2,8 @@
 from services.config import *
 from services.utils import *
 
-'''Esquema User:    
-
-atributos:
-    id: Integer
-    username: Text
-    e-mail: Text
-    password: Text
-    wallet: Text
-    description: Text
-    profile_picture: Text
-    registration_date : DateTime <Default value: datetime.now()>
-    is_admin : Boolean <Default value: false>
+''' Esquema: [ User ]
+    descrição: 
 '''
 class User(db.Model):
     __tablename__ = 'User'
@@ -48,6 +38,7 @@ class User(db.Model):
     
 
     def validate_login(username:str,password:str) -> bool:
+        ''' Essa função realiza a verificação do login. \n Return: bool  '''
         user = db_query_by_username(username)
         if user:
             password = check_password_hash(user.password,password)

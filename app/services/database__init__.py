@@ -1,3 +1,4 @@
+''' Importação das configurações e serviços '''
 from services.config import *
 
 ''' database __init__ '''

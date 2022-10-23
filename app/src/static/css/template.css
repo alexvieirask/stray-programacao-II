@@ -1,41 +1,39 @@
 header{
-    background-color: #000000;
+    background-color:#FFFFFF;
     align-items: center;
+    border-radius: 0 0 50px 50px;
+    height: 100px;
 }
 .box{
     position: relative;
-    width: 940px;
+    height: 100%;
+    width: 50%;
     margin: 0 auto;
     display: flex;
     align-items: center;
 
 }
-.logo-container{
-    text-align: center;   
-}
-.logo-container img{
-    width: 60%;
-    position: relative;
-    bottom: 5px;
-}
-.logo-container h2{
-    color: white;
-    font-weight: 800;
-    font-size: 30px;
-    position: relative;
-    bottom: 30px;
+
+.logo-title {
+    color: rgb(72, 61, 139);
+    font-weight: bold;
+    line-height: 60px;
+    font-size: 48px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: 0.7s all;
+}
+.logo-title:hover{
+    color: rgb(93, 63, 211);
+}
+
+.logo-title-link{
+    text-transform: uppercase;
+    text-decoration: none;
 }
 
 nav{
     position: absolute;
-    right: 25%;
-    bottom: 40%;
-}
-
-nav ul{
-    list-style-type: none;
-    cursor: default;
+    right: 5%;
 }
 
 nav li{
@@ -43,16 +41,16 @@ nav li{
     margin: 0 0 0 15px;
 
 }
-
 nav a{
     text-transform: uppercase;
     text-decoration: none;
-    color: #ffffff;
+    color: #000000;
+    line-height: 40px;
     font-weight: bold;  
-    font-size: 22px;
+    font-size: 18px;
+    transition: 1s all;
 }
 
 nav a:hover{
     color: #dc143c ;
-    font-size: 24px;
 }

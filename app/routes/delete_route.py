@@ -12,6 +12,8 @@ from services.utils import *
         4. curl localhost:5000/medal/delete/1
         5. curl localhost:5000/screenshot/delete/1
         6. curl localhost:5000/purchase/delete/1
+    
+    Obs.: Esta rota necessita do JWT no corpo da requisição.
 '''
 @app.route("/<string:class_type>/delete/<int:id>")
 @jwt_required()

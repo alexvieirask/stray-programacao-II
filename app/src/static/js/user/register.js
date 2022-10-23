@@ -28,6 +28,7 @@ $(function() {
         submitHandler: onSubmit
     })
 
+
     function onSubmit(){
         formData =  JSON.stringify({
             name:$("#input_name").val(),

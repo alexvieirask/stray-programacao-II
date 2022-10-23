@@ -12,19 +12,12 @@
     <body>
         <header>
             <div class="box">
-                <div class="logo-container">
-                    <h1><img src="{{ url_for('static', filename='img/logo-cat.png') }}" alt="logo"></h1>
-                    <h2>STRAY</h2>
-                </div>
-                <div>
-                    <nav>
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/join">Register</a></li>
-                            <li><a href="/login">Login</a></li>
-                        </ul>
-                    </nav>
-                </div>   
+                <a class="logo-title-link" href="/"><span class="logo-title">STRAY</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="/login">Login</a></li>
+                    </ul>
+                </nav>
             </div>
         </header>
         
@@ -32,7 +25,6 @@
         
         {% endblock %}
       
-
         {% block scripts %}
 
         {% endblock %}

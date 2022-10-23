@@ -2,13 +2,8 @@
 from services.config import *
 from services.utils import *
 
-'''Esquema Screenshot:
-
-atributos:
-    id: Integer
-    url: Text
-    alt: Text
-    game_id: Integer <ForeingKey(Game.id)>
+''' Esquema: [ Screenshot ]
+    descrição: 
 '''
 class Screenshot(db.Model):
     __tablename__ = 'Screenshot'
@@ -17,26 +12,10 @@ class Screenshot(db.Model):
     alt = db.Column(db.Text, nullable = False)
     game_id = db.Column(db.Integer,db.ForeignKey('Game.id'))
     
-    def json(self):
+    def json(self) -> dict:
         return{
             "id": self.id,
             "url": self.url,
             "alt": self.alt,
             "game_id": self.game_id
         }
-
-    def screenshot_add(url:str, alt:str, game_id: int) -> tuple:
-        try:
-            new_screenshot = Screenshot(
-                url = url, 
-                alt = alt, 
-                game_id = game_id
-            ) 
-            
-            db.session.add(new_screenshot)
-            db.session.commit()
-            
-            return 200, new_screenshot.json()
-
-        except Exception as error:
-            return str(error)        

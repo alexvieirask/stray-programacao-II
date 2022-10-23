@@ -12,6 +12,8 @@ from services.utils import *
         4. curl localhost:5000/medal/return_all 
         5. curl localhost:5000/screenshot/return_all
         6. curl localhost:5000/purchase/return_all
+    
+    Obs.: Esta rota necessita do JWT no corpo da requisição.
 '''
 @app.route("/<string:class_type>/return_all")
 #@jwt_required() 

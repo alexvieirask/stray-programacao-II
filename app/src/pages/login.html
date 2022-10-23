@@ -1,22 +1,41 @@
 {% extends "utils/_template.html" %}
     {% block head %}
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
         <title>Login</title>       
     {% endblock %}
 
     {% block body %}
-        <main>
-            <div style="padding:2%;">
-                <form action="" method="post" enctype="multipart/form-data">
-                    <fieldset >
-                        <label for="username">Username</label>
-                        <input name="username" type="text"> 
-
-                        <label for="password">Password</label>
-                        <input name="password" type="text"> 
+        <main class="main-register">
+            <div class="form-container">
+                <h1 class="form-title">Hello Player</h1>
+                <form id="form-new-user" method="post" enctype="multipart/form-data">
+                    <fieldset>
+                        <div class="row-input">
+                            <label class="default-label" for="username">Username</label>
+                            <input autocomplete="off" class="default-input" id="input_username" name="username" type="text">
+                        </div>
+                    
+                        <div class="row-input">
+                            <label class="default-label" for="password">Password</label>
+                            <input autocomplete="off" class="default-input" id="input_password" name="password" type="text">
+                        </div>
                     </fieldset>
-                    <input type="submit" value="login">
+                    <input class="default-button-submit" id="button-submit" type="submit" value="login">
                 </form>
+                
+                <div class="row-container">
+                  <hr class="line-decorate"><span>or</span><hr class="line-decorate">
+                </div>
+                <p class="signup">Not a member? <a href="/join">Signup</a> </p>
+               
+
+
+
             </div>
+
         </main>
+    {% endblock %}
+
+    {% block scripts %}
+      
     {% endblock %}

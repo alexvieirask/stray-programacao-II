@@ -1,5 +1,5 @@
-" Importação dos serviços necessários "
-from services.config import Game,User, generate_password_hash,url_for
+''' Importação das configurações e serviços '''
+from services.config import *
 
 '''
 Default gamelist

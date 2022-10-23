@@ -18,6 +18,8 @@ def login_route():
 
 ''' Rota: [ join_authenticate_route ]
     descrição: 
+
+    Testes:
 '''
 @app.route("/join/auth", methods = ["POST"])
 def join_authenticate_route():

@@ -2,19 +2,8 @@
 from services.config import *
 from services.utils import *
 
-''' Esquema Game:
-
-atributos:
-    id: Integer
-    title: Text
-    description: Text
-    categorie: Text
-    price: Text
-    required_age: Integer
-    launch_date: Text
-    developer: Text
-    available: Boolean <Default value: true>
-    cover: Text <Default value:../static/img/default-cover.gif>
+''' Esquema: [ Game ]
+    descrição: 
 '''
 class Game(db.Model):
     __tablename__ = 'Game'

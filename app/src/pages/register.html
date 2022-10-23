@@ -1,6 +1,6 @@
 {% extends "utils/_template.html" %}
     {% block head %}
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
         <title>Register</title>       
     {% endblock %}
 
@@ -21,23 +21,25 @@
                         </div>
                     
                         <div class="row-input">
-                            <label class="default-label" for="email">E-mail</label>
+                            <label class="default-label" for="email">Email</label>
                             <input autocomplete="off" class="default-input" id="input_email" name="email" type="email">
                         </div>
                         
                         <div class="row-input">
                             <label class="default-label" for="password">Password</label>
-                            <input autocomplete="off" class="default-input" id="input_password" name="password" type="text">
+                            <input autocomplete="off" class="default-input" id="input_password" name="password" type="password">
+    
                         </div>
                         
                         <div class="row-input">
                             <label class="default-label" for="password-confirm">Password Confirm</label>
-                            <input autocomplete="off" class="default-input" id="input_password_confirm" name="passwordconfirm" type="text">
+                            <input autocomplete="off" class="default-input" id="input_password_confirm" name="passwordconfirm" type="password">
                         </div>
 
                     </fieldset>
                     <input class="default-button-submit" id="button-submit" type="submit" value="Submit">
                 </form>
+                
             </div>
         </main>
     {% endblock %}
