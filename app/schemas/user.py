@@ -39,7 +39,7 @@ class User(db.Model):
 
     def validate_login(username:str,password:str) -> bool:
         ''' Essa função realiza a verificação do login. \n Return: bool  '''
-        user = db_query_by_username(username)
+        user = db_query_by_username(User, username)
         if user:
             password = check_password_hash(user.password,password)
             if password:

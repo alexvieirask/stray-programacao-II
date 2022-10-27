@@ -10,24 +10,27 @@ def join_route():
     return render_template('pages/register.html')
 
 ''' Rota: [ login_route ]
-    descrição: 
+    descrição: Retorna o template da screen login.
 '''
 @app.route("/login")
 def login_route():
     return render_template('pages/login.html')
 
 ''' Rota: [ join_authenticate_route ]
-    descrição: 
+    descrição: Faz a autenticação para e cadastra um novo usuário.
 
-    Testes:
+    Testes: Desenvolver.../ arrumar caso exista username ou email
+
+
 '''
 @app.route("/join/auth", methods = ["POST"])
 def join_authenticate_route():
     try:
         fields = request.get_json()
+        
         hash_password = generate_password_hash(fields["password"]).decode("utf-8")
 
-        new_user = User(
+        new_user = User (
             name = fields["name"], 
             username = fields["username"], 
             email = fields["email"], 

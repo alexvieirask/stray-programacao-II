@@ -7,20 +7,13 @@ from services.default_datas import default_games, default_users
     descrição: 
 
     Testes:
-        Windows: 
             1. curl -H \Content-Type:application/json\ -X POST --data "{\"name\":\"Alex Vieira Dias\",\"username\":\"alexvieirasdias\",\"email\":\"alexvieirasdias@gmail.com\",\"password\":\"teste\"}" http://localhost:5000/user/include
             2. curl -H \Content-Type:application/json\ -X POST --data "{\"name\":\"Emanoela Rodrigues Erthal\",\"username\":\"manu_erthal\",\"email\":\"manu@gmail.com\",\"password\":\"manu\"}" http://localhost:5000/user/include
             3. curl -H \Content-Type:application/json\ -X POST --data "{\"title\":\"The test\",\"description\":\"this game...\",\"categorie\":\"aventura\",\"price\":\"2\",\"required_age\":\"0\",\"launch_date\":\"24/01/2005\",\"developer\":\"The Tester\",\"cover\":\"https://images.tcdn.com.br/img/img_prod/691184/teste_213_1_20200528133119.png\"}" http://localhost:5000/game/include
-        
-        Linux:
-            1. curl -d '{"name":"Alex Vieira Dias","username":"alexvieiradiasSK","email":"alexvieiradias2019@gmail.com","password":"teste"}' -X  POST -H  localhost:5000/user/include
-            2. curl -d '{"name":"Emanoela Rodrigues Erthal","username":"manu.erthal","email":"emanoela@gmail.com","password":"teste"}' -X  POST -H  localhost:5000/user/include
-            3. curl -d '{"title":"The Game of Year","description":"This game...","categorie":"aventura","price":"50.99","required_age":"0","launch_date":"24/01/2005","developer":"God","cover":"https://images.tcdn.com.br/img/img_prod/691184/teste_213_1_20200528133119.png"}' -X  POST -H  localhost:5000/user/include
-
+   
     Obs.: Esta rota necessita do JWT no corpo da requisição.
 '''
 @app.route("/<string:class_type>/include", methods = ["POST"])
-@jwt_required()
 def include_route(class_type):
     try:
         class_type = class_type.title()
@@ -43,7 +36,7 @@ def include_route(class_type):
     return response
 
 ''' Rota: [ default_datas_route ]
-    descrição: 
+    descrição: Rota para inserir os dados padrõoes para teste do sistema.
     
     Testes:
         localhost:5000/default_datas

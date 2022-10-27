@@ -2,7 +2,7 @@ from services.config import *
 from services.utils import *
 
 ''' Rota: [ game_return_route ]
-    descrição: 
+    descrição: Esta rota retorna um jogo em especifico.
 '''
 @app.route("/game/<int:id>/<string:title>")
 def game_return_route(id, title):
