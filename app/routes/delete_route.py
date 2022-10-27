@@ -3,7 +3,7 @@ from services.config import *
 from services.utils import *
 
 ''' Rota: [ delete_route ]
-    descrição: 
+    descrição: Esta rota é responsável por deletar um item de uma determinada tabela.
     
     Testes:
         1. curl localhost:5000/user/delete/1
@@ -26,7 +26,7 @@ def delete_route(class_type:str, id:int):
             if type.__tablename__ == class_type:
                 data = db_query_by_id(type,id)
                 
-                db.session.add(data)
+                db.session.delete(data)
                 db.session.commit()
 
                 response = jsonify({"result":"ok", "details": "Sucess"})
