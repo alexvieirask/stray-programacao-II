@@ -3,12 +3,7 @@ from services.config import *
 
 '''
 Default gamelist
-
-Games: Celeste, Undertale, Rocket League, Deltarune, Doom Eternal, Cities: Skyline,
-       The Stanley Parable Ultra Deluxe, Roblox, Euro Truck Simulator 2, EA SPORTS™ FIFA 23, The Sims 4,
-       Slime Rancher 2 e Genshin Impact.
 '''
-
 game01 = Game(
     title='''Celeste''',
     description=''' Ajude Madeline a enfrentar seus demônios internos em sua jornada até o topo da Montanha Celeste,
@@ -179,14 +174,9 @@ game13 = Game(
 
 default_games = [ game01, game02, game03, game04, game05, game06, game07, game08, game09, game10, game11, game12, game13 ]
 
-
 '''
 Default userlist
-
-users: Alex Vieira Dias, Emanoela Rodrigues Erthal, Igor Gramkow, Gabriel Molon Zanella, Yara Rahn, Alana Cristina Andreazza,
-Amadeus Vitor Poletti, Lucas Gabriel Sievert, Beatriz Miranda, Larissa Reiter Branco, Liriel Pisetta, Lemuel Kauê Manske e Eduardo Caitano.
 '''
-
 user01 = User(
     name = '''Alex Vieira Dias''',
     username = '''alex.vieira''',
@@ -304,7 +294,5 @@ user13 = User(
     description = '''This profile...''',
     profile_picture = '''eduardo.png'''
 )
-
-
 
 default_users = [ user01, user02, user03, user04, user05, user06, user07, user08, user09, user10, user11, user12, user13 ]

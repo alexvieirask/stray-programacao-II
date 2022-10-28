@@ -3,7 +3,7 @@ from services.config import *
 from services.utils import *
 
 ''' Esquema: [ Giftcard ]
-    descrição: 
+    descrição: Esquema de Giftcard utilizado no sistema.
 '''
 class GiftCard(db.Model):
     __tablename__ = 'Giftcard'

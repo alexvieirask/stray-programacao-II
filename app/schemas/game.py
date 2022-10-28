@@ -3,7 +3,7 @@ from services.config import *
 from services.utils import *
 
 ''' Esquema: [ Game ]
-    descrição: 
+    descrição: Esquema de jogo utilizado no sistema.
 '''
 class Game(db.Model):
     __tablename__ = 'Game'
@@ -21,8 +21,7 @@ class Game(db.Model):
 
     def json(self) -> dict:
         return { 
-            "id": self.id,
-            "title": self.title,
+            "id": self.id,"title": self.title,
             "description": self.description, 
             "categorie": self.categorie,  
             "price":self.price,

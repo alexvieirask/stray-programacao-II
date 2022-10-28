@@ -1,14 +1,12 @@
 $(function () { 
     $.ajax({
-        url: 'http://localhost:5000/game/return_all',
+        url: "http://localhost:5000/game/return_all",
         method: 'GET',
         dataType: 'json',
         success: listGames, 
-        error: function () {
-            alert("Error reading data, verify backend");
-        }
+        error: () => { alert("Error reading data, verify backend") }
     });
-
+    
     function listGames(data) {
         const GAMELIST  = data.details
 
@@ -28,7 +26,7 @@ $(function () {
                             <img src=${GAME.COVER} alt="${GAME.COVER}-cover">
                             <div>
                                 <h2>${GAME.TITLE}</h2>
-                                <p class="games-price">${GAME.PRICE == 0 ? "Free To play": `R$ ${GAME.PRICE}`}</p>
+                                <p class="games-price">${GAME.PRICE == 0 ? "Free": `R$ ${GAME.PRICE}`}</p>
                             </div>
                         </a>
                     </li>

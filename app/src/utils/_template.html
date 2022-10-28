@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/config.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
         {% block head %}
+        
         {% endblock %}
     </head> 
     <body>
@@ -14,19 +15,18 @@
             <div class="box">
                 <a class="logo-title-link" href="/"><span class="logo-title">STRAY</span></a>
                 <nav>
-                    <ul>
-                        <li><a href="/login">Login</a></li>
+                    <ul id="ul-header">
+                        <li id="li-login"><a id="a-login" href="/login">Login</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
-        
         {% block body %} 
         
         {% endblock %}
-      
+        <script src="{{ url_for('static', filename='js/jquery/jquery-3.6.1.min.js') }}"></script>
         {% block scripts %}
-
+           
         {% endblock %}
     </body>
 </html>

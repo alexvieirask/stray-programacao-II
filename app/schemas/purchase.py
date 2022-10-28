@@ -3,7 +3,7 @@ from services.config import *
 from services.utils import *
 
 ''' Esquema: [ Purchase ]
-    descrição: 
+    descrição: Esquema de Purchase utilizado no sistema.
 '''
 class Purchase(db.Model):
     __tablename__ = 'Purchase'

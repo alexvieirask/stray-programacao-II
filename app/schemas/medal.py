@@ -3,7 +3,7 @@ from services.config import *
 from services.utils import *
 
 ''' Esquema: [ Medal ]
-    descrição: 
+    descrição: Esquema de Medal utilizado no sistema.
 '''
 class Medal(db.Model):
     __tablename__ = 'Medal'

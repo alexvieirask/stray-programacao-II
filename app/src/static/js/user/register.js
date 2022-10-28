@@ -48,7 +48,6 @@ $(function() {
         });
 
         function onSuccess(response){
-            console.log(response)
             $('#form-new-user').each (function(){
                 this.reset();
             });

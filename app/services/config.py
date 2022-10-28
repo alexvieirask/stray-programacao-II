@@ -13,6 +13,7 @@ from flask import Flask, render_template,jsonify, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt,generate_password_hash,check_password_hash
+from sqlalchemy.exc import IntegrityError
 
 ''' Configurações Flask SQLALCHEMY '''
 app = Flask(__name__, template_folder='../src', static_folder='../src/static')
@@ -40,3 +41,7 @@ from schemas.giftcard import GiftCard
 from schemas.screenshot import Screenshot
 from schemas.game import Game
 from schemas.user import User
+
+''' Criação da database '''
+if not os.path.exists(database_file):
+    db.create_all()

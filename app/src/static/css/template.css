@@ -41,7 +41,7 @@ nav li{
     margin: 0 0 0 15px;
 
 }
-nav a{
+#a-login{
     text-transform: uppercase;
     text-decoration: none;
     color: #000000;
@@ -49,8 +49,4 @@ nav a{
     font-weight: bold;  
     font-size: 18px;
     transition: 1s all;
-}
-
-nav a:hover{
-    color: #dc143c ;
 }

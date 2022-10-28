@@ -31,6 +31,8 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	font-family: 'Open Sans', sans-serif;
+	background-color: #191919;
+
 }
 ol, ul {
 	list-style: none;

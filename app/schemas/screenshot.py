@@ -3,7 +3,7 @@ from services.config import *
 from services.utils import *
 
 ''' Esquema: [ Screenshot ]
-    descrição: 
+    descrição: Esquema de Screenshot utilizado no sistema.
 '''
 class Screenshot(db.Model):
     __tablename__ = 'Screenshot'

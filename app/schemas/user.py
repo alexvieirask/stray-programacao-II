@@ -3,7 +3,7 @@ from services.config import *
 from services.utils import *
 
 ''' Esquema: [ User ]
-    descrição: 
+    descrição: Esquema de User utilizado no sistema.
 '''
 class User(db.Model):
     __tablename__ = 'User'
