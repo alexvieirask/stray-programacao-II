@@ -6,6 +6,7 @@ programação II. Este projeto tem como finalidade a criação de uma biblioteca
 <img src="https://i.ibb.co/PrxhzFr/diagrama-uml-classes.jpg" width="1200px">
 
 ## Como utilizar?
+**Dependências:** pip install -r requirements.txt <br/><br/>
 **Inicializador: app/app.py** <br/><br/>
 Executando o arquivo acima o backend será acionado permitindo assim o funcionamento da aplicação.
 
