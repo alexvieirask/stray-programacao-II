@@ -18,7 +18,7 @@ header{
     color: rgb(72, 61, 139);
     font-weight: bold;
     line-height: 60px;
-    font-size: 48px;
+    font-size: 56px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: 0.7s all;
 }
@@ -33,7 +33,7 @@ header{
 
 nav{
     position: absolute;
-    right: 5%;
+    right: 0;
 }
 
 nav li{
@@ -41,12 +41,13 @@ nav li{
     margin: 0 0 0 15px;
 
 }
-#a-login{
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #000000;
-    line-height: 40px;
-    font-weight: bold;  
-    font-size: 18px;
-    transition: 1s all;
+
+
+#logout-header, #username-header, #a-login{
+    background-color: rgb(72, 61, 139) ;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    cursor: pointer;
 }

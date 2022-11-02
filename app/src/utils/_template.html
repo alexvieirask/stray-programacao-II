@@ -16,7 +16,7 @@
                 <a class="logo-title-link" href="/"><span class="logo-title">STRAY</span></a>
                 <nav>
                     <ul id="ul-header">
-                        <li id="li-login"><a id="a-login" href="/login">Login</a></li>
+                        <li><a id="a-login" href="/login">Login</a></li>
                     </ul>
                 </nav>
             </div>
@@ -24,7 +24,9 @@
         {% block body %} 
         
         {% endblock %}
+
         <script src="{{ url_for('static', filename='js/jquery/jquery-3.6.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/template.js') }}"></script>
         {% block scripts %}
            
         {% endblock %}

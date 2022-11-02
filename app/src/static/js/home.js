@@ -31,7 +31,8 @@ $(function () {
                         </a>
                     </li>
                 `
-            $('#gamelist').append(GAMEBOX__HTML);
+            $('.games').append(GAMEBOX__HTML);
         }
     }
+
 });

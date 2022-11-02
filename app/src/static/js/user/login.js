@@ -1,7 +1,7 @@
 $(function() { 
 
-    $("#input_username").val('emanoela.erthal'),
-    $("#input_password").val('my-password2'),
+    $("#input_username").val('alex.vieira'),
+    $("#input_password").val('my-password'),
 
     /* Validação de Formulário através do Jquery validate */ 
     $("#form-login").validate({
@@ -39,6 +39,8 @@ $(function() {
                 sessionStorage.setItem("JWT", response.details)
                 sessionStorage.setItem("username", $("#input_username").val())
                 window.location = "/"
+            }else{
+                alert(`Invalid login ${response.details}`)
             }
         }
 
