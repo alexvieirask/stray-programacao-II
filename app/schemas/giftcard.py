@@ -34,8 +34,6 @@ class GiftCard(db.Model):
         
         return(token_generate)
     
-    def giftcard_used(schema):
-            schema.available = False
+    def giftcard_used(giftcard):
+            giftcard.available = False
             db.session.commit()
-        
-    
