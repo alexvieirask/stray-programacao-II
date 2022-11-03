@@ -12,7 +12,7 @@ class User(db.Model):
     username = db.Column(db.Text, nullable = False, unique= True)
     email = db.Column(db.Text, nullable=False, unique= True)
     password = db.Column(db.Text, nullable=False)
-    wallet = db.Column(db.Float, default = 0)
+    wallet = db.Column(db.Integer, default = 0)
     description = db.Column(db.Text)
     profile_picture = db.Column(db.Text)
     registration_date = db.Column(db.DateTime, default= datetime.now())

@@ -10,7 +10,7 @@ game01 = Game(
     nesse jogo de plataforma super afiado dos criadores de TowerFall. Desbrave centenas de desafios meticulosos,
     descubra segredos complicados e desvende o mistério da montanha.''',
     categorie='''Ação, Aventura, Indie''',
-    price=36.99,
+    price=3699,
     required_age=10,
     launch_date='''25/jan./2018''',
     developer=''' Extremely OK Games, Ltd. ''',
@@ -22,7 +22,7 @@ game02 = Game(
     description='''Bem-vindo ao UNDERTALE. Neste RPG, você controla um humano que cai no subsolo no mundo dos monstros.
     Agora você deve encontrar a saída... ou ficará preso para sempre.''',
     categorie='''Indie, RPG''',
-    price=19.99,
+    price=1999,
     required_age=10,
     launch_date='''15/set./2015''',
     developer='''tobyfox''',
@@ -62,7 +62,7 @@ game05 = Game(
     entre dimensões para impedir a derradeira destruição da humanidade.
     A única coisa que eles temem... é você. ''',
     categorie='''Ação''',
-    price=79,
+    price=7900,
     required_age=18,
     launch_date='''20/mar./2020''',
     developer=''' id Software ''',
@@ -76,7 +76,7 @@ game06 = Game(
     para que você sinta a emoção e a dificuldade de criar e manter uma cidade
     de verdade, além de aprimorar os elementos clássicos da construção de cidades. ''',
     categorie='''Simulação, Estratégia''',
-    price=74.99,
+    price=7499,
     required_age=0,
     launch_date='''10/mar./2015''',
     developer='''Colossal Order Ltd.''',
@@ -89,7 +89,7 @@ game07 = Game(
     como digitador. Narrado por Kevan Brighting, o título é baseado em ações e respostas através
     de instruções dadas pelo próprio narrador. ''',
     categorie='''Aventura, Casual, Indie''',
-    price=47.49,
+    price=4749,
     required_age=0,
     launch_date='''27/abr./2022''',
     developer='''Crows Crows Crows''',
@@ -101,7 +101,7 @@ game08 = Game(
     description=''' Age of Mythology está de volta! Escolha o seu deus e vá para o campo de batalha neste clássico,
     atualizado com integração total com o Strayworks e recursos aprimorados.''',
     categorie='''Simulação, Estratégia''',
-    price=55.99,
+    price=5599,
     required_age=0,
     launch_date='''08/mai./2014''',
     developer='''SkyBox Labs, Ensemble Studios''',
@@ -114,7 +114,7 @@ game09 = Game(
     distâncias impressionantes! Com dezenas de cidades para explorar, sua resistência, habilidade e
     velocidade serão levadas ao limite. ''',
     categorie='''Indie, Simulação''',
-    price=44.99,
+    price=4499,
     required_age=0,
     launch_date='''18/out./2012''',
     developer='''SCS Software''',
@@ -127,7 +127,7 @@ game10 = Game(
     ainda mais realismo às partidas, a FIFA World Cup™ masculina e feminina (lançamento durante a temporada), times
     femininos, recursos de crossplay e muito mais. ''',
     categorie='''Simulação, Esportes''',
-    price=299,
+    price=29900,
     required_age=0,
     launch_date='''30/set./2022''',
     developer=''' EA Canada & EA Romania ''',
@@ -139,7 +139,7 @@ game11 = Game(
     description=''' Curta o poder de criar e controlar pessoas num mundo virtual onde não há regras. Seja poderoso
     e livre, divirta-se e jogue com a vida! ''',
     categorie='''Casual, Simulação''',
-    price=4773.90,
+    price=25000,
     required_age=12,
     launch_date='''02/set./2014''',
     developer='''Maxis''',
@@ -152,7 +152,7 @@ game12 = Game(
     uma terra repleta de mistérios antigos e cheia de novos slimes bons de remelexo para criar, na sequência do
     grande sucesso Slime Rancher ''',
     categorie='''Ação, Aventura, Casual, Indie, Simulação''',
-    price=36.95,
+    price=3695,
     required_age=10,
     launch_date='''22/set./2022''',
     developer='''Monomi Park''',

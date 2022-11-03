@@ -15,7 +15,7 @@ $(function () {
                 ID: GAMELIST[index].id,
                 TITLE: GAMELIST[index].title,
                 COVER: GAMELIST[index].cover,
-                PRICE: GAMELIST[index].price,
+                PRICE: GAMELIST[index].price / 100,
                 TITLE_LINK: GAMELIST[index].title.replace(/\s/g, '')
             }
 
