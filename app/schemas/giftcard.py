@@ -35,5 +35,15 @@ class GiftCard(db.Model):
         return(token_generate)
     
     def giftcard_used(giftcard):
+        try:
             giftcard.available = False
             db.session.commit()
+            response = jsonify({"result":"ok", "details": "Success"})
+
+        except Exception as error:
+            response = jsonify({"result":"error", "details":str(error)})
+        
+        finally:
+            db.session.close()
+        
+        return response
