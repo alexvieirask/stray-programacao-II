@@ -36,6 +36,12 @@ def games_return_route():
 
     Testes:
         curl localhost:5000/game/purchase/1 -H "Authorization:Bearer "TOKEN_JWT"
+        curl localhost:5000/game/purchase/2 -H "Authorization:Bearer "TOKEN_JWT"
+        curl localhost:5000/game/purchase/3 -H "Authorization:Bearer "TOKEN_JWT"
+        curl localhost:5000/game/purchase/4 -H "Authorization:Bearer "TOKEN_JWT"
+        curl localhost:5000/game/purchase/5 -H "Authorization:Bearer "TOKEN_JWT"
+    
+     Obs.: Esta rota necessita do JWT no corpo da requisição.
 '''
 @app.route("/game/purchase/<int:game_id>")
 @jwt_required()
