@@ -1,53 +1,78 @@
-header{
-    background-color:#FFFFFF;
-    align-items: center;
-    border-radius: 0 0 50px 50px;
-    height: 100px;
+header {
+  background-color: #ffffff;
+  align-items: center;
+  min-width: 420px;
+  border-radius: 0 0 50px 50px;
+  height: 100px;
 }
-.box{
-    position: relative;
-    height: 100%;
-    width: 50%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-
+.box {
+  position: relative;
+  justify-content: space-between;
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 .logo-title {
-    color: rgb(72, 61, 139);
-    font-weight: bold;
-    line-height: 60px;
-    font-size: 56px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: 0.7s all;
+  color: rgb(72, 61, 139);
+  font-weight: bold;
+  line-height: 60px;
+  font-size: 56px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: 0.7s all;
 }
-.logo-title:hover{
-    color: rgb(93, 63, 211);
-}
-
-.logo-title-link{
-    text-transform: uppercase;
-    text-decoration: none;
+.logo-title:hover {
+  color: rgb(93, 63, 211);
 }
 
-nav{
-    position: absolute;
-    right: 0;
+.logo-title-link {
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
-nav li{
-    display: inline;
-    margin: 0 0 0 15px;
-
+nav {
+  align-items: center;
 }
 
+#ul-header li {
 
-#logout-header, #username-header, #a-login{
-    background-color: rgb(72, 61, 139) ;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-size: 12px;
+  display: inline-flex;
+  margin: 0 0 0 15px;
+}
+
+#logout-header,#a-login {
+  background-color: rgb(72, 61, 139);
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.username-img-header {
+  height: 30px;
+}
+#username-exit-header{
+    margin-left: 20px
+}
+#username-exit-header:hover{
     cursor: pointer;
+}
+.username-wallet-header{
+    font-size: 12px;
+    color: #ffffff;
+    margin-left: 10%;
+}
+
+#username-header {
+  min-width: 200px;
+  background-color: rgb(72, 61, 139);
+  align-items: center;
+}
+
+.username-text-header {
+    font-size: 12px;
+  margin-left: 5px;
+  color: #ffffff;
 }

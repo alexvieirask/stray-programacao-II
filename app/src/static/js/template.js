@@ -1,34 +1,58 @@
-$(function () { 
-    let jwt = sessionStorage.getItem("JWT")
-    let username = sessionStorage.getItem("username")
+$(function () {
+  let jwt = sessionStorage.getItem("JWT");
 
-    if (jwt){
-        var ulHeader = $("#ul-header")
-        var liLogin = $("#ul-header").find("li")
-        liLogin.remove()
+  if (jwt) {
+    $.ajax({
+      url: "http://localhost:5000/user/info",
+      method: "GET",
+      dataType: "json",
+      contentType: "application/json",
+      success: headerWithUser,
+      headers: { Authorization: "Bearer " + jwt },
+      error: () => {
+        alert("Error reading data, verify backend");
+      },
+    });
 
-        var liUsername = $("<li>")
-        var liLogout = $("<li>")
-        
-        var aUsername = $("<a>").text(`@${username}`).attr("id","username-header")
-        var aLogout = $("<a>").text(`Logout`).attr("id","logout-header")
+    function headerWithUser(data) {
+      const user = data.details;
+      const walletInReal = user.wallet / 100
 
-        liLogout.on("click", onLogout)
-        
-        ulHeader.append(liUsername)
-        ulHeader.append(liLogout)
-        
-        liUsername.append(aUsername)
-        liLogout.append(aLogout)
+      var ulHeader = $("#ul-header");
+      var liLogin = ulHeader.find("li");
 
+      liLogin.remove();
+
+      var liUsername = $("<li>").attr("id", "username-header");
+
+      var profilePicture = $("<img>")
+        .attr("src", user.profile_picture)
+        .addClass("username-img-header");
+      var exitButton = $("<img>")
+        .attr("src", "../static/img/others/exit.jpg")
+        .addClass("username-img-header");
+      exitButton.attr("id", "username-exit-header");
+
+      var spanWallet = $("<span>")
+        .text(`R$${walletInReal.toFixed(2)}`)
+        .addClass("username-wallet-header");
+      var spanUsername = $("<span>")
+        .text(`@${user.username}`)
+        .addClass("username-text-header");
+
+      ulHeader.append(liUsername);
+      liUsername.append(profilePicture);
+      liUsername.append(spanUsername);
+      liUsername.append(spanWallet);
+      liUsername.append(exitButton);
+
+      exitButton.on("click", onLogout);
+
+      function onLogout() {
+        sessionStorage.removeItem("JWT");
+        sessionStorage.removeItem("username");
+        window.location = "/";
+      }
     }
-
-
-    function onLogout(){
-        sessionStorage.removeItem("JWT")
-        sessionStorage.removeItem("username")
-        window.location = '/'
-    }
-
-
+  }
 });

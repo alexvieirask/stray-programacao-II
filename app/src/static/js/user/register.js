@@ -1,60 +1,57 @@
-$(function() { 
-    /* Validação de Formulário através do Jquery validate */ 
-    $("#form-new-user").validate({
-        rules: {
-            name:{
-                required:true,
-                minlength:4
-            },
-            username:{
-                required:true,
-                rangelength:[4,30]
-            },
-            email:{
-                required:true,
-                email:true
+$(function () {
+  /* Validação de Formulário através do Jquery validate */
+  $("#form-new-user").validate({
+    rules: {
+      name: {
+        required: true,
+        minlength: 4,
+      },
+      username: {
+        required: true,
+        rangelength: [4, 30],
+      },
+      email: {
+        required: true,
+        email: true,
+      },
+      password: {
+        required: true,
+        minlength: 8,
+      },
+      passwordconfirm: {
+        required: true,
+        equalTo: "#input_password",
+      },
+    },
+    submitHandler: onSubmit,
+  });
 
-            },
-            password:{
-                required:true,
-                minlength:8,
-            },
-            passwordconfirm:{
-                required:true,
-                equalTo: "#input_password"
+  function onSubmit() {
+    formData = JSON.stringify({
+      name: $("#input_name").val(),
+      username: $("#input_username").val(),
+      email: $("#input_username").val(),
+      password: $("#input_password").val(),
+    });
 
-            }
-        },
-        submitHandler: onSubmit
-    })
+    $.ajax({
+      url: "http://localhost:5000/join/auth",
+      type: "POST",
+      dataType: "json",
+      contentType: "application/json",
+      data: formData,
+      success: onSuccess,
+      error: onError,
+    });
 
-
-    function onSubmit(){
-        formData =  JSON.stringify({
-            name:$("#input_name").val(),
-            username:$("#input_username").val(),
-            email: $("#input_username").val(),
-            password: $("#input_password").val()
-        })
-                
-        $.ajax({
-            url: 'http://localhost:5000/join/auth',
-            type: 'POST',
-            dataType: 'json', 
-            contentType: 'application/json', 
-            data: formData, 
-            success: onSuccess,
-            error: onError
-        });
-
-        function onSuccess(response){
-            $('#form-new-user').each (function(){
-                this.reset();
-            });
-        }
-
-        function onError(response){
-            console.log("Error, verify backend", response)
-        }
+    function onSuccess(response) {
+      $("#form-new-user").each(function () {
+        this.reset();
+      });
     }
+
+    function onError(response) {
+      console.log("Error, verify backend", response);
+    }
+  }
 });

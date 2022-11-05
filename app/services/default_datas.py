@@ -183,7 +183,7 @@ user01 = User(
     email = '''alexvieiradias2019@gmail.com''',
     password = generate_password_hash('''my-password''').decode("utf-8"),
     description = '''This profile...''',
-    profile_picture = '''alex.png''',
+    profile_picture = '''https://pbs.twimg.com/profile_images/1558213489176494080/wh2S5e8y_400x400.jpg''',
     is_admin = True
 )
 
@@ -193,106 +193,18 @@ user02 = User(
     email = '''emanoelaerthal@gmail.com''',
     password = generate_password_hash('''my-password2''').decode("utf-8"),
     description = '''This profile...''',
-    profile_picture = '''emanoela.png'''
+    profile_picture = '''https://pbs.twimg.com/profile_images/1548713527145275392/YpkeZ-qn_400x400.jpg''',
+    is_admin = True
 )
+
 
 user03 = User(
-    name = '''Igor Gramkow''',
-    username = '''igor.gramkow''',
-    email = '''igorgramkow@gmail.com''',
-    password = generate_password_hash('''my-password3''').decode("utf-8"),
-    description = '''This profile...''',
-    profile_picture = '''igor.png'''
-)
-
-user04 = User(
     name = '''Gabriel Molon Zanella''',
     username = '''gabriel.zanella''',
     email = '''grabrielzanella@gmail.com''',
-    password = generate_password_hash('''my-password4''').decode("utf-8"),
+    password = generate_password_hash('''my-password3''').decode("utf-8"),
     description = '''This profile...''',
-    profile_picture = '''zanella.png'''
+    profile_picture = '''https://pbs.twimg.com/profile_images/1549194244312662017/Xt_6pcO7_400x400.jpg'''
 )
 
-user05 = User(
-    name = '''Yara Rahn''',
-    username = '''yara.rahn''',
-    email = '''yarahn@gmail.com''',
-    password = generate_password_hash('''my-password5''').decode("utf-8"),
-    description = '''This profile...''',
-    profile_picture = '''yara.png'''
-)
-
-user06 = User(
-    name = '''Alana Cristina Andreazza''',
-    username = '''alana.andreazza''',
-    email = '''alanaandreazza@gmail.com''',
-    password = generate_password_hash('''my-password6''').decode("utf-8"),
-    description = '''This profile...''',
-    profile_picture = '''alana.png'''
-)
-
-user07 = User(
-    name = '''Amadeus Vitor Poletti''',
-    username = '''amadeus.poletti''',
-    email = '''amadeusvp@gmail.com''',
-    password = generate_password_hash('''my-password7''').decode("utf-8"),
-    description = '''This profile...''',
-    profile_picture = '''amadeus.png'''
-)
-
-user08 = User(
-    name = '''Lucas Gabriel Sievert''',
-    username = '''lucas.gabriel''',
-    email = '''lucasgabriel@gmail.com''',
-    password = generate_password_hash('''my-password8''').decode("utf-8"),
-    description = '''This profile...''',
-    profile_picture = '''lucas.png'''
-)
-
-user09 = User(
-    name = '''Beatriz Miranda''',
-    username = '''beatriz.miranda''',
-    email = '''beatrizmiranda@gmail.com''',
-    password = generate_password_hash('''my-password9''').decode("utf-8"),
-    description = '''This profile...''',
-    profile_picture = '''beatriz.png'''
-)
-
-user10 = User(
-    name = '''Larissa Reiter Branco''',
-    username = '''larissa.branco''',
-    email = '''larissabranco@gmail.com''',
-    password = generate_password_hash('''my-password10''').decode("utf-8"),
-    description = '''This profile...''',
-    profile_picture = '''larissa.png'''
-)
-
-user11 = User(
-    name = '''Liriel Pisetta''',
-    username = '''liriel.pisetta''',
-    email = '''lirielpisetta@gmail.com''',
-    password = generate_password_hash('''my-password11''').decode("utf-8"),
-    description = '''This profile...''',
-    profile_picture = '''liriel.png'''
-)
-
-user12 = User(
-    name = '''Lemuel Kauê Manske''',
-    username = '''lemuel.manske''',
-    email = '''lemuelmanske@gmail.com''',
-    password = generate_password_hash('''my-password112''').decode("utf-8"),
-    description = '''This profile...''',
-    profile_picture = '''lemuel.png'''
-)
-
-user13 = User(
-    name = '''Eduardo Caitano''',
-    username = '''eduardo.caitano''',
-    email = '''eduardocaitanop@gmail.com''',
-    password = generate_password_hash('''my-password13''').decode("utf-8"),
-    description = '''This profile...''',
-    profile_picture = '''eduardo.png'''
-)
-
-default_users = [ user01, user02, user03, user04, user05, user06, user07, user08, user09, user10, user11, user12, user13 ]
+default_users = [ user01, user02, user03 ]

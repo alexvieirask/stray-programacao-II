@@ -6,7 +6,8 @@ from services.utils import *
     descrição: Esta rota realiza a autenticação do usuário e retorna o Token JWT.
 
     Testes:
-        1. curl -H "Content-Type:application/json" -X POST --data "{\"username\":\"emanoela.erthal\",\"password\":\"my-password2\"}" http://localhost:5000/login/auth
+        1. curl -H "Content-Type:application/json" -X POST --data "{\"username\":\"alex.vieira\",\"password\":\"my-password\"}" http://localhost:5000/login/auth
+        2. curl -H "Content-Type:application/json" -X POST --data "{\"username\":\"emanoela.erthal\",\"password\":\"my-password2\"}" http://localhost:5000/login/auth
 
     Algumas rotas protegidas:
         1. curl localhost:5000/user/return_all -H "Authorization:Bearer TOKENGERADO"

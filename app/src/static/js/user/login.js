@@ -1,51 +1,49 @@
-$(function() { 
-
-    $("#input_username").val('alex.vieira'),
-    $("#input_password").val('my-password'),
-
-    /* Validação de Formulário através do Jquery validate */ 
+$(function () {
+  $("#input_username").val("alex.vieira"),
+    $("#input_password").val("my-password"),
+    /* Validação de Formulário através do Jquery validate */
     $("#form-login").validate({
-        rules: {
-            username:{
-                required:true,
-                rangelength:[4,30]
-            },
-            password:{
-                required:true,
-                minlength:8,
-            }
+      rules: {
+        username: {
+          required: true,
+          rangelength: [4, 30],
         },
-        submitHandler: onSubmit
-    })
+        password: {
+          required: true,
+          minlength: 8,
+        },
+      },
+      submitHandler: onSubmit,
+    });
 
-    function onSubmit(){
-        formData =  JSON.stringify({
-            username:$("#input_username").val(),
-            password: $("#input_password").val()
-        })
-                
-        $.ajax({
-            url: 'http://localhost:5000/login/auth',
-            type: 'POST',
-            dataType: 'json', 
-            contentType: 'application/json', 
-            data: formData, 
-            success: onSuccess,
-            error: onError
-        });
+  function onSubmit() {
+    formData = JSON.stringify({
+      username: $("#input_username").val(),
+      password: $("#input_password").val(),
+    });
 
-        function onSuccess(response){
-            if (response.result == 'ok'){
-                sessionStorage.setItem("JWT", response.details)
-                sessionStorage.setItem("username", $("#input_username").val())
-                window.location = "/"
-            }else{
-                alert(`Invalid login ${response.details}`)
-            }
-        }
+    $.ajax({
+      url: "http://localhost:5000/login/auth",
+      type: "POST",
+      dataType: "json",
+      contentType: "application/json",
+      data: formData,
+      success: onSuccess,
+      error: onError,
+    });
 
-        function onError(response){
-            console.log("Error, verify backend", response)
-        }
+    function onSuccess(response) {
+      if (response.result == "ok") {
+        sessionStorage.setItem("JWT", response.details);
+        sessionStorage.setItem("username", $("#input_username").val());
+        window.location = "/";
+      } else {
+        alert(`Invalid login ${response.details}`);
+      }
     }
+
+    function onError(response) {
+      console.log("Error, verify backend", response);
+    }
+  }
 });

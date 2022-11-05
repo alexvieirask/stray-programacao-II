@@ -15,16 +15,17 @@ from services.utils import *
 @jwt_required()
 def request_giftcard_route(value):
     try:
-        GIFTCARD_VALUES = [ 30, 50, 100, 200, 300 ]
+        GIFTCARD_VALUES = ( 30, 50, 100, 200, 300 )
 
         if value in GIFTCARD_VALUES:
+            value_in_cents = value * 100
 
             username = get_jwt_identity()
             user = db_query_by_username(User,username) 
 
             token_giftcard =  GiftCard.giftcard_generator()
 
-            new_giftcard = GiftCard(value= value, giftcard_code= token_giftcard, user_id = user.id)
+            new_giftcard = GiftCard(value= value_in_cents, giftcard_code= token_giftcard, user_id = user.id)
             
             db.session.add(new_giftcard)
             db.session.commit()

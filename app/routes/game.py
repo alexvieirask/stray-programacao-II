@@ -21,9 +21,9 @@ def game_return_route(id, title):
 @app.route("/game/return_all")
 def games_return_route():
     try:
-        datas = db_query_all(Game)
-        json_datas = [ data.json() for data in datas ]
-        response = jsonify({"result":"ok", "details":json_datas})
+        games = db_query_all(Game)
+        json_games = [ game.json() for game in games ]
+        response = jsonify({"result":"ok", "details":json_games})
         return response
 
     except Exception as error:
