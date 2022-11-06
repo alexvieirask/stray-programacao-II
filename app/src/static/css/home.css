@@ -1,13 +1,15 @@
 .games {
   margin: 10px 5% 25px 5%;
   display: flex;
-  justify-content: space-around;
+  justify-content:center;
+
   flex-wrap: wrap;
 }
 
 .games li {
-  margin: 20px 2px;
-  min-height: 480px;
+  margin: 20px 20px;
+  min-height: 100px;
+  height: 480px;
   background-color: white;
   min-width: 100px;
   width: 480px;
