@@ -1,6 +1,9 @@
 $(function () {
+
+  var IP = sessionStorage.getItem("ip") 
+
   $.ajax({
-    url: "http://localhost:5000/game/return_all",
+    url: `http://${IP}:5000/game/return_all`,
     method: "GET",
     dataType: "json",
     success: listGames,

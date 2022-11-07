@@ -27,6 +27,7 @@ $(function () {
   });
 
   function onSubmit() {
+    var IP = sessionStorage.getItem("ip") 
     formData = JSON.stringify({
       name: $("#input_name").val(),
       username: $("#input_username").val(),
@@ -35,7 +36,7 @@ $(function () {
     });
 
     $.ajax({
-      url: "http://localhost:5000/join/auth",
+      url: `http://${IP}:5000/join/auth`,
       type: "POST",
       dataType: "json",
       contentType: "application/json",

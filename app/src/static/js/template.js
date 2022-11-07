@@ -1,9 +1,10 @@
 $(function () {
   let jwt = sessionStorage.getItem("JWT");
+  var IP = sessionStorage.getItem("ip") 
 
   if (jwt) {
     $.ajax({
-      url: "http://localhost:5000/user/info",
+      url: `http://${IP}:5000/user/info`,
       method: "GET",
       dataType: "json",
       contentType: "application/json",

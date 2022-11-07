@@ -17,13 +17,15 @@ $(function () {
     });
 
   function onSubmit() {
+    var IP = sessionStorage.getItem("ip") 
+
     formData = JSON.stringify({
       username: $("#input_username").val(),
       password: $("#input_password").val(),
     });
 
     $.ajax({
-      url: "http://localhost:5000/login/auth",
+      url: `http://${IP}:5000/login/auth`,
       type: "POST",
       dataType: "json",
       contentType: "application/json",
