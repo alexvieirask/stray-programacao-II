@@ -1,4 +1,5 @@
 $(function () {
+  let ENDERECO_IP = sessionStorage.getItem("IP")
   /* Validação de Formulário através do Jquery validate */
   $("#form-new-user").validate({
     rules: {
@@ -35,7 +36,7 @@ $(function () {
     });
 
     $.ajax({
-      url: "http://localhost:5000/join/auth",
+      url: `http://${ENDERECO_IP}:5000/join/auth`,
       type: "POST",
       dataType: "json",
       contentType: "application/json",

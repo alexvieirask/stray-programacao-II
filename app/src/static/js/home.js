@@ -1,6 +1,8 @@
 $(function () {
+  let ENDERECO_IP = sessionStorage.getItem("IP")
+  
   $.ajax({
-    url: "http://localhost:5000/game/return_all",
+    url: `http://${ENDERECO_IP}:5000/game/return_all`,
     method: "GET",
     dataType: "json",
     success: listGames,

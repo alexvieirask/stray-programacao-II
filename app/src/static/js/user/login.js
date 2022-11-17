@@ -1,4 +1,6 @@
 $(function () {
+  let ENDERECO_IP = sessionStorage.getItem("IP")
+
   $("#input_username").val("alex.vieira"),
     $("#input_password").val("my-password"),
     /* Validação de Formulário através do Jquery validate */
@@ -23,7 +25,7 @@ $(function () {
     });
 
     $.ajax({
-      url: "http://localhost:5000/login/auth",
+      url: `http://${ENDERECO_IP}:5000/login/auth`,
       type: "POST",
       dataType: "json",
       contentType: "application/json",
