@@ -1,10 +1,18 @@
 $(function () {
   let jwt = sessionStorage.getItem("JWT");
+<<<<<<< HEAD
   let ENDERECO_IP = sessionStorage.getItem("IP")
 
   if (jwt) {
     $.ajax({
       url: `http://${ENDERECO_IP}:5000/user/info`,
+=======
+  var IP = sessionStorage.getItem("ip") 
+
+  if (jwt) {
+    $.ajax({
+      url: `http://${IP}:5000/user/info`,
+>>>>>>> 4f7a116a59740adc2432efc999b5d8e2aac9bcf1
       method: "GET",
       dataType: "json",
       contentType: "application/json",

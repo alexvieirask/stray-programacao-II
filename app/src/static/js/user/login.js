@@ -19,13 +19,19 @@ $(function () {
     });
 
   function onSubmit() {
+    var IP = sessionStorage.getItem("ip") 
+
     formData = JSON.stringify({
       username: $("#input_username").val(),
       password: $("#input_password").val(),
     });
 
     $.ajax({
+<<<<<<< HEAD
       url: `http://${ENDERECO_IP}:5000/login/auth`,
+=======
+      url: `http://${IP}:5000/login/auth`,
+>>>>>>> 4f7a116a59740adc2432efc999b5d8e2aac9bcf1
       type: "POST",
       dataType: "json",
       contentType: "application/json",
