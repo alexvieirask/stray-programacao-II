@@ -19,8 +19,6 @@ $(function () {
     });
 
   function onSubmit() {
-    var IP = sessionStorage.getItem("ip") 
-
     formData = JSON.stringify({
       username: $("#input_username").val(),
       password: $("#input_password").val(),

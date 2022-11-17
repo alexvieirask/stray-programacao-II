@@ -1,33 +1,86 @@
 {% extends "utils/_template.html" %}
     {% block head %}
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
-        <title>Login</title>       
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+    <title>Login</title>
     {% endblock %}
+
+
+
+title = db.Column(db.Text, nullable = False)
+description = db.Column(db.Text, nullable = False)
+categorie = db.Column(db.Text, nullable = False)
+price = db.Column(db.Integer, nullable = False)
+required_age = db.Column(db.Integer, nullable = False)
+launch_date = db.Column(db.Text, nullable = False)
+developer = db.Column(db.Text, nullable = False)
+available = db.Column(db.Boolean, default = True)
+cover = db.Column(db.Text, default = "../static/img/games/default-cover.gif" )
+screenshots = db.relationship(Screenshot, backref = 'Game')
+
+
 
     {% block body %}
         <main class="main-register">
             <div class="form-container">
-                <h1 class="form-title">Hello Player</h1>
+                <h1 class="form-title">New Game</h1>
                 <form id="form-login" method="post" enctype="multipart/form-data">
                     <fieldset>
                         <div class="row-input">
-                            <label class="default-label" for="username">Username</label>
-                            <input autocomplete="off" class="default-input" id="input_username" name="username" type="text">
+                            <label class="default-label" for="username">Title</label>
+                            <input autocomplete="off" class="default-input" type="text">
                         </div>
-                    
+
                         <div class="row-input">
-                            <label class="default-label" for="password">Password</label>
-                            <input autocomplete="off" class="default-input" id="input_password" name="password" type="text">
+                            <label class="default-label" for="password">Description</label>
+                            <input autocomplete="off" class="default-input" type="text">
                         </div>
+
+                        <div class="row-input">
+                            <label class="default-label" for="password">Categorie</label>
+                            <input autocomplete="off" class="default-input" type="text">
+                        </div>
+
+                        <div class="row-input">
+                            <label class="default-label" for="password">Price</label>
+                            <input autocomplete="off" class="default-input" type="text">
+                        </div>
+
+
+                        <div class="row-input">
+                            <label class="default-label" for="password">Required Age</label>
+                            <input autocomplete="off" class="default-input" type="text">
+                        </div>
+
+                        <div class="row-input">
+                            <label class="default-label" for="password">Launch Date</label>
+                            <input autocomplete="off" class="default-input" type="text">
+                        </div>
+                        
+                        <div class="row-input">
+                            <label class="default-label" for="password">Developer</label>
+                            <input autocomplete="off" class="default-input" type="text">
+                        </div>
+                        
+                        <div class="row-input">
+                            <label class="default-label" for="password">Cover</label>
+                            <input autocomplete="off" class="default-input" type="text">
+                        </div>
+
+
+                        <div class="row-input">
+                            <label class="default-label" for="password">Screenshots</label>
+                            <input autocomplete="off" class="default-input" type="text">
+                        </div>
+
+
+
                     </fieldset>
-                    <input class="default-button-submit" id="button-submit" type="submit" value="login">
+
+                    <input class="default-button-submit" id="button-submit" type="submit" value="Register">
                 </form>
+
+
                 
-                <div class="row-container">
-                  <hr class="line-decorate"><span>or</span><hr class="line-decorate">
-                </div>
-                <p class="signup">Not a member? <a href="/join">Signup</a> </p>
-            
             </div>
 
         </main>
@@ -35,5 +88,5 @@
 
     {% block scripts %}
         <script src="{{ url_for('static', filename='js/jquery/jquery.validate.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/user/login.js') }}"></script>
+        
     {% endblock %}

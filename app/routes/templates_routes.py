@@ -21,3 +21,7 @@ def join_route():
 @app.route("/login")
 def login_route():
     return render_template("pages/login.html")
+
+@app.route("/new/game")
+def new_game_route():
+    return render_template ("pages/game-form.html")

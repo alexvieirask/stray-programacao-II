@@ -28,8 +28,6 @@ $(function () {
   });
 
   function onSubmit() {
-    
-    
     formData = JSON.stringify({
       name: $("#input_name").val(),
       username: $("#input_username").val(),
@@ -39,7 +37,6 @@ $(function () {
 
     $.ajax({
       url: `http://${ENDERECO_IP}:5000/join/auth`,
-
       type: "POST",
       dataType: "json",
       contentType: "application/json",
