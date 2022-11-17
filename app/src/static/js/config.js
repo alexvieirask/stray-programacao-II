@@ -1,11 +1,12 @@
-$(function () {
-    var URL = document.URL;
-    var PROTOCOL = "http://"; 
-    
-    var IP = URL.substring(PROTOCOL.length);
-    var COLON_POSITION = IP.indexOf(":");
-    IP = IP.substring(0, COLON_POSITION)
+function handleUserIP () {
+  const URL = document.URL
+  const PROTOCOL = 'http://'
 
-    sessionStorage.setItem("ip",IP); 
+  var ENDERECO_IP = URL.substring(PROTOCOL.length)
 
-});
+  const COLON_POSITION = ENDERECO_IP.indexOf(':')
+
+  ENDERECO_IP = ENDERECO_IP.substring(0, COLON_POSITION)
+
+  sessionStorage.setItem('ENDERECO_IP', handleUserIP())
+}

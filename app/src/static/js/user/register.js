@@ -1,5 +1,5 @@
 $(function () {
-  let ENDERECO_IP = sessionStorage.getItem("IP")
+  const ENDERECO_IP = sessionStorage.getItem("ENDERECO_IP") 
   /* Validação de Formulário através do Jquery validate */
   $("#form-new-user").validate({
     rules: {
@@ -28,7 +28,8 @@ $(function () {
   });
 
   function onSubmit() {
-    var IP = sessionStorage.getItem("ip") 
+    
+    
     formData = JSON.stringify({
       name: $("#input_name").val(),
       username: $("#input_username").val(),
@@ -37,11 +38,8 @@ $(function () {
     });
 
     $.ajax({
-<<<<<<< HEAD
       url: `http://${ENDERECO_IP}:5000/join/auth`,
-=======
-      url: `http://${IP}:5000/join/auth`,
->>>>>>> 4f7a116a59740adc2432efc999b5d8e2aac9bcf1
+
       type: "POST",
       dataType: "json",
       contentType: "application/json",

@@ -1,5 +1,5 @@
 $(function () {
-  let ENDERECO_IP = sessionStorage.getItem("IP")
+  const ENDERECO_IP = sessionStorage.getItem("ENDERECO_IP") 
 
   $("#input_username").val("alex.vieira"),
     $("#input_password").val("my-password"),
@@ -27,11 +27,7 @@ $(function () {
     });
 
     $.ajax({
-<<<<<<< HEAD
       url: `http://${ENDERECO_IP}:5000/login/auth`,
-=======
-      url: `http://${IP}:5000/login/auth`,
->>>>>>> 4f7a116a59740adc2432efc999b5d8e2aac9bcf1
       type: "POST",
       dataType: "json",
       contentType: "application/json",

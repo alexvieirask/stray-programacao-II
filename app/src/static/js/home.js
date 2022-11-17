@@ -1,26 +1,18 @@
 $(function () {
-<<<<<<< HEAD
-  let ENDERECO_IP = sessionStorage.getItem("IP")
-  
+  const ENDERECO_IP = sessionStorage.getItem('ENDERECO_IP')
+
   $.ajax({
     url: `http://${ENDERECO_IP}:5000/game/return_all`,
-=======
-
-  var IP = sessionStorage.getItem("ip") 
-
-  $.ajax({
-    url: `http://${IP}:5000/game/return_all`,
->>>>>>> 4f7a116a59740adc2432efc999b5d8e2aac9bcf1
-    method: "GET",
-    dataType: "json",
+    method: 'GET',
+    dataType: 'json',
     success: listGames,
     error: () => {
-      alert("Error reading data, verify backend");
-    },
-  });
+      alert('Error reading data, verify backend')
+    }
+  })
 
-  function listGames(data) {
-    const GAMELIST = data.details;
+  function listGames (data) {
+    const GAMELIST = data.details
 
     for (var index in GAMELIST) {
       const GAME = {
@@ -28,8 +20,8 @@ $(function () {
         TITLE: GAMELIST[index].title,
         COVER: GAMELIST[index].cover,
         PRICE: GAMELIST[index].price / 100,
-        TITLE_LINK: GAMELIST[index].title.replace(/\s/g, ""),
-      };
+        TITLE_LINK: GAMELIST[index].title.replace(/\s/g, '')
+      }
 
       const GAMEBOX__HTML = `  
                     <li>
@@ -38,13 +30,13 @@ $(function () {
                             <div>
                                 <h2 class="game-title">${GAME.TITLE}</h2>
                                 <p class="game-price">${
-                                  GAME.PRICE == 0 ? "Free" : `R$${GAME.PRICE}`
+                                  GAME.PRICE == 0 ? 'Free' : `R$${GAME.PRICE}`
                                 }</p>
                             </div>
                         </a>
                     </li>
-                `;
-      $(".games").append(GAMEBOX__HTML);
+                `
+      $('.games').append(GAMEBOX__HTML)
     }
   }
-});
+})
