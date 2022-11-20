@@ -1,0 +1,40 @@
+{% extends "utils/_template.html" %} {% block head %}
+<link rel="stylesheet"href="{{ url_for('static', filename='css/myprofile.css') }}"
+/>
+<title>Profile</title>
+{% endblock %} {% block body %}
+<main id="main-container">
+  <div id="row-name-picture">
+    <img id="my-picture" alt="profile-picture" />
+
+    <div id="user-minimal-info">
+      <span id="username"></span>
+      <span id="name"></span>
+      <span id="description"></span>
+    </div>
+  </div>
+
+  <hr class="line-separator" />
+
+  <div id="games-info">
+    <div id="collector-container">
+      <span id="collector-label">Game Collector</span>
+    </div>
+
+    <div id="games-info-second">
+      <div id="quantity-games-main-container">
+        <div id="quantity-games-container">
+          <span id="quantity-games"></span>
+          <span>Games in account</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+{% endblock %} 
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/jquery/jquery.validate.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/user/myprofile.js') }}"></script>
+{% endblock %}

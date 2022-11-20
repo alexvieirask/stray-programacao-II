@@ -24,8 +24,6 @@ def user_info_route():
     
     return response
 
-
-
 ''' Rota: [ user_library_route ]
     descrição: Retorna todos os jogos comprados do usuário logado.
 
@@ -39,10 +37,13 @@ def user_library_route():
     try:
         username = get_jwt_identity()
         user = db_query_by_username(User,username) 
+        purchases_in_order_asc = sorted(user.purchases)
 
-        games_buyed = [ index.game.json() for index in user.purchases ]
+        games_buyed = [ index.game.json() for index in purchases_in_order_asc ]
+        purchases_json  = [ purchase.json() for purchase in purchases_in_order_asc ]
         
-        response = jsonify({"result":"ok", "details": games_buyed})
+        
+        response = jsonify({"result":"ok", "details": {"games":games_buyed, "purchases" : purchases_json}})
 
     
     except Exception as error:

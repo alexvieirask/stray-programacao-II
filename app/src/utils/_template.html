@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/config.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/_template.css') }}">
         {% block head %}
         
         {% endblock %}
@@ -14,10 +14,10 @@
     <body>
         <header>
             <div class="box">
-                <a class="logo-title-link" href="/"><span class="logo-title">STRAY</span></a>
+                <a class="logo-title-link" href="/"><img src="{{ url_for('static', filename='img/fixed/logostray.png') }}" class="logo-stray"/><span class="logo-title">STRAY</span></a>
                 <nav>
                     <ul id="ul-header">
-                        <li><a id="a-login" href="/login">Login</a></li>
+                        <li id="li-login"><a id="a-login" href="/login"><span id="span-login">Login</span></a></li>
                     </ul>
                 </nav>
             </div>

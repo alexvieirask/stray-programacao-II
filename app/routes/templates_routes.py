@@ -25,3 +25,11 @@ def login_route():
 @app.route("/new/game")
 def new_game_route():
     return render_template ("pages/game-form.html")
+
+@app.route("/myprofile")
+def profile_route():
+    return render_template("pages/my-profile.html")
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("utils/_error404.html")

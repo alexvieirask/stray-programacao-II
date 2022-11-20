@@ -2,7 +2,6 @@ header {
   background-color: #ffffff;
   align-items: center;
   min-width: 420px;
-  border-radius: 0 0 50px 50px;
   height: 100px;
 }
 .box {
@@ -15,11 +14,16 @@ header {
   align-items: center;
 }
 
+.logo-stray {
+  width: 75px;
+}
+
 .logo-title {
   color: rgb(72, 61, 139);
   font-weight: bold;
   line-height: 60px;
-  font-size: 56px;
+  font-size: 36px;
+  margin-left: 10px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   transition: 0.7s all;
 }
@@ -28,6 +32,8 @@ header {
 }
 
 .logo-title-link {
+  display: flex;
+  align-items: center;
   text-transform: uppercase;
   text-decoration: none;
 }
@@ -37,32 +43,45 @@ nav {
 }
 
 #ul-header li {
-
   display: inline-flex;
   margin: 0 0 0 15px;
 }
 
-#logout-header,#a-login {
-  background-color: rgb(72, 61, 139);
-  color: #ffffff;
-  padding: 5px 10px;
-  border-radius: 10px;
-  font-size: 12px;
-  cursor: pointer;
+#span-login {
+  font-size: 16px;
 }
+
+#a-login {
+  min-width: 80px;
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+  text-decoration: none;
+  background: rgb(72, 61, 139);
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 1s all;
+}
+
+#li-login :hover {
+  background-color: rgb(93, 63, 211);
+}
+
 .username-img-header {
   height: 30px;
+  cursor: pointer;
 }
-#username-exit-header{
-    margin-left: 20px
+
+#username-exit-header {
+  margin-left: 25px;
 }
-#username-exit-header:hover{
-    cursor: pointer;
-}
-.username-wallet-header{
-    font-size: 12px;
-    color: #ffffff;
-    margin-left: 10%;
+
+.username-wallet-header {
+  font-size: 12px;
+  color: #ffffff;
+  margin-left: 10%;
 }
 
 #username-header {
@@ -72,12 +91,12 @@ nav {
 }
 
 .username-text-header {
-    font-size: 12px;
+  font-size: 12px;
   margin-left: 5px;
   color: #ffffff;
 }
 
-.form-add-game{
+.form-add-game {
   width: 25px;
   height: 25px;
 }

@@ -25,3 +25,9 @@ class Purchase(db.Model):
             "game_buyed_id": self.game_buyed_id,
             "realized_date": self.realized_date
         }
+
+    def __lt__(self, object2):
+        return self.id < object2.id
+    
+    def __gt__(self, object2):
+        return self.id > object2.id

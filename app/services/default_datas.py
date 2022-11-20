@@ -5,174 +5,151 @@ from services.config import *
 Default gamelist
 '''
 game01 = Game(
-    title='''Celeste''',
+    title='''God of War Ragnarök''',
     description=''' Ajude Madeline a enfrentar seus demônios internos em sua jornada até o topo da Montanha Celeste,
     nesse jogo de plataforma super afiado dos criadores de TowerFall. Desbrave centenas de desafios meticulosos,
     descubra segredos complicados e desvende o mistério da montanha.''',
     categorie='''Ação, Aventura, Indie''',
-    price=3699,
-    required_age=10,
+    price=34900,
+    required_age=18,
     launch_date='''25/jan./2018''',
     developer=''' Extremely OK Games, Ltd. ''',
-    cover= "../static/img/uploads/games/celeste.png"
+    cover= "../static/img/uploads/games/game1cover.jpeg"
 )
 
 game02 = Game(
-    title='''UNDERTALE''',
+    title='''Ori and the will of the wisps''',
     description='''Bem-vindo ao UNDERTALE. Neste RPG, você controla um humano que cai no subsolo no mundo dos monstros.
     Agora você deve encontrar a saída... ou ficará preso para sempre.''',
     categorie='''Indie, RPG''',
-    price=1999,
+    price=2500,
     required_age=10,
     launch_date='''15/set./2015''',
     developer='''tobyfox''',
-    cover= "../static/img/uploads/games/undertale.png"
+    cover= "../static/img/uploads/games/game2cover.jpeg"
 )
 
 game03 = Game(
-    title='''Rocket League''',
-    description=''' Futebol e pilotagem se encontram mais uma vez na aguardada sequência do jogo clássico de arena baseado
-    em física tão amado pelos fãs, o Supersonic Acrobatic Rocket-Powered Battle-Cars! ''',
-    categorie='''Esportes, Corrida''',
-    price=0,
-    required_age=0,
-    launch_date='''7/jul./2015''',
-    developer='''Psyonix LLC''',
-    cover= "../static/img/uploads/games/rocketleague.png"
+    title='''Dying Light''',
+    description='''Bem-vindo ao UNDERTALE. Neste RPG, você controla um humano que cai no subsolo no mundo dos monstros.
+    Agora você deve encontrar a saída... ou ficará preso para sempre.''',
+    categorie='''Indie, RPG''',
+    price=2500,
+    required_age=10,
+    launch_date='''15/set./2015''',
+    developer='''tobyfox''',
+    cover= "../static/img/uploads/games/game3cover.jpeg"
 )
 
 game04 = Game(
-    title='''Deltarune''',
-    description=''' Deltarune, assim como Undertale, é um RPG eletrônico que utiliza
-    uma perspectiva de cima para baixo. O jogador controla um humano chamado
-    Kris e tem que concluir objetivos para completar o jogo. Durante algumas
-    partes do jogo, o jogador pode escolher ataques de outros personagens. ''',
+    title='''Spider-Man''',
+    description='''Bem-vindo ao UNDERTALE. Neste RPG, você controla um humano que cai no subsolo no mundo dos monstros.
+    Agora você deve encontrar a saída... ou ficará preso para sempre.''',
     categorie='''Indie, RPG''',
-    price=0,
-    required_age=14,
-    launch_date='''31/out./2018''',
+    price=2500,
+    required_age=10,
+    launch_date='''15/set./2015''',
     developer='''tobyfox''',
-    cover= "../static/img/uploads/games/deltarune.png"
+    cover= "../static/img/uploads/games/game4cover.jpeg"
 )
 
 game05 = Game(
-    title='''Doom Eternal''',
-    description=''' Os exércitos do Inferno invadiram a Terra. Torne-se o
-    Slayer em uma campanha épica para um jogador e derrote demônios
-    entre dimensões para impedir a derradeira destruição da humanidade.
-    A única coisa que eles temem... é você. ''',
-    categorie='''Ação''',
-    price=7900,
-    required_age=18,
-    launch_date='''20/mar./2020''',
-    developer=''' id Software ''',
-    cover= "../static/img/uploads/games/doometernal.png"
+    title='''Spider-Man: Miles Morales''',
+    description='''Bem-vindo ao UNDERTALE. Neste RPG, você controla um humano que cai no subsolo no mundo dos monstros.
+    Agora você deve encontrar a saída... ou ficará preso para sempre.''',
+    categorie='''Indie, RPG''',
+    price=2500,
+    required_age=10,
+    launch_date='''15/set./2015''',
+    developer='''tobyfox''',
+    cover= "../static/img/uploads/games/game5cover.jpeg"
 )
 
 game06 = Game(
-    title='''Cities: Skyline''',
-    description=''' Cities: Skylines é uma versão moderna dos simuladores
-    de cidade clássicos. O jogo introduz novos elementos de jogabilidade
-    para que você sinta a emoção e a dificuldade de criar e manter uma cidade
-    de verdade, além de aprimorar os elementos clássicos da construção de cidades. ''',
-    categorie='''Simulação, Estratégia''',
-    price=7499,
-    required_age=0,
-    launch_date='''10/mar./2015''',
-    developer='''Colossal Order Ltd.''',
-    cover= "../static/img/uploads/games/citiesskyline.png"
+    title='''Life is Strange''',
+    description='''Bem-vindo ao UNDERTALE. Neste RPG, você controla um humano que cai no subsolo no mundo dos monstros.
+    Agora você deve encontrar a saída... ou ficará preso para sempre.''',
+    categorie='''Indie, RPG''',
+    price=2500,
+    required_age=10,
+    launch_date='''15/set./2015''',
+    developer='''tobyfox''',
+    cover= "../static/img/uploads/games/game6cover.jpeg"
 )
 
 game07 = Game(
-    title='''The Stanley Parable Ultra Deluxe''',
-    description=''' O game conta a história de Stanley, um homem que trabalha em um prédio comercial
-    como digitador. Narrado por Kevan Brighting, o título é baseado em ações e respostas através
-    de instruções dadas pelo próprio narrador. ''',
-    categorie='''Aventura, Casual, Indie''',
-    price=4749,
-    required_age=0,
-    launch_date='''27/abr./2022''',
-    developer='''Crows Crows Crows''',
-    cover= "../static/img/uploads/games/stanleyparable.png"
+    title='''Cyberpunk 2077''',
+    description='''Bem-vindo ao UNDERTALE. Neste RPG, você controla um humano que cai no subsolo no mundo dos monstros.
+    Agora você deve encontrar a saída... ou ficará preso para sempre.''',
+    categorie='''Indie, RPG''',
+    price=2500,
+    required_age=10,
+    launch_date='''15/set./2015''',
+    developer='''tobyfox''',
+    cover= "../static/img/uploads/games/game7cover.jpeg"
 )
 
 game08 = Game(
-    title='''Age of Mythology: Extended Edition''',
-    description=''' Age of Mythology está de volta! Escolha o seu deus e vá para o campo de batalha neste clássico,
-    atualizado com integração total com o Strayworks e recursos aprimorados.''',
-    categorie='''Simulação, Estratégia''',
-    price=5599,
-    required_age=0,
-    launch_date='''08/mai./2014''',
-    developer='''SkyBox Labs, Ensemble Studios''',
-    cover= "../static/img/uploads/games/ageofmythology.png"
+    title='''Genshin Impact''',
+    description='''Bem-vindo ao UNDERTALE. Neste RPG, você controla um humano que cai no subsolo no mundo dos monstros.
+    Agora você deve encontrar a saída... ou ficará preso para sempre.''',
+    categorie='''Indie, RPG''',
+    price=2500,
+    required_age=10,
+    launch_date='''15/set./2015''',
+    developer='''tobyfox''',
+    cover= "../static/img/uploads/games/game8cover.jpeg"
 )
 
 game09 = Game(
-    title='''Euro Truck Simulator 2''',
-    description=''' Viaje pela Europa como o rei da estrada, um caminhoneiro que entrega cargas importantes em
-    distâncias impressionantes! Com dezenas de cidades para explorar, sua resistência, habilidade e
-    velocidade serão levadas ao limite. ''',
-    categorie='''Indie, Simulação''',
-    price=4499,
-    required_age=0,
-    launch_date='''18/out./2012''',
-    developer='''SCS Software''',
-    cover= "../static/img/uploads/games/eurotruck.png"
+    title='''Dragon Ball Z Kakarot''',
+    description='''Bem-vindo ao UNDERTALE. Neste RPG, você controla um humano que cai no subsolo no mundo dos monstros.
+    Agora você deve encontrar a saída... ou ficará preso para sempre.''',
+    categorie='''Indie, RPG''',
+    price=2500,
+    required_age=10,
+    launch_date='''15/set./2015''',
+    developer='''tobyfox''',
+    cover= "../static/img/uploads/games/game9cover.jpeg"
 )
 
 game10 = Game(
-    title='''EA SPORTS™ FIFA 23''',
-    description=''' FIFA 23 traz o Jogo de Todo Mundo aos gramados com a tecnologia HyperMotion2, proporcionando
-    ainda mais realismo às partidas, a FIFA World Cup™ masculina e feminina (lançamento durante a temporada), times
-    femininos, recursos de crossplay e muito mais. ''',
-    categorie='''Simulação, Esportes''',
-    price=29900,
-    required_age=0,
-    launch_date='''30/set./2022''',
-    developer=''' EA Canada & EA Romania ''',
-    cover= "../static/img/uploads/games/fifa23.png"
+    title='''Grand Theft Auto V''',
+    description='''Bem-vindo ao UNDERTALE. Neste RPG, você controla um humano que cai no subsolo no mundo dos monstros.
+    Agora você deve encontrar a saída... ou ficará preso para sempre.''',
+    categorie='''Indie, RPG''',
+    price=2500,
+    required_age=10,
+    launch_date='''15/set./2015''',
+    developer='''tobyfox''',
+    cover= "../static/img/uploads/games/game10cover.jpeg"
 )
 
 game11 = Game(
-    title='''The Sims 4''',
-    description=''' Curta o poder de criar e controlar pessoas num mundo virtual onde não há regras. Seja poderoso
-    e livre, divirta-se e jogue com a vida! ''',
-    categorie='''Casual, Simulação''',
-    price=25000,
-    required_age=12,
-    launch_date='''02/set./2014''',
-    developer='''Maxis''',
-    cover= "../static/img/uploads/games/thesims4.png"
+    title='''Grand Theft Auto San Andreas''',
+    description='''Bem-vindo ao UNDERTALE. Neste RPG, você controla um humano que cai no subsolo no mundo dos monstros.
+    Agora você deve encontrar a saída... ou ficará preso para sempre.''',
+    categorie='''Indie, RPG''',
+    price=2500,
+    required_age=10,
+    launch_date='''15/set./2015''',
+    developer='''tobyfox''',
+    cover= "../static/img/uploads/games/game11cover.jpeg"
 )
 
 game12 = Game(
-    title='''Slime Rancher 2''',
-    description=''' Continue as aventuras de Beatrix LeBeau enquanto ela viaja pelo Mar de Slime até a Ilha Arco-Íris,
-    uma terra repleta de mistérios antigos e cheia de novos slimes bons de remelexo para criar, na sequência do
-    grande sucesso Slime Rancher ''',
-    categorie='''Ação, Aventura, Casual, Indie, Simulação''',
-    price=3695,
+    title='''Call Of Duty Modern Warfare II''',
+    description='''Bem-vindo ao UNDERTALE. Neste RPG, você controla um humano que cai no subsolo no mundo dos monstros.
+    Agora você deve encontrar a saída... ou ficará preso para sempre.''',
+    categorie='''Indie, RPG''',
+    price=2500,
     required_age=10,
-    launch_date='''22/set./2022''',
-    developer='''Monomi Park''',
-    cover= "../static/img/uploads/games/slimerancher2.png"
+    launch_date='''15/set./2015''',
+    developer='''tobyfox''',
+    cover= "../static/img/uploads/games/game12cover.jpeg"
 )
 
-game13 = Game(
-    title='''Genshin Impact''',
-    description=''' O jogo apresenta um ambiente de mundo aberto de fantasia e sistema de batalha baseado em ação usando
-    Pontos de energia elemental e troca de personagem, e usa a monetização de jogo gacha para os jogadores obterem
-    novos personagens, armas e outros recursos.''',
-    categorie='''Ação, Aventura, RPG''',
-    price=0,
-    required_age=0,
-    launch_date='''28/set./2020''',
-    developer='''HoYoverse''',
-    cover= "../static/img/uploads/games/genshinimpact.png"
-)
-
-default_games = [ game01, game02, game03, game04, game05, game06, game07, game08, game09, game10, game11, game12, game13 ]
+default_games = [ game01, game02, game03, game04, game05, game06, game07, game08, game09, game10, game11, game12 ]
 
 '''
 Default userlist
@@ -183,7 +160,8 @@ user01 = User(
     email = '''alexvieiradias2019@gmail.com''',
     password = generate_password_hash('''my-password''').decode("utf-8"),
     description = '''This profile...''',
-    profile_picture = '''https://pbs.twimg.com/profile_images/1558213489176494080/wh2S5e8y_400x400.jpg''',
+    profile_picture = '''../static/img/uploads/users/user1.jpeg''',
+    wallet = 100000000,
     is_admin = True
 )
 
@@ -193,18 +171,18 @@ user02 = User(
     email = '''emanoelaerthal@gmail.com''',
     password = generate_password_hash('''my-password2''').decode("utf-8"),
     description = '''This profile...''',
-    profile_picture = '''https://pbs.twimg.com/profile_images/1548713527145275392/YpkeZ-qn_400x400.jpg''',
+    profile_picture = '''../static/img/uploads/users/user2.jpeg''',
     is_admin = True
 )
 
 
 user03 = User(
-    name = '''Gabriel Molon Zanella''',
-    username = '''gabriel.zanella''',
-    email = '''grabrielzanella@gmail.com''',
+    name = '''Neymar''',
+    username = '''neymar''',
+    email = '''neymar@gmail.com''',
     password = generate_password_hash('''my-password3''').decode("utf-8"),
     description = '''This profile...''',
-    profile_picture = '''https://pbs.twimg.com/profile_images/1549194244312662017/Xt_6pcO7_400x400.jpg'''
+    profile_picture = '''../static/img/uploads/users/user3.jpeg'''
 )
 
 default_users = [ user01, user02, user03 ]

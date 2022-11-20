@@ -1,12 +1,9 @@
 from services.config import *
 from services.utils import *
 
-user = db_query_by_id(User,2) 
-game = db_query_by_id(Game,1) 
+user = db_query_by_username(User,"alex.vieira") 
 
-datas = user.purchases
+games_buyed = sorted(user.purchases)
 
 
-json_datas = [ index.game for index in datas ]
-print(json_datas)
-#print(user.purchases[0].game.json())
+print(games_buyed[7].json())

@@ -1,24 +1,16 @@
 .games {
   margin: 10px 5% 25px 5%;
   display: flex;
-  justify-content:center;
-
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .games li {
-  margin: 20px 20px;
-  min-height: 100px;
-  height: 480px;
+  margin: 10px;
+  
+  width: 250px;
   background-color: white;
-  min-width: 100px;
-  width: 480px;
-  max-width: 1600px;
   border-radius: 0 0 25px 25px;
-}
-
-.games li div {
-  padding: 15px;
 }
 
 .games a {
@@ -29,15 +21,19 @@
   height: 80%;
 }
 
+.game-info-container {
+  display: grid;
+  padding: 7px;
+  width: 100%;
+}
 .game-title {
   color: rgb(72, 61, 139);
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 
 .game-price {
-  font-size: 1.5em;
   font-weight: bold;
-  margin: 10px 0 0;
   color: black;
 }

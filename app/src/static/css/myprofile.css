@@ -1,0 +1,154 @@
+#main-container {
+  padding: 50px 100px;
+  width: 960px;
+  margin: 0% auto;
+  background-color: #272727;
+  color: #ffffff;
+}
+
+#row-name-picture {
+  display: inline-flex;
+}
+
+#my-picture {
+  min-width: 75px;
+  max-width: 150px;
+  height: 140px;
+  border: 2px solid rgb(72, 61, 139);
+}
+
+#username {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+#user-minimal-info {
+  height: 100%;
+  width: 500px;
+  margin-left: 25px;
+  display: grid;
+}
+
+#description {
+  margin-top: 25px;
+}
+
+.line-separator {
+  background-color: #ffffff;
+  height: 2px;
+  border-style: none;
+  margin: 20px 0;
+}
+
+#games-info {
+  padding-bottom: 25px;
+  background-color: #191919;
+  border-radius: 10px 10px;
+}
+
+#games-info-second {
+  padding: 15px;
+}
+#collector-container {
+  background-color: rgb(72, 61, 139);
+  padding: 15px;
+}
+#collector-label {
+  font-size: 18px;
+}
+
+#quantity-games-main-container {
+  background-color: rgb(20, 20, 20);
+}
+
+#quantity-games-container {
+  display: grid;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  margin: 10px 20px;
+  padding: 25px 20px;
+}
+
+#quantity-games {
+  font-weight: bold;
+}
+
+#games-last-container {
+  margin-top: 20px;
+}
+#games-last-container h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+#list-games-last {
+  display: flex;
+
+  margin-bottom: 7%;
+}
+
+#list-games-last li {
+  width: 33%;
+  justify-content: space-around;
+  margin: 0 10px;
+}
+
+#list-games-last li img {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  margin-bottom: 10px;
+}
+
+.game-title {
+  font-size: 16px;
+}
+
+#button-all-games {
+  background-color: rgb(72, 61, 139);
+  border-style: none;
+  height: 30px;
+  width: 20%;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 1s;
+  margin-bottom: 2%;
+}
+
+#all-games {
+  display: none;
+  background-color: rgb(20, 20, 20);
+  padding: 5%;
+  overflow-y: scroll;
+  max-height: 400px;
+}
+
+#all-games li {
+  margin-bottom: 20px;
+  border-width: 20px;
+  border-bottom: 1px solid rgb(72, 61, 139);
+  padding: 10px;
+}
+
+.row-item {
+  height: 30px;
+  padding: 10px;
+  display: flex;
+  background-color: rgb(29, 29, 29);
+  justify-content: space-between;
+}
+.date-buyed {
+  font-size: 12px;
+}
+
+::-webkit-scrollbar{
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: rgb(72, 61, 139);
+}

@@ -49,3 +49,11 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+::-webkit-scrollbar{
+	width: 5px;
+  }
+  
+::-webkit-scrollbar-thumb{
+	background-color: rgb(72, 61, 139);
+  }
