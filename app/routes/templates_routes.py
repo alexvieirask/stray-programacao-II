@@ -30,6 +30,10 @@ def new_game_route():
 def profile_route():
     return render_template("pages/my-profile.html")
 
+@app.route("/giftcard")
+def giftcard_route():
+    return render_template("pages/giftcard.html")
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template("utils/_error.html", code=404, message = "PAGE NOT FOUND" )

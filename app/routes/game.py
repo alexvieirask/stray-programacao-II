@@ -35,11 +35,11 @@ def games_return_route():
     descrição: Esta é a rota de compra de um jogo.
 
     Testes:
-        curl localhost:5000/game/purchase/1 -H "Authorization:Bearer "TOKEN_JWT"
-        curl localhost:5000/game/purchase/2 -H "Authorization:Bearer "TOKEN_JWT"
-        curl localhost:5000/game/purchase/3 -H "Authorization:Bearer "TOKEN_JWT"
-        curl localhost:5000/game/purchase/4 -H "Authorization:Bearer "TOKEN_JWT"
-        curl localhost:5000/game/purchase/5 -H "Authorization:Bearer "TOKEN_JWT"
+        curl localhost:5000/game/purchase/1 -H "Authorization:Bearer TOKEN_JWT"
+        curl localhost:5000/game/purchase/2 -H "Authorization:Bearer TOKEN_JWT"
+        curl localhost:5000/game/purchase/3 -H "Authorization:Bearer TOKEN_JWT"
+        curl localhost:5000/game/purchase/4 -H "Authorization:Bearer TOKEN_JWT"
+        curl localhost:5000/game/purchase/5 -H "Authorization:Bearer TOKEN_JWT"
     
      Obs.: Esta rota necessita do JWT no corpo da requisição.
 '''

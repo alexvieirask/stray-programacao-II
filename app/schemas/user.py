@@ -14,7 +14,7 @@ class User(db.Model):
     password = db.Column(db.Text, nullable=False)
     wallet = db.Column(db.Integer, default = 0)
     description = db.Column(db.Text)
-    profile_picture = db.Column(db.Text)
+    profile_picture = db.Column(db.Text, default= "../static/img/uploads/users/default-user.jpeg")
     registration_date = db.Column(db.DateTime, default= datetime.now())
     is_admin = db.Column(db.Boolean, default=False)
     

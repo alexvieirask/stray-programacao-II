@@ -55,6 +55,31 @@ $(function () {
         $("#form-new-user").each(function () {
           this.reset();
         });
+
+        $.ajax({
+          url: `http://${ENDERECO_IP}:5000/login/auth`,
+          type: "POST",
+          dataType: "json",
+          contentType: "application/json",
+          data: formData,
+          success: onSuccess,
+          error: onError,
+        });
+
+        function onSuccess(response) {
+          if (response.result == "ok") {
+            sessionStorage.setItem("JWT", response.details);
+            sessionStorage.setItem("username", $("#input_username").val());
+            redirectToHome();
+          } else {
+            alert(`Invalid login ${response.details}`);
+          }
+        }
+
+
+        
+        
+       
       }
 
       function onError(response) {

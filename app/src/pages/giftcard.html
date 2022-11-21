@@ -1,0 +1,37 @@
+{% extends "utils/_template.html" %}   
+    {% block head %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/giftcard.css') }}">
+        <title>Giftcard</title>     
+        
+    {% endblock %}
+    
+    {% block body %}
+        <main>
+            <div class="giftcard-container">]
+                <div class="column-giftcard">
+                    <img class="giftcard" src="{{ url_for('static', filename='img/fixed/30.jpg') }}" alt="30-giftcard">
+                    <span class="buy-fotter">BUY</span>
+                </div>
+
+                <div class="column-giftcard">
+                    <img class="giftcard" src="{{ url_for('static', filename='img/fixed/50.jpg') }}" alt="50-giftcard">
+                    <span class="buy-fotter">BUY</span>
+                </div>
+
+                <div class="column-giftcard">
+                    <img class="giftcard" src="{{ url_for('static', filename='img/fixed/100.jpg') }}" alt="100-giftcard">
+                    <span class="buy-fotter">BUY</span>
+                </div>
+
+                <div class="column-giftcard">
+                    <img class="giftcard" src="{{ url_for('static', filename='img/fixed/200.jpg') }}" alt="200-giftcard">
+                    <span class="buy-fotter">BUY</span>
+                </div>
+
+            </div>
+        </main>
+    {% endblock %}
+    
+    {% block scripts %}
+
+    {% endblock %}

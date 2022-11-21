@@ -1,0 +1,28 @@
+
+.giftcard-container{
+    margin-top: 5%;
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.giftcard{
+    width: 200px;
+
+}
+
+.column-giftcard{
+    display: grid;
+    background-color: rgb(61, 53, 69);
+    height: 100%;
+    margin-right:1.5% ;
+
+
+}
+.buy-fotter{
+    padding: 10px;
+    text-align: center;
+    color: aliceblue;
+    font-weight: bold;
+    
+}
