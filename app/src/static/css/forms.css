@@ -37,6 +37,17 @@
   box-shadow: 0 0 0 0;
   outline: 1px solid rgb(72, 61, 139);
 }
+
+#button-password-show {
+  position: absolute;
+  width: 30px;
+  bottom: 10px;
+  right: 25px;
+}
+
+#row-input-password {
+  position: relative;
+}
 .default-button-submit {
   width: 100%;
   margin: 10px 0 0 0;
@@ -51,7 +62,7 @@
   transition: 1s all;
 }
 .default-button-submit:hover {
-  background-color: rgb(93, 63, 211)
+  background-color: rgb(93, 63, 211);
 }
 
 .row-container {

@@ -17,7 +17,11 @@
                     
                         <div class="row-input">
                             <label class="default-label" for="password">Password</label>
-                            <input autocomplete="off" class="default-input" id="input_password" name="password" type="text">
+                            <div id="row-input-password">
+                                <input autocomplete="off" class="default-input" id="input_password" name="password" type="password">
+                                <img id="button-password-show" src="{{ url_for('static', filename='img/fixed/button-eye-hide.png') }}" alt="">         
+                            </div>
+                           
                         </div>
                     </fieldset>
                     <input class="default-button-submit" id="button-submit" type="submit" value="Login">
@@ -34,6 +38,5 @@
     {% endblock %}
 
     {% block scripts %}
-        <script src="{{ url_for('static', filename='js/jquery/jquery.validate.min.js') }}"></script>
         <script src="{{ url_for('static', filename='js/user/login.js') }}"></script>
     {% endblock %}

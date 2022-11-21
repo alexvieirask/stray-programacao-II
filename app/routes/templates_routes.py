@@ -32,4 +32,8 @@ def profile_route():
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template("utils/_error404.html")
+    return render_template("utils/_error.html", code=404, message = "PAGE NOT FOUND" )
+
+@app.errorhandler(401)
+def page_not_found(error):
+    return render_template("utils/_error.html", code=401, message = "UNAUTHORIZED USER")

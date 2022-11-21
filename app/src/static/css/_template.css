@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Hanson-Bold";
+  src: url("../fonts/White NT Bold.otf") format("opentype");
+  font-weight: "normal";
+}
+
 header {
   background-color: #ffffff;
   align-items: center;
@@ -24,7 +30,7 @@ header {
   line-height: 60px;
   font-size: 36px;
   margin-left: 10px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Hanson-Bold";
   transition: 0.7s all;
 }
 .logo-title:hover {
@@ -70,22 +76,26 @@ nav {
 }
 
 .username-img-header {
-  height: 30px;
+  height: 100%;
   cursor: pointer;
 }
 
 #username-exit-header {
   margin-left: 25px;
+ 
 }
 
 .username-wallet-header {
   font-size: 12px;
   color: #ffffff;
   margin-left: 10%;
+  width: 100%;
 }
 
-#username-header {
-  min-width: 200px;
+
+#username-header  {
+  min-width: 300px;
+  height: 40px;
   background-color: rgb(72, 61, 139);
   align-items: center;
 }
@@ -94,6 +104,14 @@ nav {
   font-size: 12px;
   margin-left: 5px;
   color: #ffffff;
+}
+
+#div-exit{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
 }
 
 .form-add-game {

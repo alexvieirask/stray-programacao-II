@@ -144,11 +144,3 @@
 .date-buyed {
   font-size: 12px;
 }
-
-::-webkit-scrollbar{
-  width: 5px;
-}
-
-::-webkit-scrollbar-thumb{
-  background-color: rgb(72, 61, 139);
-}

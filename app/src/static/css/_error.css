@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Hanson-Bold";
+  src: url("../fonts/Hanson-Bold.otf") format("opentype"),url("../fonts/Hanson-Bold.ttf") format("truetype");
+  font-weight: "normal";
+}
+
+#logo-stray-error {
+  width: 100%;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: rgb(29, 29, 29);
+}
+
+.center {
+  width: 500px;
+  display: grid;
+}
+
+span {
+  text-align: center;
+  font-size: 36px;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: "Hanson-Bold", sans-serif;
+}
