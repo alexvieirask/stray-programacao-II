@@ -22,6 +22,9 @@ $(function () {
       var ulHeader = $("#ul-header");
       var liLogin = ulHeader.find("li");
 
+
+      var iconGiftcard = $("<img>").attr("src", "../static/img/fixed/icongiftcard.png").addClass("icon-giftcard")
+
       liLogin.remove();
 
       var liUsername = $("<li>").attr("id", "username-header");
@@ -34,16 +37,20 @@ $(function () {
 
       var spanWallet = $("<span>").text(`R$ ${walletInReal.toFixed(2)}`).addClass("username-wallet-header");
       var spanUsername = $("<span>").text(user.username).addClass("username-text-header");
-
+      
+      ulHeader.append(iconGiftcard)
       ulHeader.append(liUsername);
+
       liUsername.append(profilePicture);
       liUsername.append(spanUsername);
       liUsername.append(spanWallet);
       liUsername.append(divExit);
    
       divExit.append(exitButton)
+   
 
       exitButton.on("click", onLogout);
+      iconGiftcard.on("click",onRedirectToGiftcard)
       profilePicture.on("click", onRedirectToProfile);
 
       function onLogout() {
@@ -52,8 +59,12 @@ $(function () {
         window.location = "/";
       }
 
+      function onRedirectToGiftcard(){
+        window.location = "/giftcard"
+      }
+
       function onRedirectToProfile() {
-        window.location = "/myprofile ";
+        window.location = "/myprofile";
       }
     }
   }

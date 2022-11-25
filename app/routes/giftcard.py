@@ -15,7 +15,7 @@ from services.utils import *
 @jwt_required()
 def request_giftcard_route(value):
     try:
-        GIFTCARD_VALUES = ( 30, 50, 100, 200, 300 )
+        GIFTCARD_VALUES = ( 30, 50, 100, 200 )
 
         if value in GIFTCARD_VALUES:
             value_in_cents = value * 100
@@ -70,9 +70,8 @@ def use_giftcard_route(token):
         else:
            response = jsonify({"result":"error", "details": "Giftcard does not exist or used." })
        
-        
     except Exception as error:
-        response = jsonify({"result":"error", "details":str(error)})
+        response = jsonify({"result":"ok", "details":"refresh"})
     
     finally:
         db.session.close()

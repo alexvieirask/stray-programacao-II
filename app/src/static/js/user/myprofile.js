@@ -45,7 +45,7 @@ $(function () {
       const purchases = data.details.purchases;
       const allGamesLength = allGames.length;
 
-      const lastGames =allGames.length > 3 ? allGames.slice(allGamesLength - 3, allGamesLength): allGames;
+      const lastGames = allGames.length > 3 ? allGames.slice(allGamesLength - 3, allGamesLength) : allGames;
 
       const gamesInfo = {
         lastBuyed: lastGames,
@@ -77,9 +77,7 @@ $(function () {
       for (let game in GAMES) {
         var liItemGame = $("<li>");
         var imgCoverGame = $("<img>").attr("src", GAMES[game].cover);
-        var spanTitleGame = $("<span>")
-          .addClass("game-title")
-          .text(GAMES[game].title);
+        var spanTitleGame = $("<span>").addClass("game-title").text(GAMES[game].title);
 
         ulHeader.append(liItemGame);
         liItemGame.append(imgCoverGame);

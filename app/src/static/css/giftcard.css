@@ -1,28 +1,92 @@
-
-.giftcard-container{
-    margin-top: 5%;
-    display: inline-flex;
-    justify-content: center;
-    width: 100%;
+main {
+  margin: 1.5% 10%;
 }
 
-.giftcard{
-    width: 200px;
+.giftcard-title {
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 2% 20px;
+  background-color: rgb(72, 61, 139);
+}
+
+hr {
+  margin: 5% 0;
+  background-color: rgb(72, 61, 139);
+  height: 2px;
+  border-style: none;
+  width: 100%;
+}
+
+.giftcard-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  padding: 2% 0;
+  background-color: rgb(20, 20, 20);
+}
+
+.giftcard {
+  max-width: 200px;
+  width: 100%;
+}
+
+.column-giftcard {
+  display: grid;
+  background-color: rgb(61, 53, 69);
+  height: 100%;
+  margin: 1%;
+  cursor: pointer;
+}
+
+.buy-fotter {
+  padding: 10px;
+  text-align: center;
+  color: aliceblue;
+  font-weight: bold;
+}
+
+.code-giftcard {
+  padding: 2%;
+  background-color: rgb(28, 28, 29);
+  display: grid;
+}
+
+.code-giftcard label {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.code-giftcard input {
+  background-color: rgb(46, 46, 46);
+  border-style: none;
+  font-size: 36px;
+  padding: 2%;
+  color: #FFF;
+  line-height: 56px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  width: 100%;
 
 }
 
-.column-giftcard{
-    display: grid;
-    background-color: rgb(61, 53, 69);
-    height: 100%;
-    margin-right:1.5% ;
-
-
+.code-giftcard input:focus{
+  box-shadow: 0 0 0 0;
+  outline: 1px solid rgb(72, 61, 139);
 }
-.buy-fotter{
-    padding: 10px;
-    text-align: center;
-    color: aliceblue;
-    font-weight: bold;
-    
+
+#code-submit{
+  background-color: rgb(72, 61, 139);
+  border-style: none;
+  font-size: 48px;
+  padding: 1%;
+  color: #FFF;
+  line-height: 56px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
 }
