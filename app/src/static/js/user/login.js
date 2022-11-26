@@ -34,7 +34,7 @@ $(function () {
           sessionStorage.setItem("username", $("#input_username").val());
           redirectToHome();
         } else {
-          alert(`Invalid login ${response.details}`);
+          $("#login-error").text(response.details)
         }
       }
 

@@ -14,26 +14,22 @@
                             <label class="default-label" for="username">Username</label>
                             <input autocomplete="off" class="default-input" id="input_username" name="username" type="text">
                         </div>
-                    
                         <div class="row-input">
                             <label class="default-label" for="password">Password</label>
                             <div id="row-input-password">
                                 <input autocomplete="off" class="default-input" id="input_password" name="password" type="password">
                                 <img id="button-password-show" src="{{ url_for('static', filename='img/fixed/button-eye-hide.png') }}" alt="">         
                             </div>
-                           
                         </div>
+                        <span class="span-error" id="login-error"></span>
                     </fieldset>
                     <input class="default-button-submit" id="button-submit" type="submit" value="Login">
                 </form>
-                
                 <div class="row-container">
-                  <hr class="line-decorate"><span>or</span><hr class="line-decorate">
+                    <hr class="line-decorate"><span>or</span><hr class="line-decorate">
                 </div>
                 <p class="signup">Not a member? <a href="/join">Signup</a> </p>
-            
             </div>
-
         </main>
     {% endblock %}
 

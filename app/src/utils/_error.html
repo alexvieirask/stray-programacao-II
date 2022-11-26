@@ -1,19 +1,19 @@
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"href="{{ url_for('static', filename='css/config.css')}}">
-    <link rel="stylesheet"href="{{ url_for('static', filename='css/_error.css')}}">
-    <title>404</title>
-</head>
-<body>
-    <main class="main-container">
-        <div class="center">
-            <span id="span-code-error">{{code}}</span>
-            <img id="logo-stray-error" src="{{ url_for('static', filename='img/fixed/logostrayerror.png') }}" alt="logo-stray-error">
-            <span id="span-messege-error">{{message}}</span>
-        </div>
-    </main>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"href="{{ url_for('static', filename='css/config.css')}}">
+        <link rel="stylesheet"href="{{ url_for('static', filename='css/_error.css')}}">
+        <title>404</title>
+    </head>
+    <body>
+        <main class="main-container">
+            <div class="center">
+                <span id="span-code-error">{{ code }}</span>
+                <img id="logo-stray-error" src="{{ url_for('static', filename='img/fixed/logostrayerror.png') }}" alt="logo-stray-error">
+                <span id="span-messege-error">{{ message }}</span>
+            </div>
+        </main>
+    </body>
 </html>

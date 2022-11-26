@@ -48,6 +48,11 @@ $(function () {
         .text(user.username)
         .addClass("username-text-header");
 
+
+        exitButton.on("click", onLogout);
+        iconGiftcard.on("click", onRedirectToGiftcard);
+        profilePicture.on("click", onRedirectToProfile);
+
       if (user.is_admin) {
         var spanAdmin = $("<span>").addClass("span-admin").text("Admin Tools");
         liContainer.append(spanAdmin);
@@ -65,9 +70,7 @@ $(function () {
 
       divExit.append(exitButton);
 
-      exitButton.on("click", onLogout);
-      iconGiftcard.on("click", onRedirectToGiftcard);
-      profilePicture.on("click", onRedirectToProfile);
+
 
       function onLogout() {
         sessionStorage.removeItem("JWT");

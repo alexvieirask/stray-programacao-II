@@ -1,60 +1,53 @@
 {% extends "utils/_template.html" %}
-{% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/giftcard.css') }}">
-<title>Giftcard</title>
+    {% block head %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/giftcard.css') }}">
+        <title>Giftcard</title>
 
-{% endblock %}
+    {% endblock %}
 
-{% block body %}
-    <main class="main">
-        <h1 class="giftcard-title">Giftcards</h1>
-        <div class="giftcard-container">
-            <div class="column-giftcard">
-                <img class="giftcard" src="{{ url_for('static', filename='img/fixed/30.jpg') }}" alt="30-giftcard">
-                <span class="buy-fotter">BUY</span>
-            </div>
-
-            <div class="column-giftcard">
-                <img class="giftcard" src="{{ url_for('static', filename='img/fixed/50.jpg') }}" alt="50-giftcard">
-                <span class="buy-fotter">BUY</span>
-            </div>
-
-            <div class="column-giftcard">
-                <img class="giftcard" src="{{ url_for('static', filename='img/fixed/100.jpg') }}" alt="100-giftcard">
-                <span class="buy-fotter">BUY</span>
-            </div>
-
-            <div class="column-giftcard">
-                <img class="giftcard" src="{{ url_for('static', filename='img/fixed/200.jpg') }}" alt="200-giftcard">
-                <span class="buy-fotter">BUY</span>
-            </div>
-        </div>
-        
-        <div class="code-giftcard">
-            <label for="code">Use your giftcard code</label>
-            <input maxlength="14" autocomplete="off" placeholder="XXXX-XXXX-XXXX" type="text" name="code-input" id="code-input">
-            <span id="span-message"></span>
-            <input type="submit" value="Use" id="code-submit">
-        </div>
-
-        <div class="all-giftcards">
-            <h1>Information</h1>
-            <div class="all-giftcards-main-container">
-                <div class="all-giftcards-buyed">
-                    <span>Giftcards Buyed</span>
-                    <span id="giftcards-buyed"></span>
+    {% block body %}
+        <main class="main">
+            <h1 class="giftcard-title">Giftcards</h1>
+            <div class="giftcard-container">
+                <div class="column-giftcard">
+                    <img class="giftcard" src="{{ url_for('static', filename='img/fixed/30.jpg') }}" alt="30-giftcard">
+                    <span class="buy-fotter">BUY</span>
                 </div>
-
-                <div class="all-giftcards-available">
-                    <span>Giftcards Available</span>
-                    <span id="giftcards-availables"></span>
+                <div class="column-giftcard">
+                    <img class="giftcard" src="{{ url_for('static', filename='img/fixed/50.jpg') }}" alt="50-giftcard">
+                    <span class="buy-fotter">BUY</span>
+                </div>
+                <div class="column-giftcard">
+                    <img class="giftcard" src="{{ url_for('static', filename='img/fixed/100.jpg') }}" alt="100-giftcard">
+                    <span class="buy-fotter">BUY</span>
+                </div>
+                <div class="column-giftcard">
+                    <img class="giftcard" src="{{ url_for('static', filename='img/fixed/200.jpg') }}" alt="200-giftcard">
+                    <span class="buy-fotter">BUY</span>
                 </div>
             </div>
+            <div class="code-giftcard">
+                <label for="code">Use your giftcard code</label>
+                <input maxlength="14" autocomplete="off" placeholder="XXXX-XXXX-XXXX" type="text" name="code-input" id="code-input">
+                <span id="span-message"></span>
+                <input type="submit" value="Use" id="code-submit">
+            </div>
+            <div class="all-giftcards">
+                <h1>Information</h1>
+                <div class="all-giftcards-main-container">
+                    <div class="all-giftcards-buyed">
+                        <span>Giftcards Buyed</span>
+                        <span id="giftcards-buyed"></span>
+                    </div>
+                    <div class="all-giftcards-available">
+                        <span>Giftcards Available</span>
+                        <span id="giftcards-availables"></span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    {% endblock %}
 
-        </div>
-    </main>
-{% endblock %}
-
-{% block scripts %}
-    <script src="{{ url_for('static', filename='js/user/giftcard.js') }}"></script>
-{% endblock %}
+    {% block scripts %}
+        <script src="{{ url_for('static', filename='js/user/giftcard.js') }}"></script>
+    {% endblock %}
