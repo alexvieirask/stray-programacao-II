@@ -75,11 +75,6 @@ $(function () {
             alert(`Invalid login ${response.details}`);
           }
         }
-
-
-        
-        
-       
       }
 
       function onError(response) {

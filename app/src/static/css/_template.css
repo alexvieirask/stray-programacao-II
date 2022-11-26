@@ -7,9 +7,7 @@
 header {
   background-color: #ffffff;
   align-items: center;
- 
   padding: 10px;
-
 }
 
 .box {
@@ -51,23 +49,32 @@ nav {
   align-items: center;
 }
 
+#ul-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 #ul-header li {
   display: inline-flex;
+  align-items: center;
   margin: 0 0 0 15px;
 }
 
-#span-login {
+#span-login,
+#span-join {
   font-size: 16px;
+  color: #ffffff;
+  transition: all 1s;
 }
 
-#a-login {
+#a-login,
+#a-join {
   min-width: 80px;
   display: flex;
   justify-content: center;
   padding: 5%;
   text-decoration: none;
   background: rgb(72, 61, 139);
-  color: #ffffff;
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
@@ -75,7 +82,13 @@ nav {
 }
 
 #li-login :hover {
-  background-color: rgb(93, 63, 211);
+  background-color: #e6bc53;
+  color: #8a7131;
+}
+
+#li-join :hover {
+  background-color: #e6bc53;
+  color: #8a7131;
 }
 
 .username-img-header {
@@ -85,7 +98,6 @@ nav {
 
 #username-exit-header {
   margin-left: 25px;
-
 }
 
 .username-wallet-header {
@@ -94,7 +106,6 @@ nav {
   margin-left: 10%;
   width: 100%;
 }
-
 
 #username-header {
   min-width: 300px;
@@ -114,7 +125,6 @@ nav {
   width: 100%;
   display: flex;
   justify-content: flex-end;
-
 }
 
 .form-add-game {
@@ -130,4 +140,13 @@ nav {
 
 .icon-giftcard:hover {
   transform: scale(1.1);
+}
+
+.span-admin {
+  font-size: 18px;
+  margin: 0 10px;
+  color: rgb(72, 61, 139);
+  font-weight: bold;
+  text-decoration: underline;
+  width: 100%;
 }

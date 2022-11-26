@@ -22,10 +22,6 @@ def join_route():
 def login_route():
     return render_template("pages/login.html")
 
-@app.route("/new/game")
-def new_game_route():
-    return render_template ("pages/game-form.html")
-
 @app.route("/myprofile")
 def profile_route():
     return render_template("pages/my-profile.html")
@@ -33,6 +29,15 @@ def profile_route():
 @app.route("/giftcard")
 def giftcard_route():
     return render_template("pages/giftcard.html")
+
+@app.route("/game/<int:id>/<string:title>")
+def game_route(id,title):
+    current_game = db_query_by_id(Game,id)
+    
+    if not current_game:
+        abort(404)
+
+    return render_template("pages/game.html")
 
 @app.errorhandler(404)
 def page_not_found(error):

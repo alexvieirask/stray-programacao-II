@@ -62,7 +62,8 @@
   transition: 1s all;
 }
 .default-button-submit:hover {
-  background-color: rgb(93, 63, 211);
+  background-color: #e6bc53;
+  color: #8a7131;
 }
 
 .row-container {

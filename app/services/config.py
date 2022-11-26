@@ -9,7 +9,7 @@ filename = "database"
 database_file = filename + extension
 
 ''' Importações Flask SQLALCHEMY '''
-from flask import Flask, render_template,jsonify, request, redirect, url_for
+from flask import Flask, render_template,jsonify, request, redirect, url_for, abort
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt,generate_password_hash,check_password_hash

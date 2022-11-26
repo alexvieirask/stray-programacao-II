@@ -160,7 +160,7 @@ user01 = User(
     email = '''alexvieiradias2019@gmail.com''',
     password = generate_password_hash('''my-password''').decode("utf-8"),
     description = '''This profile...''',
-    profile_picture = '''../static/img/uploads/users/user1.jpeg''',
+    profile_picture = '''/static/img/uploads/users/user1.jpeg''',
     wallet = 100000000,
     is_admin = True
 )
@@ -171,10 +171,9 @@ user02 = User(
     email = '''emanoelaerthal@gmail.com''',
     password = generate_password_hash('''my-password2''').decode("utf-8"),
     description = '''This profile...''',
-    profile_picture = '''../static/img/uploads/users/user2.jpeg''',
+    profile_picture = '''/static/img/uploads/users/user2.jpeg''',
     is_admin = True
 )
-
 
 user03 = User(
     name = '''Neymar''',
@@ -182,7 +181,13 @@ user03 = User(
     email = '''neymar@gmail.com''',
     password = generate_password_hash('''my-password3''').decode("utf-8"),
     description = '''This profile...''',
-    profile_picture = '''../static/img/uploads/users/user3.jpeg'''
+    profile_picture = '''/static/img/uploads/users/user3.jpeg'''
 )
 
 default_users = [ user01, user02, user03 ]
+
+screenshot01 = Screenshot(url="https://viciados.net/wp-content/uploads/2022/04/God-of-War-Ragnarok-1000x600.webp", alt="GOW-Screenshot01",game_id=1)
+screenshot02 = Screenshot(url="https://dropsdejogos.uai.com.br/wp-content/uploads/sites/10/2022/10/divulgacao-god-of-war-ragnarok-reproducao-1-scaled.jpg", alt="GOW-Screenshot01",game_id=1)
+screenshot03 = Screenshot(url="https://viciados.net/wp-content/uploads/2022/04/God-of-War-Ragnarok-1000x600.webp", alt="GOW-Screenshot01",game_id=1)
+
+default_screenshots = [screenshot01,screenshot02,screenshot03]

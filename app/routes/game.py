@@ -7,11 +7,19 @@ from services.utils import *
     Testes:
         1. curl localhost:5000/game/1/Celeste
 '''
-@app.route("/game/<int:id>/<string:title>")
-def game_return_route(id, title):
-    current_game = db_query_by_id(Game,id)
-    return jsonify({"result":"ok", "details": current_game.json() })
+@app.route("/game/<int:id>")
+def game_return_route(id):
+        current_game = db_query_by_id(Game,id)
 
+        if current_game is None:
+            abort(404)
+
+        screenshots = [ screenshot.json() for screenshot in current_game.screenshots ]
+        
+        response =  jsonify({"result":"ok", "details": current_game.json() , "screenshots": screenshots   })
+
+
+        return response
 ''' Rota: [ games_return_route ]
     descrição: Esta rota retorna todos os jogos cadastrados na database.
 

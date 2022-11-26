@@ -26,7 +26,7 @@ $(function () {
       const GAMEBOX__HTML = `  
                     <li>
                         <a href="game/${GAME.ID}/${GAME.TITLE_LINK}">
-                            <img src=${GAME.COVER} alt="${GAME.COVER}-cover">
+                            <img src=${GAME.COVER} alt="${GAME.TITLE_LINK}-cover">
                             <div class="game-info-container">
                                 <span class="game-title">${GAME.TITLE}</span>
                                 <span class="game-price">${

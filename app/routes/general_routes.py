@@ -1,7 +1,7 @@
 ''' Importação das configurações e serviços '''
 from services.config import *
 from services.utils import *
-from services.default_datas import default_games, default_users
+from services.default_datas import default_games, default_users, default_screenshots
 
 ''' Rota: [ return_all_route ]
     descrição: Esta rota retorna todos os itens de uma determinada tabela da database.
@@ -155,6 +155,8 @@ def default_datas_route():
     try:
         db_add_many_objects(default_games)
         db_add_many_objects(default_users)
+        db_add_many_objects(default_screenshots)
+        
         response = jsonify({"result":"ok", "details":"Default data has been entered successfully."})
         
     except IntegrityError:

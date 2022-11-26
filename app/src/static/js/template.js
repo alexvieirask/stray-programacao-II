@@ -21,36 +21,52 @@ $(function () {
 
       var ulHeader = $("#ul-header");
       var liLogin = ulHeader.find("li");
+      var liContainer = $("<li>").addClass("extra-header");
 
-
-      var iconGiftcard = $("<img>").attr("src", "../static/img/fixed/icongiftcard.png").addClass("icon-giftcard")
+      var iconGiftcard = $("<img>")
+        .attr("src", "/static/img/fixed/icongiftcard.png")
+        .addClass("icon-giftcard");
 
       liLogin.remove();
 
       var liUsername = $("<li>").attr("id", "username-header");
 
-      var profilePicture = $("<img>").attr("src", user.profile_picture).addClass("username-img-header");
-      var divExit = $("<div>").attr("id","div-exit") 
-      var exitButton = $("<img>").attr("src", "../static/img/fixed/exit.png").addClass("username-img-header");
+      var profilePicture = $("<img>")
+        .attr("src", user.profile_picture)
+        .addClass("username-img-header");
+      var divExit = $("<div>").attr("id", "div-exit");
+      var exitButton = $("<img>")
+        .attr("src", "/static/img/fixed/exit.png")
+        .addClass("username-img-header");
 
       exitButton.attr("id", "username-exit-header");
 
-      var spanWallet = $("<span>").text(`R$ ${walletInReal.toFixed(2)}`).addClass("username-wallet-header");
-      var spanUsername = $("<span>").text(user.username).addClass("username-text-header");
-      
-      ulHeader.append(iconGiftcard)
+      var spanWallet = $("<span>")
+        .text(`R$ ${walletInReal.toFixed(2)}`)
+        .addClass("username-wallet-header");
+      var spanUsername = $("<span>")
+        .text(user.username)
+        .addClass("username-text-header");
+
+      if (user.is_admin) {
+        var spanAdmin = $("<span>").addClass("span-admin").text("Admin Tools");
+        liContainer.append(spanAdmin);
+      }
+
+      liContainer.append(iconGiftcard);
+      ulHeader.append(liContainer);
+
       ulHeader.append(liUsername);
 
       liUsername.append(profilePicture);
       liUsername.append(spanUsername);
       liUsername.append(spanWallet);
       liUsername.append(divExit);
-   
-      divExit.append(exitButton)
-   
+
+      divExit.append(exitButton);
 
       exitButton.on("click", onLogout);
-      iconGiftcard.on("click",onRedirectToGiftcard)
+      iconGiftcard.on("click", onRedirectToGiftcard);
       profilePicture.on("click", onRedirectToProfile);
 
       function onLogout() {
@@ -59,8 +75,8 @@ $(function () {
         window.location = "/";
       }
 
-      function onRedirectToGiftcard(){
-        window.location = "/giftcard"
+      function onRedirectToGiftcard() {
+        window.location = "/giftcard";
       }
 
       function onRedirectToProfile() {

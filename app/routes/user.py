@@ -50,3 +50,19 @@ def user_library_route():
         response = jsonify({"result":"error", "details":str(error)})
     
     return response
+
+@app.route("/user/giftcards")
+@jwt_required()
+def user_available_giftcards_route():
+    try:
+        username = get_jwt_identity()
+        user = db_query_by_username(User,username)  
+        
+        all_giftcards = [ giftcard.json() for giftcard in user.giftcards]
+    
+        response = jsonify({"result":"ok", "details": all_giftcards})
+
+    except Exception as error:
+        response = jsonify({"result":"error", "details":str(error)})
+    
+    return response

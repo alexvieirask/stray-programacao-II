@@ -1,9 +1,13 @@
 from services.config import *
 from services.utils import *
 
-user = db_query_by_username(User,"alex.vieira") 
+game = db_query_by_id(Game,1) 
+screenshot = Screenshot(url="teste.com", alt="teste.alt", game_id=1)
+db.session.add(screenshot)
+db.session.commit()
 
-games_buyed = sorted(user.purchases)
+
+print(game.screenshots) 
 
 
-print(user.giftcards)
+

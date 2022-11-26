@@ -6,8 +6,8 @@
 {% endblock %}
 
 {% block body %}
-    <main>
-        <h1 class="giftcard-title">Available Giftcards</h1>
+    <main class="main">
+        <h1 class="giftcard-title">Giftcards</h1>
         <div class="giftcard-container">
             <div class="column-giftcard">
                 <img class="giftcard" src="{{ url_for('static', filename='img/fixed/30.jpg') }}" alt="30-giftcard">
@@ -28,23 +28,30 @@
                 <img class="giftcard" src="{{ url_for('static', filename='img/fixed/200.jpg') }}" alt="200-giftcard">
                 <span class="buy-fotter">BUY</span>
             </div>
-
-
-
-
-
-
-
-
         </div>
         
         <div class="code-giftcard">
             <label for="code">Use your giftcard code</label>
             <input maxlength="14" autocomplete="off" placeholder="XXXX-XXXX-XXXX" type="text" name="code-input" id="code-input">
             <span id="span-message"></span>
-          
+            <input type="submit" value="Use" id="code-submit">
         </div>
-        <input type="submit" value="Use" id="code-submit">
+
+        <div class="all-giftcards">
+            <h1>Information</h1>
+            <div class="all-giftcards-main-container">
+                <div class="all-giftcards-buyed">
+                    <span>Giftcards Buyed</span>
+                    <span id="giftcards-buyed"></span>
+                </div>
+
+                <div class="all-giftcards-available">
+                    <span>Giftcards Available</span>
+                    <span id="giftcards-availables"></span>
+                </div>
+            </div>
+
+        </div>
     </main>
 {% endblock %}
 

@@ -7,6 +7,8 @@ $(function () {
   }
 
   if (JWT) {
+    $(".main").show();
+
     $.ajax({
       url: `http://${ENDERECO_IP}:5000/user/info`,
       method: "GET",
@@ -45,7 +47,10 @@ $(function () {
       const purchases = data.details.purchases;
       const allGamesLength = allGames.length;
 
-      const lastGames = allGames.length > 3 ? allGames.slice(allGamesLength - 3, allGamesLength) : allGames;
+      const lastGames =
+        allGames.length > 3
+          ? allGames.slice(allGamesLength - 3, allGamesLength)
+          : allGames;
 
       const gamesInfo = {
         lastBuyed: lastGames,
@@ -77,7 +82,9 @@ $(function () {
       for (let game in GAMES) {
         var liItemGame = $("<li>");
         var imgCoverGame = $("<img>").attr("src", GAMES[game].cover);
-        var spanTitleGame = $("<span>").addClass("game-title").text(GAMES[game].title);
+        var spanTitleGame = $("<span>")
+          .addClass("game-title")
+          .text(GAMES[game].title);
 
         ulHeader.append(liItemGame);
         liItemGame.append(imgCoverGame);
@@ -92,12 +99,16 @@ $(function () {
     function HTML__allGamesBuyed(GAMES, purchases) {
       var divGamesInfoSecond = $("#games-info-second");
       var ulHeader = $("<ul>").attr("id", "all-games");
-      var buttonAllGames = $("<button>").text("All Games").attr("id", "button-all-games");
+      var buttonAllGames = $("<button>")
+        .text("All Games")
+        .attr("id", "button-all-games");
 
       for (let game in GAMES) {
         var liItemGame = $("<li>").addClass("row-item");
         var spanTitleGame = $("<span>").text(GAMES[game].title);
-        var spanDatePurchase = $("<span>").text(purchases[game].realized_date).addClass("date-buyed");
+        var spanDatePurchase = $("<span>")
+          .text(purchases[game].realized_date)
+          .addClass("date-buyed");
 
         ulHeader.append(liItemGame);
         liItemGame.append(spanTitleGame);
@@ -112,7 +123,7 @@ $(function () {
 
     function showAllGames() {
       var ulAllGames = $("#all-games");
-      ulAllGames.slideToggle()
+      ulAllGames.stop().slideToggle();
     }
   } else {
     redirectToLogin();
