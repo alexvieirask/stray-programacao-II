@@ -54,7 +54,7 @@ $(function () {
         profilePicture.on("click", onRedirectToProfile);
 
       if (user.is_admin) {
-        var spanAdmin = $("<span>").addClass("span-admin").text("Admin Tools");
+        var spanAdmin = $("<span>").addClass("span-admin").text("Admin Tools").on("click",onRedirectToAdmin)
         liContainer.append(spanAdmin);
       }
 
@@ -84,6 +84,10 @@ $(function () {
 
       function onRedirectToProfile() {
         window.location = "/myprofile";
+      }
+      
+      function onRedirectToAdmin() {
+        window.location = "/admin";
       }
     }
   }

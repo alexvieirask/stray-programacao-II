@@ -76,3 +76,17 @@ table {
 	font-weight: 500;
 	font-size: 18px;
 }
+
+hr {
+	margin: 2% 0;
+	border-style: none;
+	height: 1px;
+	background-color: #e6bc53;
+  }
+
+
+@font-face {
+	font-family: "Hanson-Bold";
+	src: url("../fonts/Hanson-Bold.otf") format("opentype"),url("../fonts/Hanson-Bold.ttf") format("truetype");
+	font-weight: "normal";
+  }

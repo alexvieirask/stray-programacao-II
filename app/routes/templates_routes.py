@@ -33,11 +33,13 @@ def giftcard_route():
 @app.route("/game/<int:id>/<string:title>")
 def game_route(id,title):
     current_game = db_query_by_id(Game,id)
-    
     if not current_game:
         abort(404)
-
     return render_template("pages/game.html")
+
+@app.route("/admin")
+def admin_route():
+    return render_template("pages/admin.html")
 
 @app.errorhandler(404)
 def page_not_found(error):

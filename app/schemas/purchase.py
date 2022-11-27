@@ -20,7 +20,7 @@ class Purchase(db.Model):
 
     def json(self) -> dict:
         return {
-            "purchase_id": self.id,
+            "id": self.id,
             "user_buyer_id": self.user_buyer_id,
             "game_buyed_id": self.game_buyed_id,
             "realized_date": self.realized_date

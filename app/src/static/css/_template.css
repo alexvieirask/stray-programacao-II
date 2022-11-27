@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Hanson-Bold";
+  font-family: "WhiteNT";
   src: url("../fonts/White NT Bold.otf") format("opentype");
   font-weight: "normal";
 }
@@ -30,7 +30,7 @@ header {
   line-height: 60px;
   font-size: 36px;
   margin-left: 10px;
-  font-family: "Hanson-Bold";
+  font-family: "WhiteNT";
   transition: 0.7s all;
 }
 
@@ -149,4 +149,5 @@ nav {
   font-weight: bold;
   text-decoration: underline;
   width: 100%;
+  cursor: pointer;
 }

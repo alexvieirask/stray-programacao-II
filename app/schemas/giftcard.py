@@ -15,7 +15,7 @@ class GiftCard(db.Model):
 
     def json(self) -> dict:
         return {
-            "id:": self.id,
+            "id": self.id,
             "value": self.value,
             "giftcard_code": self.giftcard_code,
             "available": self.available,
