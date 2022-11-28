@@ -216,6 +216,26 @@ $(function(){
                     
 
                     $(".edit-money-container").append(itemsSendMoney)
+                   
+                    buttonSendMoney.on("click",function(){
+                        console.log(inputIdToSendMoney.val())
+                        
+                        $.ajax({
+                            url: `http://${ENDERECO_IP}:5000/${inputIdToSendMoney.val()}/send/${inputValueToSendMoney.val()}`,
+                            method: "GET",
+                            dataType: "json",
+                            contentType: "application/json",
+                            success: function(data){
+                                window.location.reload()
+                            },
+                            headers: { Authorization: "Bearer " + JWT },
+                            error: (data) => {
+                                console.log(data)
+                            },
+                          });
+        
+
+                    })
 
 
 
