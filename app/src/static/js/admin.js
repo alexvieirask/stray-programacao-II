@@ -31,7 +31,7 @@ $(function(){
                     var main = $(".main")
                     main.show()
                     var divOptionContainer = $("<div>").addClass("option-container")
-                    var labelTable = $("<label>").attr("for","schemas").text("Choose Schema")
+                    var labelTable = $("<label>").attr("for","schemas").text("Function List")
                     var divRowOptionAndInput = $("<div>").addClass("row-option-and-input") 
                     
                     var selectSchemas = $("<select>").attr("name","schemas").attr("id","schemas")
@@ -44,7 +44,7 @@ $(function(){
                     var optionScreenshot = $("<option>").val("screenshot").text("Screenshot")
                     var inputOption = $("<input>").attr("type","submit").val("List")
                     var hr = $("<hr>")
-                    var divTableContainerAndInput = $("<div>").addClass("table-container-and-input")
+            
 
 
                     selectSchemas.append(optionUser)
@@ -64,12 +64,11 @@ $(function(){
 
                    
                     
-                    divTableContainerAndInput.append(divOptionContainer)
-                    main.append(divTableContainerAndInput)
+                    $(".table-container-and-input").append(divOptionContainer)
+                  
 
                     inputOption.on("click",function(){
                         let currentValue = selectSchemas.val()
-
                         $(".nothing-to-show").remove()
                 
                         
@@ -112,13 +111,14 @@ $(function(){
                                     }
 
                                     divTable.append(table)
-                                    divTableContainerAndInput.append(divTable)
-                                    main.append(divTableContainerAndInput)
+                                    $(".table-container-and-input").append(divTable)
+                                    main.append($(".table-container-and-input"))
 
-
+                                   
                                 }
                                 else{
                                     $(".table-container").remove()
+                                    console.log("teste")
                                     var divNothingToShow = $("<div>").addClass("nothing-to-show")
                                     var divRowNothingToShow = $("<div>").addClass("nothing-to-show-row")
                                     var spanNothingToShow = $("<span>").text("NOTHING TO SHOW")
@@ -127,19 +127,95 @@ $(function(){
                                     divRowNothingToShow.append(spanNothingToShow)
                                     divRowNothingToShow.append(imgNothingToShow)
                                     divNothingToShow.append(divRowNothingToShow)
-                                    divTableContainerAndInput.append(divNothingToShow)
+                                    $(".table-container-and-input").append(divNothingToShow)
                                     
                                 }
                             },
-                          });
+                        });
                        
 
                         
                     })
+                
+                    inputOption.click()
                     
 
-                    inputOption.click()
+                    var divItemsDelete = $("<div>").addClass("items-delete")
+                    var labelDelete = $("<label>").text("Function Delete")  
+                    var inputDeleteId = $("<input>").attr("placeholder","ID").attr("type","text").attr("id","input-delete-id")
 
+                    var selectSchemasDelete = $("<select>").attr("name","schemas").attr("id","schemas")
+                    
+                    var optionUserDelete = $("<option>").val("user").text("User")
+                    var optionGameDelete = $("<option>").val("game").text("Game")
+                    var optionGiftcardDelete = $("<option>").val("giftcard").text("Giftcard")
+                    var optionMedalDelete= $("<option>").val("medal").text("Medal")
+                    var optionPurchaseDelete = $("<option>").val("purchase").text("Purchase")
+                    var optionScreenshotDelete = $("<option>").val("screenshot").text("Screenshot")
+                    var inputOptionDelete = $("<button>").text("Delete").addClass("button-default").attr("id","button-delete")
+
+
+
+                    selectSchemasDelete.append(optionUserDelete)
+                    selectSchemasDelete.append(optionGameDelete)
+                    selectSchemasDelete.append(optionGiftcardDelete)
+                    selectSchemasDelete.append(optionMedalDelete)
+                    selectSchemasDelete.append(optionPurchaseDelete)
+                    selectSchemasDelete.append(optionScreenshotDelete)
+                   
+
+
+                    $(".delete-container").append(labelDelete)
+                    divItemsDelete.append(selectSchemasDelete)
+                    divItemsDelete.append(inputDeleteId)
+                    divItemsDelete.append(inputOptionDelete)
+                    $(".delete-container").append(divItemsDelete)
+
+
+
+                    inputOptionDelete.on("click",function(){
+                        let schema = selectSchemasDelete.val()
+                        let idDelete = inputDeleteId.val()
+                        $("#span-message-delete").remove()
+                
+                        $.ajax({
+                            url: `http://${ENDERECO_IP}:5000/${schema}/delete/${idDelete}`,
+                            method: "GET",
+                            dataType: "json",
+                            contentType: "application/json",
+                            headers: { Authorization: "Bearer " + JWT },
+                            error: function(){
+                                var spanDelete = $("<span>").addClass(`span-error`).text("Field empty or Invalid.").attr("id","span-message-delete")
+                                inputDeleteId.val("")
+                                divItemsDelete.append(spanDelete)
+                            },
+                            success: function(data){
+                                var spanDelete = $("<span>").addClass(`span-${data.result}`).text(data.details).attr("id","span-message-delete")
+                                divItemsDelete.append(spanDelete)
+                                if (data.result == "success"){
+                                    setTimeout(()=>{
+                                        spanDelete.hide()
+                                    },2000)
+                                }
+            
+                            }
+                          });
+                    })
+
+                    
+                    var labelSendMoney = $("<label>").text("Function Send Money")
+                    var inputIdToSendMoney = $("<input>").attr("type","text").attr("id","input-send-money-id").attr("placeholder","user id")
+                    var inputValueToSendMoney = $("<input>").attr("type","text").attr("id","input-send-money-value").attr("placeholder","value")
+                    var itemsSendMoney = $("<div>").addClass("items-send-money")
+                    var buttonSendMoney = $("<button>").text("Send").addClass("button-default").attr("id","button-delete")
+                    $(".edit-money-container").append(labelSendMoney)
+
+                    itemsSendMoney.append(inputIdToSendMoney)
+                    itemsSendMoney.append(inputValueToSendMoney)
+                    itemsSendMoney.append(buttonSendMoney)
+                    
+
+                    $(".edit-money-container").append(itemsSendMoney)
 
 
 

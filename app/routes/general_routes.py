@@ -127,11 +127,15 @@ def delete_route(class_type:str, id:int):
         for type in class_list:
             if type.__tablename__ == class_type:
                 data = db_query_by_id(type,id)
+                
+                if data:
+                    db.session.delete(data)
+                    db.session.commit()
+                    response = jsonify({"result":"success", "details":"{} successfully deleted".format(type.__tablename__)})
+                else:
+                    response = jsonify({"result":"error", "details":"{} not found".format(type.__tablename__)})
 
-                db.session.delete(data)
-                db.session.commit()
 
-                response = jsonify({"result":"ok", "details":"Success"})
                 return response
 
             response = jsonify({"result":"error", "details":"Bad Request"})

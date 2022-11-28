@@ -1,1 +1,1 @@
-__all__ = [ 'auth_routes', 'general_routes', 'templates_routes','game', 'giftcard','user' ]
+__all__ = [ 'auth_routes', 'general_routes', 'templates_routes','game', 'giftcard','user','admin']
