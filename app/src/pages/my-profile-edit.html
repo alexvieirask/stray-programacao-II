@@ -1,0 +1,52 @@
+{% extends "utils/_template.html" %}   
+    {% block head %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+        <title>Edit</title>     
+        
+    {% endblock %}
+    
+    {% block body %}
+    <main class="main">
+        <div class="form-container">
+            <h1 class="form-title">Edit</h1>
+            <form id="form-new-user" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <div class="row-input">
+                        <label class="default-label" for="name">Name</label>
+                        <input autocomplete="off" class="default-input" id="input_name" name="name" type="text">
+                    </div>
+                    <div class="row-input">
+                        <label class="default-label" for="username">Username</label>
+                        <input autocomplete="off" class="default-input" id="input_username" name="username" type="text">
+                    </div>
+                    <div class="row-input">
+                        <label class="default-label" for="email">Email</label>
+                        <input autocomplete="off" class="default-input" id="input_email" name="email" type="email">
+                    </div>
+
+                    <div class="row-input">
+                        <label class="default-label" for="description">Description</label>
+                        <input autocomplete="off" class="default-input" id="input_description" name="description" type="text">
+                    </div>
+
+                    <div class="row-input">
+                        <label class="default-label" for="description">Profile Picture</label>
+                        <div class="out-picture">
+                            <label class="input-picture-button-label" for="input-picture-profile">Change an image</label>
+                            <input type="file" name="input-picture-profile" id="input-picture-profile">
+                            <div class="picture">
+                                <img class="img-preview" alt="profile-img">
+                            </div>
+                        </div>
+                    
+                    </div>
+                </fieldset>
+                <input class="default-button-submit" id="button-submit" type="submit" value="Save changes">
+            </form>
+        </div>
+    </main>
+    {% endblock %}
+    
+    {% block scripts %}
+        <script src="{{ url_for('static', filename='js/user/myprofileedit.js') }}"></script>
+    {% endblock %}

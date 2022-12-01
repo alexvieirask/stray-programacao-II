@@ -31,7 +31,6 @@ $(function () {
       function onSuccess(response) {
         if (response.result == "ok") {
           sessionStorage.setItem("JWT", response.details);
-          sessionStorage.setItem("username", $("#input_username").val());
           redirectToHome();
         } else {
           $("#login-error").text(response.details)

@@ -1,4 +1,3 @@
-from sqlalchemy import delete
 from services.config import *
 
 '''  Funções relacionadas á database '''
@@ -42,3 +41,28 @@ def db_delete_many_objects(list:list):
     for item in list:
         db.session.delete(item)
     db.session.commit()
+
+def db_check_if_username_exists(schema,username):
+    ''' Verifica se um username já existe '''
+    user = db_query_by_username(schema,username)
+    if user:
+        return True
+    return False
+
+def PATH_FROM_MAIN_FOLDER(others_folders:list):
+    ''' Função dinâmica para acessar as pastas da aplicação '''
+    CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
+    CURRENT_PATH_LIST = CURRENT_PATH.split('\\')
+    STRING_PATH = "" 
+
+    index_app_folder = CURRENT_PATH_LIST.index("app") + 1
+    path_app_folder_in_list = CURRENT_PATH_LIST[0: index_app_folder]
+
+    
+    path_complete = path_app_folder_in_list + others_folders
+
+
+    for folder in path_complete:
+        STRING_PATH+= folder + "\\"
+    
+    return STRING_PATH

@@ -9,6 +9,7 @@
 
 #row-name-picture {
   display: inline-flex;
+
 }
 
 #my-picture {
@@ -20,12 +21,13 @@
 
 #username {
   font-size: 48px;
+
   font-weight: bold;
 }
 
 #user-minimal-info {
   height: 100%;
-  width: 500px;
+  min-width: 400px;
   margin-left: 25px;
   display: grid;
 }
@@ -148,4 +150,21 @@
 }
 .date-buyed {
   font-size: 12px;
+}
+
+.row-username-config{
+  display: flex;
+  justify-content: space-between;
+
+
+}
+.row-username-config img{
+  width: 50px;
+  transition: 1s;
+  cursor: pointer;
+}
+
+
+.row-username-config img:hover{
+  transform: scale(1.3) rotate(-40deg);
 }

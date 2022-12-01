@@ -1,13 +1,6 @@
 from services.config import *
 from services.utils import *
 
-game = db_query_by_id(Game,1) 
-screenshot = Screenshot(url="teste.com", alt="teste.alt", game_id=1)
-db.session.add(screenshot)
-db.session.commit()
-
-
-print(game.screenshots) 
-
-
-
+EXTENSION_ARCHIVE = "alsdldlas.jdsdsdsa.dsadsa.das.dsa.d.asd.as.das..jpeg".split(".")
+LEN_ARCHIVE_NAME_SPLIT = len(EXTENSION_ARCHIVE)
+print(EXTENSION_ARCHIVE[LEN_ARCHIVE_NAME_SPLIT-1])

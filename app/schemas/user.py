@@ -27,7 +27,7 @@ class User(db.Model):
             "id": self.id,
             "name": self.name,
             "username":self.username,
-            "e-mail": self.email, 
+            "email": self.email, 
             "password": self.password,
             "wallet": self.wallet,
             "description": self.description,

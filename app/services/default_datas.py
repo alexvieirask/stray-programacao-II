@@ -161,7 +161,7 @@ user01 = User(
     password = generate_password_hash('''my-password''').decode("utf-8"),
     description = '''This profile...''',
     profile_picture = '''/static/img/uploads/users/user1.jpeg''',
-    wallet = 100000000,
+    wallet = 0,
     is_admin = True
 )
 

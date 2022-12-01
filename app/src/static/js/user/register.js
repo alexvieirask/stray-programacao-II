@@ -34,7 +34,7 @@ $(function () {
     });
 
     function onSubmit() {
-      formData = JSON.stringify({
+      const formData = JSON.stringify({
         name: $("#input_name").val(),
         username: $("#input_username").val(),
         email: $("#input_username").val(),

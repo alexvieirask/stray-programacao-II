@@ -9,6 +9,19 @@ $(function () {
   if (JWT) {
     $(".main").show();
 
+    $("#my-profile-edit").on("click",function(){
+      window.location = "/myprofile/edit"
+    })
+
+    $("#my-profile-edit").hover(function(){
+      $("#my-profile-edit").attr("src", "/static/img/fixed/engrenagem_gold.png")
+    })
+
+    $("#my-profile-edit").mouseleave(function(){
+      $("#my-profile-edit").attr("src", "/static/img/fixed/engrenagem.png")
+    })
+
+
     $.ajax({
       url: `http://${ENDERECO_IP}:5000/user/info`,
       method: "GET",

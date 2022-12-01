@@ -10,8 +10,8 @@ from services.utils import *
         2. curl -H "Content-Type:application/json" -X POST --data "{\"username\":\"emanoela.erthal\",\"password\":\"my-password2\"}" http://localhost:5000/login/auth
 
     Algumas rotas protegidas:
-        1. curl localhost:5000/user/return_all -H "Authorization:Bearer TOKENGERADO"
-        2. curl localhost:5000/giftcard/return_all -H "Authorization:Bearer TOKENGERADO"
+        1. curl localhost:5000/user/return_all -H "Authorization:Bearer [TOKEN]"
+        2. curl localhost:5000/giftcard/return_all -H "Authorization:Bearer [TOKEN]"
 '''
 @app.route("/login/auth", methods=['POST'])
 def login_authenticate_route():

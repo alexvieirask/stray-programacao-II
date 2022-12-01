@@ -18,7 +18,7 @@ class Game(db.Model):
     available = db.Column(db.Boolean, default = True)
     cover = db.Column(db.Text, default = "../static/img/games/default-cover.gif" )
     screenshots = db.relationship(Screenshot, backref = 'Game')
-
+    
     def json(self) -> dict:
         return { 
             "id": self.id,

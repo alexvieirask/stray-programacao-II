@@ -16,15 +16,10 @@
   font-weight: bold;
   color: #e6bc53;
 }
+
 h1 {
   font-size: 48px;
   font-weight: bold;
-}
-hr {
-  margin: 2% 0;
-  border-style: none;
-  height: 1px;
-  background-color: #e6bc53;
 }
 
 #description {

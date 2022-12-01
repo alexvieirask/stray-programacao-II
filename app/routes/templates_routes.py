@@ -23,8 +23,12 @@ def login_route():
     return render_template("pages/login.html")
 
 @app.route("/myprofile")
-def profile_route():
+def my_profile_route():
     return render_template("pages/my-profile.html")
+
+@app.route("/myprofile/edit")
+def my_profile_route_edit():
+    return render_template("pages/my-profile-edit.html")
 
 @app.route("/giftcard")
 def giftcard_route():

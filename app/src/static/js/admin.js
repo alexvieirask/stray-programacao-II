@@ -25,6 +25,7 @@ $(function(){
               });
 
               function userIsAdminOrNot(data){
+                var user = data.details
                 const userIsAdmin = data.details.is_admin
          
                 if (userIsAdmin){
@@ -177,29 +178,38 @@ $(function(){
                         let schema = selectSchemasDelete.val()
                         let idDelete = inputDeleteId.val()
                         $("#span-message-delete").remove()
+
+                        if (user.id != idDelete){
+                            $.ajax({
+                                url: `http://${ENDERECO_IP}:5000/${schema}/delete/${idDelete}`,
+                                method: "GET",
+                                dataType: "json",
+                                contentType: "application/json",
+                                headers: { Authorization: "Bearer " + JWT },
+                                error: function(){
+                                    var spanDelete = $("<span>").addClass(`span-error`).text("Field empty or Invalid.").attr("id","span-message-delete")
+                                    inputDeleteId.val("")
+                                    divItemsDelete.append(spanDelete)
+                                },
+                                success: function(data){
+                                    var spanDelete = $("<span>").addClass(`span-${data.result}`).text(data.details).attr("id","span-message-delete")
+                                    divItemsDelete.append(spanDelete)
+                                    if (data.result == "success"){
+                                        setTimeout(()=>{
+                                            spanDelete.hide()
+                                        },2000)
+                                    }
                 
-                        $.ajax({
-                            url: `http://${ENDERECO_IP}:5000/${schema}/delete/${idDelete}`,
-                            method: "GET",
-                            dataType: "json",
-                            contentType: "application/json",
-                            headers: { Authorization: "Bearer " + JWT },
-                            error: function(){
-                                var spanDelete = $("<span>").addClass(`span-error`).text("Field empty or Invalid.").attr("id","span-message-delete")
-                                inputDeleteId.val("")
-                                divItemsDelete.append(spanDelete)
-                            },
-                            success: function(data){
-                                var spanDelete = $("<span>").addClass(`span-${data.result}`).text(data.details).attr("id","span-message-delete")
-                                divItemsDelete.append(spanDelete)
-                                if (data.result == "success"){
-                                    setTimeout(()=>{
-                                        spanDelete.hide()
-                                    },2000)
                                 }
-            
-                            }
-                          });
+                              });
+                        }
+                        else{
+                            var spanDelete = $("<span>").addClass(`span-error`).text("You cannot self delete.").attr("id","span-message-delete")
+                            inputDeleteId.val("")
+                            divItemsDelete.append(spanDelete)
+                        }
+                
+                  
                     })
 
                     
@@ -218,7 +228,7 @@ $(function(){
                     $(".edit-money-container").append(itemsSendMoney)
                    
                     buttonSendMoney.on("click",function(){
-                        console.log(inputIdToSendMoney.val())
+                        $("#span-message-send-money").remove()
                         
                         $.ajax({
                             url: `http://${ENDERECO_IP}:5000/${inputIdToSendMoney.val()}/send/${inputValueToSendMoney.val()}`,
@@ -226,11 +236,28 @@ $(function(){
                             dataType: "json",
                             contentType: "application/json",
                             success: function(data){
-                                window.location.reload()
+                                var spanSendMoney = $("<span>").addClass(`span-${data.result}`).text(data.details).attr("id","span-message-send-money")
+                                itemsSendMoney.append(spanSendMoney)
+                                if (data.result == "success"){
+                                    setTimeout(()=>{
+                                        spanSendMoney.hide()
+                                    },2000)
+                                }
+
+                                if (user.id == inputIdToSendMoney.val()){
+                                    let current_value = Number($(".username-wallet-header").text().split(" ")[1]) 
+                                    $(".username-wallet-header").text(`R$ ${current_value + Number(inputValueToSendMoney.val())}`)
+                                    
+                                }
+                                
                             },
                             headers: { Authorization: "Bearer " + JWT },
                             error: (data) => {
-                                console.log(data)
+                                var spanSendMoney = $("<span>").addClass(`span-error`).text("Field empty or Invalid.").attr("id","span-message-send-money")
+                                inputIdToSendMoney.val("")
+                                inputValueToSendMoney.val("")
+                                itemsSendMoney.append(spanSendMoney)
+                            
                             },
                           });
         
