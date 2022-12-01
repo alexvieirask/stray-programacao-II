@@ -2,6 +2,7 @@
 from datetime import datetime, timedelta
 import os
 import random
+import platform
 
 ''' Configuração do nome do arquivo da database  '''
 extension = ".db"

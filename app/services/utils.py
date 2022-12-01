@@ -54,6 +54,12 @@ def PATH_FROM_MAIN_FOLDER(others_folders:list):
     CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
     CURRENT_PATH_LIST = CURRENT_PATH.split('\\')
     STRING_PATH = "" 
+    SO = platform.system()
+
+    SEPARATOR ="\\"
+
+    if SO != "Windows":
+        SEPARATOR = "/"
 
     index_app_folder = CURRENT_PATH_LIST.index("app") + 1
     path_app_folder_in_list = CURRENT_PATH_LIST[0: index_app_folder]
@@ -63,6 +69,6 @@ def PATH_FROM_MAIN_FOLDER(others_folders:list):
 
 
     for folder in path_complete:
-        STRING_PATH+= folder + "\\"
+        STRING_PATH+= folder + SEPARATOR
     
     return STRING_PATH

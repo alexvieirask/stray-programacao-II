@@ -13,8 +13,7 @@
 }
 
 #my-picture {
-  min-width: 75px;
-  max-width: 150px;
+  width: 150px;
   height: 140px;
   border: 2px solid rgb(72, 61, 139);
 }

@@ -92,7 +92,7 @@ nav {
 }
 
 .username-img-header {
-  width: 50px;
+  min-width: 50px;
   height: 40px;
 
   cursor: pointer;

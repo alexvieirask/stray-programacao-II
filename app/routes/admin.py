@@ -228,6 +228,8 @@ def save_image_route():
         user = db_query_by_username(User,username)
         FILE = request.files['input-picture-profile'] 
 
+        print(platform.system())
+
         if FILE:
 
             VALID_EXTENSIONS = ['JPEG', 'PNG', 'JPG']
