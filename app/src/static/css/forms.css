@@ -152,11 +152,17 @@ input[type="file"]{
 
 }
 
-
-
 label.error {
   color: rgb(255, 10, 42);
   font-weight: 500;
 }
 
+.form-container-game{
+  display: none;
+  width: 960px;
+  background-color: #272727;
+  margin: 3% auto;
+  padding: 2em;
+  border-radius: 10px;
+}
 

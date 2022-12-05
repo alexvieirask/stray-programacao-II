@@ -123,10 +123,10 @@ tr:nth-child(even) {
   background-color: rgb(32, 32, 32);
   padding: 2% 2%;
   border-radius: 20px;
-
 }
 
-.delete-container label, .edit-money-container label{
+.delete-container label,
+.edit-money-container label {
   font-size: 28px;
   margin: 1% 0;
   font-weight: bold;
@@ -137,11 +137,14 @@ tr:nth-child(even) {
   height: 40px;
 }
 
-.delete-container input,.edit-money-container input {
+.delete-container input,
+.edit-money-container input {
   height: 30px;
 }
 
-.delete-container input,select, .edit-money-container input {
+.delete-container input,
+select,
+.edit-money-container input {
   outline-style: none;
   border-style: none;
   margin: 5px 0px;
@@ -167,7 +170,23 @@ tr:nth-child(even) {
   color: #8a7131;
 }
 
-.items-delete, .items-send-money {
+.items-delete,
+.items-send-money {
   display: grid;
   width: 100%;
+}
+
+.button-default-100 {
+  width: 100%;
+}
+.graphic-type-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+}
+.graphic-container{
+  width: 25%;
 }

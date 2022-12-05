@@ -41,6 +41,10 @@ def game_route(id,title):
         abort(404)
     return render_template("pages/game.html")
 
+@app.route("/game/add")
+def game_add_route():
+    return render_template("pages/game-add.html")
+
 @app.route("/admin")
 def admin_route():
     return render_template("pages/admin.html")

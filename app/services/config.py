@@ -4,6 +4,7 @@ import os
 import random
 import platform
 
+
 ''' Configuração do nome do arquivo da database  '''
 extension = ".db"
 filename = "database"
@@ -34,6 +35,18 @@ jwt = JWTManager(app)
 
 cors = CORS(app)
 bcrypt = Bcrypt(app) 
+
+''' Configurações de Imagens '''
+VALID_EXTENSIONS = ['JPEG', 'PNG', 'JPG']
+DEFAULT_EXTENSION  = ".JPEG"
+
+''' Configurações do Sistema Operacional '''
+SO = platform.system()
+SEPARATOR_PATH ="\\"
+
+if SO != "Windows":
+    SEPARATOR_PATH = "/"
+
 
 ''' Importações Esquemas '''
 from schemas.medal import Medal

@@ -52,23 +52,12 @@ def db_check_if_username_exists(schema,username):
 def PATH_FROM_MAIN_FOLDER(others_folders:list):
     ''' Função dinâmica para acessar as pastas da aplicação '''
     CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
-    CURRENT_PATH_LIST = CURRENT_PATH.split('\\')
-    STRING_PATH = "" 
-    SO = platform.system()
-
-    SEPARATOR ="\\"
-
-    if SO != "Windows":
-        SEPARATOR = "/"
-
+    CURRENT_PATH_LIST = CURRENT_PATH.split(SEPARATOR_PATH)
+ 
     index_app_folder = CURRENT_PATH_LIST.index("app") + 1
     path_app_folder_in_list = CURRENT_PATH_LIST[0: index_app_folder]
 
-    
     path_complete = path_app_folder_in_list + others_folders
 
-
-    for folder in path_complete:
-        STRING_PATH+= folder + SEPARATOR
-    
+    STRING_PATH = SEPARATOR_PATH.join(path_complete)  + SEPARATOR_PATH
     return STRING_PATH

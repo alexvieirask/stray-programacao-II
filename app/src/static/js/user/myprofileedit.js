@@ -105,15 +105,11 @@ $(function () {
                             else{
                                 alert("user editado")
                             }
-                           
-
-                            
-                            
-
+    
                                 var archive_photo = new FormData($("#form-new-user")[0])
 
                                 $.ajax({
-                                    url: `http://${ENDERECO_IP}:5000/save_image`,
+                                    url: `http://${ENDERECO_IP}:5000/save_image_profile_user`,
                                     method: 'POST',
                                     headers: { Authorization: "Bearer " + JWT },
                                     data: archive_photo,
@@ -124,17 +120,18 @@ $(function () {
                                     error: function (data) { console.log(data) }
                                 })
                             
+                           
                         },
 
                     });
-                /* 
+                
                     if (USER.username != $("#input_username").val()) {
                         alert("Username changed! Login again!")
                         sessionStorage.removeItem("JWT")
                         redirectToLogin()
                     }
                     
-                */
+                
                 })
             }
         })

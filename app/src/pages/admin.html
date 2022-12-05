@@ -1,6 +1,7 @@
 {% extends "utils/_template.html" %}
     {% block head %}
         <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+
         <title>Admin Tools</title>       
     {% endblock %}
 
@@ -10,7 +11,11 @@
                 <div class="delete-container"></div>
                 <div class="edit-money-container"></div>
             </div>
-
+            <div class="graphic-type-container">
+                <div class="graphic-container">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
             <div class="table-container-and-input"></div>
    
         </main>
@@ -18,4 +23,5 @@
 
     {% block scripts %}
         <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     {% endblock %}

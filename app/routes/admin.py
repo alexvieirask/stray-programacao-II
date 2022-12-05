@@ -92,7 +92,7 @@ def include_route(class_type):
                 db.session.add(new_data)
                 db.session.commit()
 
-                response = jsonify({"result":"ok", "details":"Success"})
+                response = jsonify({"result":"ok", "details": new_data.json()})
                 return response
         response = jsonify({"result":"error", "details":"Bad Request"})
 
@@ -215,34 +215,33 @@ def send_money_route(id:int,value:int):
     return response
 
 
-''' Rota: [ save_image_route ]
+''' Rota: [ save_image_profile_user_route ]
     descrição: Esta rota é responsável por salvar a imagem de perfil de um usuário em especifico.
 
     Obs.: Esta rota necessita do JWT no corpo da requisição.
 '''
-@app.route("/save_image", methods = ["POST"])
+@app.route("/save_image_profile_user", methods = ["POST"])
 @jwt_required()
-def save_image_route():
+def save_image_profile_user_route():
     try:
         username = get_jwt_identity()
         user = db_query_by_username(User,username)
         FILE = request.files['input-picture-profile'] 
 
-        print(platform.system())
-
         if FILE:
-
-            VALID_EXTENSIONS = ['JPEG', 'PNG', 'JPG']
             PREFIX_ARCHIVE = "user"
-            DEFAULT_EXTENSION  = ".JPEG"
 
             EXTENSION_ARCHIVE = FILE.filename.split(".")
+
             LEN_ARCHIVE_NAME_SPLIT = len(EXTENSION_ARCHIVE)
+
             EXTENSION_ARCHIVE = EXTENSION_ARCHIVE[LEN_ARCHIVE_NAME_SPLIT-1].upper()
             
             missing_folders = ["src","static","img","uploads","users"]
 
-            PATH_IMG = PATH_FROM_MAIN_FOLDER(missing_folders) + PREFIX_ARCHIVE + str(user.id) + DEFAULT_EXTENSION
+            FILENAME = PREFIX_ARCHIVE + str(user.id) + DEFAULT_EXTENSION
+
+            PATH_IMG = PATH_FROM_MAIN_FOLDER(missing_folders) + FILENAME
             
             if EXTENSION_ARCHIVE in VALID_EXTENSIONS:
                 FILE.save(PATH_IMG)
@@ -258,4 +257,70 @@ def save_image_route():
     except Exception as error:
         response = jsonify({"result":"error", "details":str(error)})
     
+    return response
+
+''' Rota: [ save_image_game_route ]
+    descrição: Esta rota é responsável por salvar as imagens relacionadas a um jogo em especifico.
+
+    Obs.: Esta rota necessita do JWT no corpo da requisição.
+'''
+@app.route("/save_image_game/<int:id>", methods = ["POST"])
+@jwt_required()
+def save_image_game_route(id):
+    try:
+        game = db_query_by_id(Game,id)
+        
+        COVER_FILE = request.files['input_cover'] 
+        SCREENSHOTS = request.files.getlist("input_screenshots")
+
+        if COVER_FILE or SCREENSHOTS:
+            PREFIX_ARCHIVE = "game"
+    
+            EXTENSION_ARCHIVE = COVER_FILE.filename.split(".")
+
+            LEN_ARCHIVE_NAME_SPLIT = len(EXTENSION_ARCHIVE)
+            
+            EXTENSION_ARCHIVE = EXTENSION_ARCHIVE[LEN_ARCHIVE_NAME_SPLIT-1].upper()
+            
+            missing_folders = ["src","static","img","uploads","games"]
+            STATIC_PATH_GAMES = SEPARATOR_PATH.join(missing_folders[1:len(missing_folders)]) + SEPARATOR_PATH
+
+        
+            if EXTENSION_ARCHIVE in VALID_EXTENSIONS:
+                
+                if COVER_FILE:
+                    FILENAME = PREFIX_ARCHIVE +  str(game.id) + "cover" + DEFAULT_EXTENSION
+                    PATH_IMG = PATH_FROM_MAIN_FOLDER(missing_folders) + FILENAME
+                    
+                    game.cover = STATIC_PATH_GAMES + FILENAME
+                    COVER_FILE.save(PATH_IMG)
+
+                if SCREENSHOTS:   
+                    QUANTITY_SCREENSHOT = len(SCREENSHOTS)
+                  
+                    for index in range(0,QUANTITY_SCREENSHOT):
+                        FILENAME = PREFIX_ARCHIVE + str(game.id) + "-" + str(index) +  DEFAULT_EXTENSION
+                        PATH_IMG = PATH_FROM_MAIN_FOLDER(missing_folders) + FILENAME
+                        SCREENSHOTS[index].save(PATH_IMG)
+
+                        new_screenshot = Screenshot ( url= SEPARATOR_PATH + STATIC_PATH_GAMES + FILENAME , alt=game.title, game_id = game.id)
+
+                        db.session.add(new_screenshot)
+            
+                db.session.commit()
+                response = jsonify({"result":"success", "details": "ok"})
+                
+                return response
+            
+            response = jsonify({"result":"error", "details": 'This image is not valid.'})
+    
+        else:
+            response = jsonify({"result":"success", "details": "No image changes"})
+    
+    except Exception as error:
+        response = jsonify({"result":"error", "details":str(error)})
+    
+    finally:
+        db.session.close()
+        
     return response

@@ -4,7 +4,12 @@ $(function(){
     
     function redirectToLogin() {
         window.location = "/login";
-      }
+    }
+
+    function redirectToFormAddGame(){
+        window.location = "/game/add";
+
+    }
 
 
 
@@ -29,8 +34,84 @@ $(function(){
                 const userIsAdmin = data.details.is_admin
          
                 if (userIsAdmin){
+
+        
+                  const LABELS_UP = ["FPS", "MOBA","RPG","PLATAFORM","SURVIVAL","ADVENTURE"]
+
+                  $.ajax({
+                    url: `http://${ENDERECO_IP}:5000/game/return_all`,
+                    method: "GET",
+                    dataType: "json",
+                    contentType: "application/json",
+                    headers: { Authorization: "Bearer " + JWT },
+                    error: () => { alert("Error reading data, verify backend");},
+                    success:function(data){
+
+                        function generateColor() {
+                            const letters = '0123456789ABCDEF';
+                            let color = '#';
+                            
+                            for (let i = 0; i < 6; i++) {
+                              color += letters[Math.floor(Math.random() * 16)];
+                            }
+                            
+                            return color;
+                        }
+                        
+                        const FPS = data.details.filter(element => element.categorie == "FPS").length
+                        const MOBA = data.details.filter(element => element.categorie == "MOBA").length
+                        const RPG = data.details.filter(element => element.categorie == "RPG").length
+                        const PLATAFORM = data.details.filter(element => element.categorie == "PLATAFORM").length
+                        const SURVIVAL = data.details.filter(element => element.categorie == "SURVIVAL").length
+                        const ADVENTURE = data.details.filter(element => element.categorie == "ADVENTURE").length
+                        
+
+
+                        
+                        const CONFIG = {
+                            labels:LABELS_UP,
+                            datasets: [{
+                                
+                                data: [FPS, MOBA, RPG,PLATAFORM,SURVIVAL,ADVENTURE],
+                                backgroundColor: [
+                                    generateColor(),
+                                    generateColor(),
+                                    generateColor(),
+                                    generateColor(),
+                                    generateColor(),
+                                    generateColor(),
+                                ],
+                                hoverOffset: 4
+                            }]
+                            };
+        
+                    let chart = new Chart(document.getElementById("myChart"),{
+                            type: 'pie',
+                            data: CONFIG
+                    })
+
+                       
+
+                    }
+                  })
+
+
+                  
+
+                  
+                    
+                    var divRedirectToAddGame = $("<div>")
+                    var buttonRedirectToAddGame = $("<button>").addClass("button-default").attr("id","button-add-game").text("Form Add Game").addClass("button-default-100")
+                    buttonRedirectToAddGame.on("click", redirectToFormAddGame)
+
+
+                    divRedirectToAddGame.append(buttonRedirectToAddGame)
+
+
+                    $(".main").append(divRedirectToAddGame)
                     var main = $(".main")
                     main.show()
+       
                     var divOptionContainer = $("<div>").addClass("option-container")
                     var labelTable = $("<label>").attr("for","schemas").text("Function List")
                     var divRowOptionAndInput = $("<div>").addClass("row-option-and-input") 
@@ -45,9 +126,7 @@ $(function(){
                     var optionScreenshot = $("<option>").val("screenshot").text("Screenshot")
                     var inputOption = $("<input>").attr("type","submit").val("List")
                     var hr = $("<hr>")
-            
-
-
+    
                     selectSchemas.append(optionUser)
                     selectSchemas.append(optionGame)
                     selectSchemas.append(optionGiftcard)
@@ -63,11 +142,8 @@ $(function(){
                     divOptionContainer.append(divRowOptionAndInput)
                     divOptionContainer.append(hr)
 
-                   
-                    
                     $(".table-container-and-input").append(divOptionContainer)
-                  
-
+                
                     inputOption.on("click",function(){
                         let currentValue = selectSchemas.val()
                         $(".nothing-to-show").remove()
@@ -226,6 +302,7 @@ $(function(){
                     
 
                     $(".edit-money-container").append(itemsSendMoney)
+                
                    
                     buttonSendMoney.on("click",function(){
                         $("#span-message-send-money").remove()
@@ -252,7 +329,7 @@ $(function(){
                                 
                             },
                             headers: { Authorization: "Bearer " + JWT },
-                            error: (data) => {
+                            error: () => {
                                 var spanSendMoney = $("<span>").addClass(`span-error`).text("Field empty or Invalid.").attr("id","span-message-send-money")
                                 inputIdToSendMoney.val("")
                                 inputValueToSendMoney.val("")
