@@ -1,0 +1,74 @@
+{% extends "utils/_template.html" %}
+    {% block head %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/gameform.css') }}">
+        <title>Edit Game</title>       
+    {% endblock %}
+
+    {% block body %}
+        <main class="main">
+            <div class="form-container-game">
+                <h1 class="form-title">Game Form</h1>
+                <form id="form-game" method="post" enctype="multipart/form-data">
+                    <fieldset>
+                        
+                        <div class="row-input">
+                            <label class="default-label" for="title">Title</label>
+                            <input autocomplete="off" class="default-input" id="input_title" name="title" type="text">
+                        </div>
+
+                        
+                        <div class="row-input">
+                            <label class="default-label" for="input_cover">Cover</label>
+                            <input autocomplete="off" class="default-input-no-background" id="input_cover" name="input_cover" type="file">
+                        </div>
+
+                        <div class="row-input">
+                            <label class="default-label" for="description">Description</label>
+                            <input autocomplete="off" class="default-input" id="input_description" name="description" type="text">
+                        </div>
+
+                        <div class="row-input">
+                            <label class="default-label" for="categorie">Categorie</label>
+                            <select class="select-input" name="categorie" id="input_categorie">
+                                <option value="FPS">FPS</option>
+                                <option value="MOBA">MOBA</option>
+                                <option value="RPG">RPG</option>
+                                <option value="PLATAFORM">PLATAFORM</option>
+                                <option value="SURVIVAL">SURVIVAL</option>
+                                <option value="ADVENTURE">ADVENTURE</option>
+                              </select>
+                        </div>
+
+                        <div class="row-input">
+                            <label class="default-label" for="price">Price</label>
+                            <input autocomplete="off" class="default-input" id="input_price" name="price" type="text">
+                        </div>
+
+                        
+                        <div class="row-input">
+                            <label class="default-label" for="requiredAge">Required age</label>
+                            <input autocomplete="off" class="default-input" id="input_requiredAge" name="requiredAge" type="text">
+                        </div>
+
+          
+                        <div class="row-input">
+                            <label class="default-label" for="developer">Developer</label>
+                            <input autocomplete="off" class="default-input" id="input_developer" name="developer" type="text">
+                        </div>
+                        
+                        <div class="row-input">
+                            <label class="default-label" for="input_screenshots">Screenshots</label>
+                            <input autocomplete="off" class="default-input-no-background" id="input_screenshots" name="input_screenshots" type="file" multiple>
+                        </div>
+
+                        <span class="span-error" id="login-error"></span>
+                    </fieldset>
+                    <input class="default-button-submit" id="button-submit" type="submit" value="Edit">
+                </form>
+             
+        </main>
+    {% endblock %}
+
+    {% block scripts %}
+        <script src="{{ url_for('static', filename='js/game/gameEdit.js') }}"></script>
+    {% endblock %}

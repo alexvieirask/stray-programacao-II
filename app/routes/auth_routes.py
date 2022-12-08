@@ -69,4 +69,3 @@ def join_authenticate_route():
         db.session.close()
 
     return response
-

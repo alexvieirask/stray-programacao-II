@@ -45,6 +45,13 @@ def game_route(id,title):
 def game_add_route():
     return render_template("pages/game-add.html")
 
+@app.route("/game/edit/<int:id>")
+def game_edit_route(id):
+    current_game = db_query_by_id(Game,id)
+    if not current_game:
+        abort(404)
+    return render_template("pages/game-edit.html")
+
 @app.route("/admin")
 def admin_route():
     return render_template("pages/admin.html")
