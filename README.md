@@ -25,7 +25,3 @@ curl localhost:5000/game/return_all
 username: alex.vieira
 password: my-password
 ```
-
-## Screenshots
-**Tela de Login** 
-<img src="https://i.ibb.co/PwLDnVH/login.png" width="1200px">
